@@ -11,5 +11,6 @@ public:
 	 */
 	void Print();
 	void Build();
+	void Release();
 	void Reverse();
 };

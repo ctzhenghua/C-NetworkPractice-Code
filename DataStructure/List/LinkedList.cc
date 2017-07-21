@@ -26,8 +26,29 @@ void LinkedList:: Build()
 	}
 }
 
+void LinkedList::Release()
+{
+	Node *tmp;
+	while(head != nullptr)
+	{
+		tmp = head;
+		head = head->next;
+		delete tmp;
+	}
+}
 void LinkedList::Reverse()
 {
-
+	if(head == nullptr)
+		return;
+	
+	Node* pre = nullptr, *cur = head, *next = nullptr;
+	while(cur != nullptr)
+	{
+		next = cur->next;
+		cur->next = pre;
+		pre = cur;
+		cur = next;
+	}
+	head = pre;
 }
 
