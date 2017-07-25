@@ -3,9 +3,10 @@
 class LinkedList{
 public :
 	Node* head;
+	int k;
 	
 public:
-	LinkedList():head(nullptr){}	
+	LinkedList():head(nullptr),k(3){}	
 	/*
 		Famous List Question Here
 	 */
@@ -13,4 +14,6 @@ public:
 	void Build();
 	void Release();
 	void Reverse();
+	void findReverseKth();
+	void findMid();
 };

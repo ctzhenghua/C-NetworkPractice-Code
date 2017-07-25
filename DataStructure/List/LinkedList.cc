@@ -36,6 +36,7 @@ void LinkedList::Release()
 		delete tmp;
 	}
 }
+
 void LinkedList::Reverse()
 {
 	if(head == nullptr)
@@ -52,3 +53,33 @@ void LinkedList::Reverse()
 	head = pre;
 }
 
+void LinkedList::findReverseKth()
+{
+	int i = 0;
+	Node* tmp = head, *nodeK = head;
+	while(i != k)
+	{
+		tmp = tmp ->next;
+		++i;
+	}
+	while(tmp != nullptr)
+	{
+		tmp = tmp->next;
+		nodeK = nodeK ->next;
+	}
+	cout << "Reverse Kth(" << k <<") is: " << nodeK->key <<endl;	
+}
+
+void LinkedList::findMid()
+{
+	Node* doubleHead = head, *singleHead = head;
+	while(doubleHead->next != nullptr)	
+	{
+		doubleHead = doubleHead ->next;
+		singleHead = singleHead ->next;
+
+		if(doubleHead->next != nullptr)
+			doubleHead = doubleHead ->next;
+	}
+	cout <<"Mid is " << singleHead->key <<endl;
+}
