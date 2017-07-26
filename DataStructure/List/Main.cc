@@ -10,8 +10,8 @@ int main()
 	//link.Reverse();
 	//link.Print();
 	//link.findReverseKth();
-	link.findMid();
-	
+	//link.findMid();
+	link.printReversely();
 	link.Release();
 	return 0;
 }

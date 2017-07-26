@@ -24,6 +24,7 @@ void LinkedList:: Build()
 		tmp -> next = create;
 		tmp = create;
 	}
+	this->tmp = head;
 }
 
 void LinkedList::Release()
@@ -82,4 +83,20 @@ void LinkedList::findMid()
 			doubleHead = doubleHead ->next;
 	}
 	cout <<"Mid is " << singleHead->key <<endl;
+}
+
+void LinkedList::printReversely()
+{
+	if(tmp == nullptr)
+	{
+		tmp = head;
+		return;
+	}
+	else 
+	{
+		int key = tmp->key;
+		tmp = tmp->next;
+		printReversely();	
+		cout<<key<<" ";
+	}
 }

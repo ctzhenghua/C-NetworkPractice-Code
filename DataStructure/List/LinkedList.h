@@ -2,7 +2,7 @@
 
 class LinkedList{
 public :
-	Node* head;
+	Node* head, *tmp;
 	int k;
 	
 public:
@@ -16,4 +16,5 @@ public:
 	void Reverse();
 	void findReverseKth();
 	void findMid();
+	void printReversely();
 };
