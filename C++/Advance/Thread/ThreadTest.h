@@ -16,9 +16,6 @@ public:
 	void create_UsingLamda();
 	void create_UsingClassMemFunc();
 
-
-
-
 	void run();	
 	void release();	
 };

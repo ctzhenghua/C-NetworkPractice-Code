@@ -100,3 +100,23 @@ void LinkedList::printReversely()
 		cout<<key<<" ";
 	}
 }
+
+bool LinkedList::isContainCircle()
+{
+	bool flag = false;
+	Node* fast = head, *slow = head;
+
+	while(fast != nullptr && fast->next != nullptr)
+	{
+		fast = fast->next ->next;
+		slow = slow->next;
+
+		if(fast == slow)
+		{
+			flag = true;
+			break;
+		}
+	}
+
+	return flag;
+}

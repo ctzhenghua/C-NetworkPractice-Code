@@ -8,6 +8,10 @@ class super{
 		virtual ~super(){cout << "DeCon- I am super\n";}
 		virtual void someMethod(){cout <<"Hello Super!\n";}
 		virtual void someMethod2(){cout <<"Hello Super 2!\n";}
+		
+
+		void normalMethod(){cout << "Hello Super Normal" <<endl;}
+		void normalMethod2() const{cout << "Hello Super Normal2" <<endl;}
 	private:
 		int a;
 };
@@ -19,6 +23,10 @@ class sub: public super{
 		virtual void someMethod()override{cout <<"hello Sub\n";}
 		virtual void someMethod2(){cout <<"hello Sub 2!\n";}
 		virtual void otherMethod(){cout <<"sub other\n";}
+		
+		
+		void normalMethod(){cout << "Hello Sub Normal" <<endl;}
+		void normalMethod2() const{cout << "Hello Sub Normal2" <<endl;}
 };
 
 
@@ -41,13 +49,33 @@ void testMemoryOfVirtual()
 {
 	super b(0);
 	Func pfun = nullptr;
-	cout << "virtual Table Address:" << (int*)(&b) <<endl;
-	cout << "virtual Table First Func Address:" << (int*) *(int*)(&b) <<endl;
-	pfun = (Func) *((int*) *(int*)(&b));
-	pfun();
+	//cout << "virtual Table Address:" << (int*)(&b) <<endl;
+	//cout << "virtual Table First Func Address:" << (int*) *(int*)(&b) <<endl;
+	//pfun = (Func) *((int*) *(int*)(&b));
+	//pfun();
+}
+
+void g(const super* A)
+{
+	A -> normalMethod2();
+}
+
+void testOverrideAndHiden()
+{
+	super *b = new sub();
+	b -> someMethod();
+	b -> normalMethod();
+	b -> normalMethod2();	
+	g(b);
+	delete b;
+
+	sub t;
+	t.normalMethod();
+	t.normalMethod2();
 }
 int main()
 {
-	testMemoryOfVirtual();
+	
+	testOverrideAndHiden();
 	return 0;
 }

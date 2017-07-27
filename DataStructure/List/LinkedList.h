@@ -17,4 +17,5 @@ public:
 	void findReverseKth();
 	void findMid();
 	void printReversely();
+	bool isContainCircle();
 };
