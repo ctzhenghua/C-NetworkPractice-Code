@@ -15,4 +15,5 @@ public:
 
 	int nodeNum(Node* Head);
 	int height(Node* Head);
+	int levelTravel(Node* Head);
 };
