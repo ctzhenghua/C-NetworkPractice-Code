@@ -35,6 +35,7 @@ int BinaryTree::height(Node *Head)
 	else 	return max(height(Head->left), height(Head->right)) + 1;	
 }
 
+// Cannot show the level info
 int BinaryTree::levelTravel(Node* Head)
 {
 	if(Head == nullptr)
@@ -56,4 +57,31 @@ int BinaryTree::levelTravel(Node* Head)
 	
 	}
 	return;
+}
+
+Node* BinaryTree::reBuild(int *preOrder, int preStart, int preEnd,
+		      int *inOder,   int inStart,  int inEnd)
+{	
+	// Boundary Testing
+	if(preOrder == nullptr || inOrder == nullptr)	
+		return ;
+
+	Node *root = new Node();
+	root->key = preOder[preStart];	
+		
+	// find the mid in InOrder and count left num
+	int count = 0, i = inStart;
+	while(inOrder[i] != root->key)
+	{
+		++count;
+		++i;
+	}
+	
+	root->left = reBuild(preOrder, preStart+1, preStart+1+count,
+			     inOrder,  inStart, i-1);
+	
+	root->right = reBuild(preOrder, preStart+1+count, preEnd,
+			     inOrder,  i+1, inEnd);
+
+	return root;
 }

@@ -16,4 +16,6 @@ public:
 	int nodeNum(Node* Head);
 	int height(Node* Head);
 	int levelTravel(Node* Head);
+	Node* reBuild(int *preOrder, int preStart, int preEnd,
+		      int *inOder,   int inStart,  int inEnd);
 };
