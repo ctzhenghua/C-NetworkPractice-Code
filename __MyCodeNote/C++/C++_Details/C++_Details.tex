@@ -1,0 +1,86 @@
+\documentclass[UTF8,a4paper,12pt]{ctexart} 
+
+ \usepackage{graphicx}%学习插入图
+ \usepackage{verbatim}%学习注释多行
+ \usepackage{booktabs}%表格
+ \usepackage{geometry}%图片
+ \usepackage{amsmath}
+ \usepackage{amssymb}
+ \usepackage{listings}%代码
+ \usepackage{xcolor}  %颜色
+ \usepackage{enumitem}%列表格式
+ \usepackage{tcolorbox}
+ \usepackage{algorithm}  %format of the algorithm
+ \usepackage{algorithmic}%format of the algorithm
+ \usepackage{multirow}   %multirow for format of table
+ \usepackage{tabularx} 	%表格排版格式控制
+ \usepackage{array}	%表格排版格式控制
+ 
+ \CTEXsetup[format+={\flushleft}]{section}
+ 
+ \newcommand{\EQ}[1]{$\textbf{EQ:}#1\ $}
+ \newcommand{\ALGORITHM}[1]{$\textbf{Algorithm:}#1\ $}
+ \newcommand{\Figure}[1]{$\textbf{Figure }#1\ $}
+ \renewcommand{\figurename}{Fig}
+ \geometry{left=1.6cm,right=1.8cm,top=2cm,bottom=1.7cm} %设置文章宽度
+ 
+ \pagestyle{plain} 		  %设置页面布局
+
+  %代码效果定义
+  \definecolor{mygreen}{rgb}{0,0.6,0}
+  \definecolor{mygray}{rgb}{0.5,0.5,0.5}
+  \definecolor{mymauve}{rgb}{0.58,0,0.82}
+  \lstset{ %
+  	backgroundcolor=\color{white},   % choose the background color
+  	basicstyle=\footnotesize\ttfamily,        % size of fonts used for the code
+  	columns=fullflexible,
+  	breaklines=true,                 % automatic line breaking only at whitespace
+  	captionpos=b,                    % sets the caption-position to bottom
+  	tabsize=4,
+  	commentstyle=\color{mygreen},    % comment style
+  	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  	keywordstyle=\color{blue},       % keyword style
+  	stringstyle=\color{mymauve}\ttfamily,     % string literal style
+  	frame=single,
+  	rulesepcolor=\color{red!20!green!20!blue!20},
+  	% identifierstyle=\color{red},
+  	language=c++,
+  }
+
+ \author{\kaishu 郑华}
+ \title{\heiti C++ 面试细节问题}
+ 
+\begin{document}          %正文排版开始
+ 	\maketitle
+  
+ \section{变量和基本类型}
+	 \subsection{概要}
+	 \begin{itemize}
+	 	\item int: 需要注意平台吗？(32位，和64位平台会有取值范围的差距吗)..等
+	 	\item float:
+	 	\item sizeof():....
+	 	\item 还有什么其他问题...(发挥想象，基本语言的初始化错误等其他需要注意的细节)，别忘了C++11、14的新特性
+	 \end{itemize}
+	\subsection{参考文献}http://developer.51cto.com/art/201208/351569.htm
+\section{数组和指针}	
+	\subsection{数组}
+	\subsection{指针}
+		-> 与 *ptr 的区别等...,自己找哦
+		
+		数组指针 和 指针数组 有什么区别呢...
+	\subsection{引用}
+	\subsection{参考文献}	
+
+\section{表达式}
+	\subsection{概要}
+	逗号表达式，还能想到什么..
+	\subsection{参考文献}
+\section{返回值}
+	\subsection{概要}
+	\begin{itemize}
+		\item  返回类型
+		\item  作用域等问题...
+	\end{itemize}
+	\subsection{参考文献}	    
+\end{document} 
+ 		    
