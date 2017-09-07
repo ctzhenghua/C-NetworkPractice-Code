@@ -155,24 +155,31 @@
 					\item 流量控制：
 				\end{itemize}
 			\subsubsection{TCP 报文格式}
-			
-			\subsubsection{连接建立3次握手}
-			
-			\subsubsection{连接终止4次握手}
+				\begin{enumerate}[itemindent = 2em]
+					\item 	\textbf{确定哪个服务的} 端口号，包括来源端口与目的端口号
+					\item 	\textbf{保证可靠传输的} TCP报文序号 与 TCP确认序号
+					\item   \textbf{区别报文类型的} 类型字段，包括URG、ACK、PSH、RST、SYN、FIN
+					\item 	\textbf{保证传输流畅性的} 滑动窗口大小
+					\item   \textbf{保证数据正确性的} 数据校验和
+					\item   如果存在紧急指针选项，需要紧急指针
+					\item   其他附加选项
+				\end{enumerate}
 			
 			\subsubsection{TCP 如何保证可靠性}
 				\begin{itemize}
-					\item 当TCP发出一个段后，它启动一个定时器，等待目的端确认收到这个报文段。如果不能及时收到一个确认，将重发这个报文段。
+					\item \textbf{应用数据被分割成TCP认为最合适发送的数据块}。这和UDP完全不同，应用程序产生的数据抱长度不变。由TCP传递给IP的信息单位称为报文段(segment).
+					
+					\item \textbf{超时重传：}当TCP发出一个段后，它启动一个定时器，等待目的端确认收到这个报文段。如果不能及时收到一个确认，将重发这个报文段。
 					
 					\item 当TCP收到发自TCP连接另一端的数据，它将发送一个确认。这个确认不是立即发送，通常将推迟几分之一秒。
 					
-					\item TCP将保持它首部和数据的校验和，目的是检验数据在传输过程中的任何变化。如果收到段的校验和有差错，TCP将丢弃这个报文段并且不确认（导致对方超时重传） 
+					\item \textbf{TCP将保持它首部和数据的校验和，目的是检验数据在传输过程中的任何变化。}如果收到段的校验和有差错，TCP将丢弃这个报文段并且不确认（导致对方超时重传） 
 					
-					\item TCP 承载于IP数据报来传输，而IP数据报的到达可能会失序，因此TCP报文段的到达也可能会失序，TCP将对收到的数据进行重新排序。
+					\item TCP 承载于IP数据报来传输，而IP数据报的到达可能会失序，因此TCP报文段的到达也可能会失序，\textbf{TCP将对收到的数据进行重新排序}。
 					
-					\item IP数据报会发生重复，TCP的接收端必须丢弃重复的数据。
+					\item IP数据报会发生重复，TCP的接收端必须\textbf{丢弃重复的数据}。
 					
-					\item TCP还能提供流量控制。TCP连接的每一方都有一定大小的缓冲空间。
+					\item \textbf{TCP还能提供流量控制}。TCP连接的每一方都有一定大小的缓冲空间。
 				\end{itemize}
 		
 		\subsection{UDP}
@@ -613,6 +620,50 @@
 			请求连接，并要求服务器完成点对点服务。
 			
 			关闭发送消息进程 也是类似于服务器的 消息机制。
+	\section{fork 进程}
+		\begin{lstlisting}
+	#include <unistd.h>   
+	#include <stdio.h>    
+	int  main ()   
+	{   
+		pid_t fpid; //fpid表示fork函数返回的值   
+		int  count=0;  
+		fpid=fork();   
+		if  (fpid < 0)   
+			printf("error in fork!" );   
+			else   if  (fpid == 0) {  
+			printf("i am the child process, my process id is %d/n" ,getpid());   
+			printf("我是爹的儿子/n" ); //对某些人来说中文看着更直白。   
+			count++;  
+		}  
+		else  {  
+			printf("i am the parent process, my process id is %d/n" ,getpid());   
+			printf("我是孩子他爹/n" );  
+			count++;  
+		}  
+		printf("统计结果是: %d/n" ,count);  
+		return  0;  
+	}  
+		\end{lstlisting}
+		
+		\textbf{fork调用}的一个奇妙之处就是它仅仅被调用一次，却能够返回两次，它可能有三种不同的返回值： 
+		\begin{enumerate}[itemindent = 2em]
+			\item 在父进程中，fork返回新创建子进程的进程ID；
+			\item 在子进程中，fork返回0；
+			\item 如果出现错误，fork返回一个负值；
+		\end{enumerate}
+		
+		\textbf{fork出错}可能有两种原因：
+		\begin{enumerate}[itemindent = 2em]
+			\item 当前的进程数已经达到了系统规定的上限，这时errno的值被设置为EAGAIN。
+			\item 系统内存不足，这时errno的值被设置为ENOMEM。
+		\end{enumerate} 
+		 
+		 \textbf{fork执行完毕后}，出现两个进程，\textbf{作用域代码共享}，如下图所示：
+			 \begin{figure}[h]
+			 	\centering
+			 	\includegraphics[scale = 0.7]{fork.jpg}
+			 \end{figure}
 	\section{僵尸进程}
 		如果\textbf{子进程}\textit{先于}\textbf{父进程}退出， 同时父进程又没有调用wait/waitpid，则该子进程将成为僵尸进程。
 		
@@ -627,12 +678,14 @@
 			waitpid:父进程利用工作的简短间歇察看子进程的是否退出，如退出就收集它。(相当于管理一个队列)
 			
 			wait:父进程将自己阻塞，直到有子进程退出为止(相当于等待系统资源)
-			
+	\section{孤儿进程}
+		一个\textbf{父进程退出}，而它的一个或多个\textbf{子进程还在运行}，那么那些\textbf{子进程将成为孤儿进程}。孤儿进程将被init进程(进程号为1)所收养，并由init进程对它们完成状态收集工作。
+				
 	\section{守护进程}
 		守护进程是在后台运行且不与任何控制终端相关联的进程。\textbf{通常由}系统初始化脚本启动，当然\textbf{也可以}在shell提示符下用命令行启动，不过\textbf{这种}守护进程\textbf{必须亲自脱离于控制终端的关联}。
 		
 		\begin{itemize}
-			\item \textbf{创建子进程，终止父进程}
+			\item \textbf{创建子进程，终止父进程}-变成孤儿进程
 			\item 在子进程中创建新会话,调用\verb|setsid|的三个作用：让进程摆脱原会话的控制、让进程摆脱原进程组的控制和让进程摆脱原控制终端的控制。
 			\item 改变工作目录
 			\item 重设文件创建掩码
@@ -676,8 +729,19 @@
 				\item 靠\verb|inetd|超级服务器启动。\textit{inetd超级服务器监听网络请求，每当有一个请求到达时，启动相应的实际服务器}。
 				\item \textbf{从用户终端或者后台启动}。这么做往往是\textbf{为了测试}守护程序\textbf{或重启}因某种原因而终止的守护进程。
 			\end{enumerate}
-			
+		
+		\subsection{分类}
+			\begin{itemize}
+				\item \verb|Netd| 就是Network Daemon 的缩写，\textbf{表示Network守护进程}. Netd负责跟一些涉及网络的配置，操作，管理，查询等相关的功能实现，比如，例如带宽控制（Bandwidth），流量统计，带宽控制，网络地址转换（NAT），个人局域网（pan），PPP链接，soft-ap，共享上网（Tether），配置路由表，interface配置管理，等等.好像Andorid用的
+				
+				\item \verb|inetd|是\textbf{监视一些网络请求}的 守护进程 ，其根据网络请求来调用相应的服务进程来处理连接请求。它可以为多种服务管理连接，当 inetd 接到连接时，它能够确定连接所需的程序，启动相应的进程，并把 socket 交给它 。
+			\end{itemize}	
 		\url{http://blog.csdn.net/u012103747/article/details/45338571}
+		
+		\subsection{UID,EUID}
+			\textbf{实际ID, uid}：标示你是谁的一个ID；
+			 
+			\textbf{有效ID, euid}：标示你的有效身份是谁，即你有没有权限访问某个东西。
 	\section{TCP}
 		\subsection{11种状态}
 			TCP 从开始建立到最后 关闭的所有11 种状态如下图\ref{allstatus} 所示
@@ -783,10 +847,16 @@
 					
 				\subparagraph{TIME\_WAIT 存在的理由}
 					\begin{itemize}
-						\item  虽然按道理，四个报文都发送完毕，我们可以直接进入\verb|CLOSE|状态了，但是\textbf{我们必须假象网络是不可靠的}，有可以最后一个\verb|ACK|丢失。所以\verb|TIME_WAIT|状态就是用来\textbf{重发可能丢失的ACK报文}
+						\item  虽然按道理，四个报文都发送完毕，我们可以直接进入\verb|CLOSE|状态了，但是\textbf{我们必须假象网络是不可靠的}，有可以最后一个\verb|ACK|丢失。所以\verb|TIME_WAIT|状态就是用来\textbf{重发可能丢失的ACK报文}，否则被动关闭端会出现RST错误。
 						
-						\item 允许老的重复分节在网络中消逝，这样就不会在新建在原来的IP端口上收到失效的过期数据，这也是\verb|TIME_WAIT|存在2MSL的原因
-						为什么是两倍的MSL,因为这样可以保证发送的字节组方向能够消失，而且还可以保证ack方向的确认报文也可以消失。
+						\item \verb|TIME_WAIT|第二个原因是为防止来自某个链接的老的重复分组在该链接已经终止后再现，从而被误解成属于同一链接的某个新的化身。为做到这一点，TCP将不给处于\verb|TIME_WAIT|状态的连接发起新的化身。
+							
+							而为什么是2MSL，有以下两方面因素
+							\begin{itemize}
+								\item 足以让某个被动关闭 方向上的分组最多存活MSL即被丢弃
+								\item 主动关闭方向上的应答 最多存活MSL秒也被丢弃
+							\end{itemize}
+						
 					\end{itemize}
 	\section{套接字选项}
 		\subsection{相关函数}
@@ -2400,15 +2470,15 @@
 	
 	\section{nc}
 	
-	\section{lsof}
+	\section{lsof}lsof(list open files)是一个\textbf{列出当前系统打开文件的工具}
 	
-	\section{netstat}
+	\section{netstat}Netstat 命令用于显示各种网络相关信息，如网络连接，路由表，接口状态 (Interface Statistics)，masquerade 连接，多播成员 (Multicast Memberships) 等等
 	
 	\section{vmstat}
 	
-	\section{ifstat}
+	\section{ifstat}ifstat工具是个\textbf{网络接口监测工具},比较简单看网络流量
 	
-	\section{mpstat}
+	\section{mpstat}mpstat是Multiprocessor Statistics的缩写，是实时系统监控工具。其报告与CPU的一些统计信息，这些信息存放在/proc/stat文件中。在多CPUs系统里，其不但能查看所有CPU的平均状况信息，而且能够查看特定CPU的信息。mpstat最大的特点是：\textbf{可以查看多核心cpu中每个计算核心的统计数据}；而类似工具\textbf{vmstat只能查看系统整体cpu情况}。
 	
 	\section{top}
 	
@@ -2486,7 +2556,7 @@
 		\subsection{APP 分别使用传输层的 协议对照}
 			\begin{figure}[h]
 				\centering
-				%\includegraphics[scale = 0.7]{App-Proposal.png}
+				\includegraphics[scale = 0.7]{App-Proposal.png}
 			\end{figure}
 		
 	\section{传输层 TCP}		
