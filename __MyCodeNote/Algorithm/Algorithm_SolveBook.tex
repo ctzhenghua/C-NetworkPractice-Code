@@ -498,13 +498,130 @@
 			\subparagraph{面试题32 从1到n整数中1出现的次数}
 			
 			\subparagraph{面试题33 把数组排成最小的数}
-			
+				\begin{itemize}[itemindent = 2em ]
+					\item 整体可以看成一个排好序的数
+					\item 排序规则
+				\end{itemize}
+				
+				\subparagraph{实现}\verb|->|
+				\begin{lstlisting}
+	#include <iostream>  
+	#include <string>  
+	#include <sstream>  
+	#include <algorithm>  
+	using namespace std;  
+	
+	bool compare(const string& str1, const string &str2)  
+	{  
+		string s1=str1+str2;  
+		string s2=str2+str1;  
+		return s1<s2;  
+	}  
+	
+	void ComArrayMin(int *pArray, int num)  
+	{  
+		int i;  
+		string *pStrArray=new string[num];  
+		
+		for(i=0; i<num; i++)  
+		{  
+			stringstream stream;  
+			stream<<pArray[i];  
+			stream>>pStrArray[i];       
+		}  
+		
+		sort(pStrArray, pStrArray+num, compare);  
+		
+		for(i=0; i<num; i++)  
+		cout<<pStrArray[i];  
+		
+		cout<<endl;  
+		
+		delete[] pStrArray;  
+		
+	}  
+	
+	void main()  
+	{  
+		int Num;  
+		cin>>Num;  
+		int *pArray=new int[Num];  
+		
+		for(int i=0; i<Num; i++)  
+		cin>>pArray[i];  
+		
+		ComArrayMin(pArray, Num);  
+		
+	}  
+				\end{lstlisting}
 		\subsection{时间效率与空间效率的平衡}
 			\subparagraph{面试题34 丑数}
+				\begin{itemize}[itemindent = 2em]
+					\item 是否能想到只构造丑数 
+					\item 构造过程的双指针操作，选择当前最小的数，然后移动..
+				\end{itemize}
 			
+			\subparagraph{实现}\verb|->|
+				\begin{lstlisting}
+	int FindUgly(int n) //  
+	{     
+		int* ugly = new int[n];     
+		ugly[0] = 1;     
+		int index2 = 0;     
+		int index3 = 0;     
+		int index5 = 0;     
+		int index = 1;     
+		while (index < n)     
+		{     
+			int val = Min(ugly[index2]*2, ugly[index3]*3, ugly[index5]*5); //竞争产生下一个丑数     
+			if (val == ugly[index2]*2) //将产生这个丑数的index*向后挪一位；    
+				++index2;     
+			if (val == ugly[index3]*3)   //这里不能用elseif，因为可能有两个最小值，这时都要挪动；  
+				++index3;     
+			if (val == ugly[index5]*5)     
+				++index5;     
+			ugly[index++] = val;     
+		}     
+		/* 
+		for (int i = 0; i < n; ++i)    
+		cout << ugly[i] << endl;    
+		//*/  
+		int result = ugly[n-1];     
+		delete[] ugly;     
+		return result;     
+	}     			
+				\end{lstlisting}
 			\subparagraph{面试题35 第一个只出现一次的字符}
 			
+				\begin{itemize}[itemindent = 2em]
+					\item 出现次数
+					\item 查找第一次出现为1次的
+				\end{itemize}
+				\begin{lstlisting}
+	#include <unordered_map>
+	class Solution {
+		public:
+		int FirstNotRepeatingChar(string str) {
+			unordered_map<char, int> all;
+			for (int i = 0; i < (int)str.length(); ++i)
+			{
+				if (all.find(str[i]) != all.end())
+				++all[str[i]];
+				else all.insert(make_pair(str[i], 1));
+			}
+			
+			for (int i = 0; i < (int)str.length(); ++i)
+			{
+				if (all[str[i]] == 1)
+				return i;
+			}
+			return -1;
+		}
+	};			
+				\end{lstlisting}
 			\subparagraph{面试题36 数组中的逆序对}
+				
+				\url{http://blog.csdn.net/imzoer/article/details/8050224}
 			
 			\subparagraph{面试题37 两个链表的第一个公共结点}
 	
@@ -516,10 +633,79 @@
 			
 			\subparagraph{面试题40 数组中只出现一次的数字}
 			
-			\subparagraph{面试题41 和为s的两个数字}
+			\subparagraph{面试题41 和为s的多个数字}
 			
+			\url{https://www.nowcoder.com/practice/c451a3fd84b64cb19485dad758a55ebe?tpId=13&tqId=11194&tPage=3&rp=3&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking}
+				\begin{enumerate}[itemindent = 2em]
+					\item 数组连续问题是否能想到 \textbf{双指针解决方法}
+				\end{enumerate}
+			
+				\begin{lstlisting}
+	vector<vector<int> > FindContinuousSequence(int sum) {
+		int low = 1, high = 1;
+		int _sum = 0;
+		vector<vector<int> >all;
+		for(int i = 1; i <= sum; ++i)
+		{
+			if(_sum == sum)
+			{
+				vector<int> temp;
+				for(int  j = low; j < high; ++j)
+				{
+					temp.push_back(j);
+				}
+				all.push_back(temp);
+				temp.clear();
+				_sum += high++;
+			}
+			else if(_sum>sum)
+			{
+				_sum -= low;
+				++low;
+			}
+			else
+			{
+				_sum += high;
+				++high;
+			}
+		}
+		return all;
+	}
+				\end{lstlisting}
 			\subparagraph{面试题42 反转单词顺序}
-			
+				\begin{enumerate}[itemindent = 2em]
+					\item string 类的应用
+				\end{enumerate}
+				
+				
+				\begin{lstlisting}
+	class Solution {
+		public:
+		string ReverseSentence(string str) {
+			string temp;
+			int low;
+			int high = str.length();
+			for (low = str.length(); low >= 0; --low)
+			{
+				if (str[low] == ' ')
+				{
+					if (low + 1 < str.length())
+					{
+						temp += string(&str[low+1], &str[high]);
+						temp += ' ';
+						high = low;
+					}
+				}
+				else if (low == 0)
+				{
+					temp += string(&str[low], &str[high]);
+				}
+			}
+			temp += '\0';
+			return temp;
+		}
+	};
+				\end{lstlisting}
 		\subsection{抽象建模能力}
 			\subparagraph{面试题43 n个骰子的点数}
 			
@@ -536,7 +722,50 @@
 			
 			\subparagraph{面试题50 树中两个节点的最低公共祖先}
 			
+	\section{英文新增篇}
+		\subsection{数组}
+			\subparagraph{面试题51 数组中重复的数-O(n)}
+				\begin{enumerate}[itemindent = 2em]
+					\item 
+					\item 
+				\end{enumerate}
+			\subparagraph{构建乘积数组}
 		
+		\subsection{字符串}
+			\subparagraph{面试题52 正则表达式匹配}
+				\url{https://www.nowcoder.com/practice/45327ae22b7b413ea21df13ee7d6429c?tpId=13&tqId=11205&tPage=3&rp=3&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking}
+				\begin{enumerate}[itemindent = 2em]
+					\item 是否能考虑到用递归解决问题：简化问题的能力。
+					\item 是否能把问题考虑全面
+				\end{enumerate}
+				
+			
+			\subparagraph{表示数值的字符串}
+			
+				
+		\subsection{链表}
+			\subparagraph{面试题53 链表中环的入口节点}
+				\begin{enumerate}[itemindent = 2em]
+					\item 是否存在环
+					\item 环的节点个数
+					\item pFast 先移动环的个数，然后pSlow 从头节点开始
+				\end{enumerate}
+			
+		\subsection{树}
+			\subparagraph{二叉树的下一个节点}
+			\subparagraph{对称二叉树}
+			\subparagraph{把二叉树打印成多行}
+			\subparagraph{按之字形打印二叉树}
+			\subparagraph{序列化二叉树}
+			\subparagraph{二叉搜索树的第K个节点}
+			\subparagraph{数据流中的中位数}
+			
+		\subsection{回溯法}
+			\subparagraph{滑动窗口的最大值}
+			\subparagraph{矩阵中的路径}
+			\subparagraph{机器人的运动范围}
+			
+			
 \chapter{编程之美}
 	\url{http://blog.csdn.net/qingyuanluofeng/article/category/2544589}
 	\section{数字中的技巧}
@@ -1131,6 +1360,48 @@
 	\subsection{解答}
 	
 \chapter{Hash Table- 52}
+\section{Hash}
+	Hash表也称散列表，也有直接译作哈希表，Hash表是一种特殊的数据结构，它同数组、链表以及二叉排序树等相比较有很明显的区别，它能够快速定位到想要查找的记录，而不是与表中存在的记录的关键字进行比较来进行查找。
+	
+	Hash表采用一个\textbf{映射函数} f : \verb|key —> address| 将关键字映射到该记录在表中的存储位置，从而在想要查找该记录时，可以直接根据关键字和映射关系计算出该记录在表中的存储位置，通常情况下，这种映射关系称作为\verb|Hash函数|，而通过Hash函数和关键字计算出来的存储位置(注意这里的存储位置只是表中的存储位置，并不是实际的物理地址)称作为\verb|Hash地址|。
+	
+
+	\subsection{hash函数的设计}
+		\begin{enumerate}
+			\item \textbf{直接定址法}
+			
+				取关键字或者关键字的某个线性函数为Hash地址，即\verb|address(key)=a*key+b;|如知道学生的学号从2000开始，最大为4000，则可以将\verb|address(key)=key-2000|作为Hash地址
+			\item \textbf{平方取中法}
+			
+				对关键字进行平方运算，然后取结果的中间几位作为Hash地址。假如有以下关键字序列\verb|{421，423，436}|，平方之后的结果为\verb|{177241，178929，190096}|，那么可以取\verb|{72，89，00}|作为Hash地址
+			\item \textbf{折叠法}
+			
+				将关键字拆分成几部分，然后将这几部分组合在一起，以特定的方式进行转化形成Hash地址。假如知道图书的\verb|ISBN号为8903-241-23|，可以将\verb|address(key)=89+03+24+12+3|作为Hash地址。
+			\item \textbf{除留取余法}
+				
+				如果知道Hash表的最大长度为\verb|m|，可以取不大于m的最大质数p，然后对关键字进行取余运算，\verb|address(key)=key%p|。
+				
+				在这里p的选取非常关键，p选择的好的话，\textit{能够最大程度地减少冲突}，\textbf{p一般取不大于m的最大质数}。
+		\end{enumerate}
+	\subsection{hash表大小的确定}
+		Hash表大小的确定也非常关键，\textit{如果Hash表的空间远远大于最后实际存储的记录个数，则造成了很大的空间浪费}，\textit{如果选取小了的话，则容易造成冲突}。
+		
+		\verb|->固定空间： |在实际情况中，一般需要根据最终记录\textbf{存储个数}和\textbf{关键字的分布特点}来确定Hash表的大小。
+		
+		\verb|->ReHash： |还有一种情况时可能\textbf{事先不知道最终需要存储的记录个数，则需要动态维护Hash表的容量}，此时可能需要\textbf{重新计算}Hash地址.
+		
+	\subsection{冲突的解决}
+		\begin{enumerate}
+			\item \textbf{开放定址法}
+			
+				当一个关键字和另一个关键字发生冲突时，使用某种\textbf{探测技术在Hash表中形成一个探测序列}，\textit{然后沿着这个探测序列依次查找下去}，当碰到一个空的单元时，则插入其中。
+				
+				比较常用的探测方法有线性探测法，比如有一组关键字\verb|{12，13，25，23，38，34，6，84，91}|，Hash表长为14，Hash函数为\verb|address(key)=key%11|，当插入\verb|12，13，25|时可以直接插入，而当插入\verb|23|时，地址1被占用了，因此沿着地址1依次往下探测(探测步长可以根据情况而定)，直到探测到地址4，发现为空，则将23插入其中
+			\item \textbf{链地址法}
+			
+				采用数组和链表相结合的办法，将Hash地址相同的记录存储在一张线性表中，而每张表的表头的序号即为计算得到的Hash地址
+		\end{enumerate}
+	\url{http://www.cnblogs.com/dolphin0520/archive/2012/09/28/2700000.html}
 \section{Longest Substring Without Repeating Characters}
 	\subsubsection{问题}
 	Given a string, find the length of the longest substring without repeating characters.
@@ -1765,7 +2036,565 @@
 	
 	\subsection{解答}
 \chapter{Dynamic Programming- 66}
-\section{}
+	\url{http://blog.csdn.net/eagle_or_snail/article/details/50987044}
+	
+	\url{http://m.blog.csdn.net/cqkxboy168/article/details/40465389}
+	
+\section{Range Sum Query - Immutable}
+		Given an integer array nums, find the sum of the elements between indices i and j \verb|(i ≤ j)|, inclusive.
+		
+		\url{https://leetcode.com/problems/range-sum-query-immutable/description/}
+	\subparagraph{Examples}\verb|->|
+		\begin{lstlisting}
+	Given nums = [-2, 0, 3, -5, 2, -1]
+	
+	sumRange(0, 2) -> 1
+	sumRange(2, 5) -> -1
+	sumRange(0, 5) -> -3		
+		\end{lstlisting}
+		
+	\subsection{分析}
+		\subparagraph{1- for循环} 谁都可以想出来的方法。
+		\subparagraph{2- 真正的考验} 这道题的难点就在于\textbf{是否能想到来用建立累计直方图的思想来建立一个累计和的数组dp}
+		
+			\begin{enumerate}[itemindent = 2em]
+				\item 使用一个数组dp[i],记录0到第i个数的和
+				\item 求i到j之间的和时，输出dp[j]-dp[i]+num[i]即可
+			\end{enumerate}
+		
+	\subsection{解答}
+		\begin{lstlisting}
+	class NumArray {  
+	public:  
+		vector<int> dp;  
+		vector<int> num;  
+		NumArray(vector<int> nums) {  
+			int n=nums.size();  
+			dp=vector<int>(n,0);  
+			num=nums;  
+			for(int i=0;i<n;i++)  
+			{  
+				if(i>0)  
+					dp[i]=dp[i-1]+nums[i];  
+				else  
+					dp[0]=nums[0];  
+			}  
+		}  
+		
+		int sumRange(int i, int j) {  
+			return dp[j]-dp[i]+num[i];  
+		}  
+	}; 
+		\end{lstlisting}
+\section{Maximum Subarray}
+	Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+	
+	\url{https://leetcode.com/problems/maximum-subarray/description/}
+	\subparagraph{Examples}\verb|->|
+		\begin{lstlisting}
+	For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
+	the contiguous subarray [4,-1,2,1] has the largest sum = 6.
+		\end{lstlisting}
+		
+	\subsection{分析}
+		子数组的和大于0则递加，否则令子数组的开始为当前位置，并令当前和为当前值，整个过程中的最大值既是 maxSum;
+		
+		\begin{enumerate}
+			\item \textbf{寻找最优子结构}：如果和要递增，则前面的数不能小于0，求最大则保存过程中的最大值即可
+			\item \textbf{确定边界值}
+		\end{enumerate}
+	\subsection{解答}
+		\begin{lstlisting}
+	class Solution {
+	public:
+		int maxSubArray(vector<int>& nums) {
+			int sum = 0;
+			int lagest = nums[0];
+			for(auto d:nums)
+			{
+				if(sum > 0)
+				{
+					sum += d;
+					if(sum > lagest) lagest = sum;
+				}
+				else
+				{
+					sum = d;
+					if(sum > lagest) lagest = sum;
+				}
+			}
+			return lagest;
+		}
+	};	
+		
+	// DP 公式法
+	class Solution {
+	public:
+		int maxSubArray(int A[], int n) {
+			int ans=A[0],i,j,sum=0;
+			for(i=0;i<n;i++){
+				sum+=A[i];
+				ans=max(sum,ans);
+				sum=max(sum,0);
+			}
+			return ans;
+		}
+	};
+		\end{lstlisting}
+\section{Triangle}
+	Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.
+	
+	\url{https://leetcode.com/problems/triangle/description/}
+	\subparagraph{Examples}\verb|->|
+		\begin{lstlisting}
+	For example, given the following triangle
+	[
+		[2],
+	   [3,4],
+	  [6,5,7],
+	 [4,1,8,3]
+	]
+	The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).
+		\end{lstlisting}
+		
+	\subsection{分析}
+		如何确定是否用动态规划：\textbf{各小部分是否有关联，如果有关联，即存在父问题的解依赖于子问题的解},和问题肯定依赖与上或下一个数。
+		
+		\begin{enumerate}
+			\item \textbf{寻找最优子结构}：一般是从最后一步反推，这个的规律就是从后推的，从前推问题规模越来越大，从后推问题规模越来越小。
+			\item \textbf{确定边界值}
+		\end{enumerate}
+	
+	\subsection{解答}
+		\begin{lstlisting}
+	class Solution {
+	public:
+	int minimumTotal(vector<vector<int>>& triangle) {
+			for(int i = triangle.size()-2; i >= 0; --i)
+			{
+				for(int j = 0; j < i+1; ++j)
+					triangle[i][j] += std::min(triangle[i+1][j], triangle[i+1][j+1]);
+			}
+			return triangle[0][0];
+		}
+	};
+		\end{lstlisting}
+\section{2 Keys Keyboard}
+	Initially on a notepad only one character 'A' is present. You can perform two operations on this notepad for each step:
+	
+		Copy All: You can copy all the characters present on the notepad (partial copy is not allowed).
+	
+		Paste: You can paste the characters which are copied last time.
+
+		Given a number n. You have to get exactly n 'A' on the notepad by performing the minimum number of steps permitted. Output the minimum number of steps to get n 'A'.
+	\subparagraph{Examples}\verb|->|
+		\begin{lstlisting}
+	Input: 3
+	Output: 3
+	Explanation:
+	Intitally, we have one character 'A'.
+	In step 1, we use Copy All operation.
+	In step 2, we use Paste operation to get 'AA'.
+	In step 3, we use Paste operation to get 'AAA'.		
+		\end{lstlisting}
+	\subsection{分析}
+	 当然，从正面走的话，规模越来越大，从后推则简化了问题。这个问题当然想到的是分治思路，类似与pow的分治。
+	 
+		\begin{enumerate}
+			\item \textbf{寻找最优子结构}：刚开始能想到的是奇数和偶数，当测试到25时，就会发现因子不止2、3、5。这个过程就是思维发散的假设过程。
+				\begin{itemize}
+					\item \verb|if n % 2 == 0, then f(n) = f(n/2) + 2|
+					\item \verb|if n % 3 == 0, then f(n) = f(n/3) + 3|
+					\item \verb|if n % 5 == 0, then f(n) = f(n/5) + 5|...
+				\end{itemize}
+			\item \textbf{确定边界值}
+		\end{enumerate}
+	\subsection{解答}
+	
+		\begin{lstlisting}
+	class Solution {
+		public:
+		int step  = 0;
+		int minSteps(int n) {
+			if(n == 1) return  0; //return Copy
+			if(n % 2== 0)
+			{
+				step += 2;
+				minSteps(n/=2);
+			}
+			else
+			{
+				bool test = false;
+				for(int j = 3; j < n/2; j+=2)
+				{
+					if(n%j == 0)
+					{
+						step += j;
+						test = true;
+						minSteps(n/=j);
+						break;
+					}
+				}
+				if(!test) step += n;
+			}
+			
+			return step;
+		}
+	};
+	
+	// 简化代码
+	class Solution {
+		public:
+		int minSteps(int n) {
+			if (n == 1) return 0;
+			for (int i = 2; i < n; i++)
+				if (n % i == 0) return i + minSteps(n / i);
+			return n;
+		}
+	};
+		\end{lstlisting}
+\section{Palindromic Substrings}
+	Given a string, your task is to count how many palindromic substrings in this string.
+	
+	The substrings with different start indexes or end indexes are counted as different substrings even they consist of same characters.
+	
+	\url{https://leetcode.com/problems/palindromic-substrings/description/}
+	\subparagraph{Examples}
+		\begin{lstlisting}
+	Input: "abc"
+	Output: 3
+	Explanation: Three palindromic strings: "a", "b", "c".
+	
+	Input: "aaa"
+	Output: 6
+	Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
+		\end{lstlisting}
+	\subsection{分析}
+		这个题使用dp 思想时不能局限在一维dp数组上，使用二维可能问题就迎刃而解。
+			$$\verb|dp[i][j]=1| 
+			\begin{cases}
+			i=j\\
+			\verb|s[i]==s[j]| & j-i<2\verb|(start+1 >= end-1)|\\
+			\verb|s[i]==s[j]| & \verb|dp[i+1][j-1]==1|
+			\end{cases}$$ 
+		
+		\begin{enumerate}
+			\item \textbf{寻找最优子结构}：\textbf{定义}d[i][j]：若从i到j的字符串为回文，则为真（1），否则为假（0），\textbf{那么d[i][j]为真的前提是}：头尾两个字符串相同并且去掉头尾以后的字串也是回文（即d[i+1][j-1]为真），这里面要注意特殊情况，即：去掉头尾以后为空串，所以如果\verb|j-i<3|，并且头尾相等，也是回文的。
+			
+			\item \textbf{确定边界值}
+		\end{enumerate}
+	\subsection{解答}
+		\begin{lstlisting}
+	class Solution {
+		public:
+		int countSubstrings(string s) {
+			int n = s.size(), count = 0;
+			vector<vector<int>> dp(n, vector<int> (n));
+			for ( int end = 0; end < n; ++end ) {
+				dp[end][end] = 1;
+				++count;
+				for ( int start = 0; start < end; ++start ) {
+					if ( s[start] == s[end] && (start+1 >= end-1 || dp[start+1][end-1])) {
+						dp[start][end] = 1;
+						++count;
+					}
+				}
+			}
+			return count;
+		}
+	};
+		\end{lstlisting}
+\section{Longest Increasing Subsequence}
+	Given an unsorted array of integers, find the length of longest increasing subsequence.
+	
+	\url{https://leetcode.com/problems/longest-increasing-subsequence/description/}
+	\subparagraph{Examples}\verb|->|
+		\begin{lstlisting}
+	Given [10, 9, 2, 5, 3, 7, 101, 18],
+	The longest increasing subsequence is [2, 3, 7, 101], therefore the length is 4. Note that there may be more than one LIS combination, it is only necessary for you to return the length.
+	
+	Your algorithm should run in O(n2) complexity.
+		\end{lstlisting}
+	\subsection{分析}
+		首先，如果想让递增序列增加，那么首先这个值必须大于前面的某一个，但是大于哪个就是决策的关键。如何选择会让当前结果最大是本题的关键。
+		\begin{enumerate}
+			\item \textbf{寻找最优子结构}：\verb|dp[当前] = max{自身, dp[之前某一个]+1}| ，\textbf{前提是}data[当前] > data[之前某一个]
+			\item \textbf{确定边界值}
+		\end{enumerate}
+	\subsection{解答}
+		\begin{lstlisting}
+	 int lengthOfLIS(vector<int>& nums) {
+	 	const int size = nums.size();
+	 	if (size == 0) { return 0; } 
+	 	vector<int> dp(size, 1);
+	 	int res = 1;
+	 	for (int i = 1; i < size; ++i) {
+	 		for (int j = 0; j < i; ++j) {
+	 			if (nums[j] < nums[i]) {
+	 				dp[i] = max(dp[i], dp[j]+1);
+	 			}
+	 		}
+	 		res = max (res, dp[i]);
+	 	}
+	 	return res;
+	 }
+		\end{lstlisting}
+
+	
+\section{0-1背包}
+	有N件物品和一个容量为V的背包。第i件物品的费用是c[i]，价值是w[i]。求解将哪些物品装入背包可使这些物品的费用总和不超过背包容量，且\textbf{价值总和最大}。
+	
+	这个问题的特点是：\textbf{每种物品只有一件，可以选择放或者不放}。因为这里的物品一般指花瓶、玉器什么的，要么拿、要么不拿，只有0和1两种状态，所以也叫0-1背包。0-1背包虽然简单，却很重要，是“万法之源”，是其他几类问题的基础。 
+
+	\url{http://blog.csdn.net/wumuzi520/article/details/7014559}
+	
+	\subparagraph{Examples}
+	
+	\subsection{分析}
+		\textbf{初学者}有时会认为，0-1背包可以这样求解：\textbf{计算每个物品的Vi/Wi}，\textit{然后依据Vi/Wi的值，对所有的物品从大到小进行排序}。其实这种贪心方法是错误的。如下表，有三件物品，背包的最大负重量是50，求可以取得的最大价值。
+		
+			\begin{figure}[h]
+				\centering
+				\includegraphics[scale = 0.8]{0-1.png}
+				\caption{0-1贪心错误示例}
+			\end{figure}
+			
+		一般会想到的是放与不放的二叉树$O(2^n)$ 方法。其实，0-1背包是DP的一个经典实例，可以用动态规划求解。
+		
+		\subparagraph{DP求解过程}\verb|->|
+			
+			\textbf{最优子结构}：
+			对于\textbf{前i件物品}，背包\textbf{剩余容量为j}时，所\textbf{取得的最大价值}（此时称为状态3）\textbf{只依赖于两个状态}。	
+			\begin{enumerate}[itemindent = 2em]
+				\item 前\verb|i-1|件物品，背包剩余容量为\verb|j|。在该状态下，只要\textbf{不选第i个物品}，就可以转换到状态3
+				\item 前\verb|i-1|件物品，背包剩余容量为\verb|j-w[i]|。在该状态下，\textbf{选第i个物品}，也可以转换到状态3。
+			\end{enumerate}
+			
+			因为，这里\textbf{要求最大价值}，所以只要\textbf{从状态1和状态2中选择最大价值较大的一个即可}。
+		
+			\textbf{递归定义最优解的值}：
+			用\verb|c(i,j)|\textit{表示前i件物品，背包剩余容量为j时}，所\textbf{取得的最大价值}。
+			
+			$$\verb|c[i , w]|=
+			\begin{cases}
+				0 & i=0 \verb|或| w=0\\
+			\verb|c[i-1, w]| & w_i > w\\
+			\verb|max{c[i-1, w-w_i]+v_i, c[i-1,w]}| & i>0 \verb|且| w_i<=w
+			\end{cases}$$	
+		
+	\subsection{解答}
+		\url{http://blog.csdn.net/yeepom/article/details/8712224}
+		\begin{lstlisting}
+	#include <iostream>  
+	using namespace std;  
+	
+	/*** 
+	c[i][w]表示背包容量为w时，i个物品导致的最优解的总价值，大小为(n+1)*(w+1) 
+	v[i]表示第i个物品的价值，大小为n 
+	w[i]表示第i个物品的重量，大小为n 
+	***/  
+	
+	void DP(int n, int W, int c[][18], int *v, int *wei)  
+	{  
+		memset(*c, 0, (W+1)*sizeof(int));  
+		for (int i = 1; i <= n; i++)  
+		{  
+			c[i][0] = 0;  
+			for (int w = 1; w <= W; w++)  
+			{  
+				if (wei[i-1] > w)    //此处比较是关键  
+				{  
+					c[i][w] = c[i-1][w];  
+				}  
+				else  
+				{  
+					int temp = c[i-1][w-wei[i-1]] + v[i-1]; //注意wei和v数组中的第i个应该为wei[i-1]和v[i-1]  
+					if (c[i-1][w] > temp)  
+					{  
+						c[i][w] = c[i-1][w];  
+					}  
+					else   
+					c[i][w] = temp;  
+				}  
+			}  
+		}  
+	}  
+	
+	int main()  
+	{  
+		int n = 5;  
+		int W = 17;  
+		int w[] = {3, 4, 7, 8, 9};  
+		int v[] = {4, 5, 10, 11, 13};  
+		int c[6][18] = {0};  
+		DP(n, W, c, v, w);  
+		cout<<c[5][17]<<endl;  
+	}  
+		\end{lstlisting}
+	
+\section{完全背包}
+	\url{http://blog.csdn.net/wumuzi520/article/details/7014830}
+	\subparagraph{Examples}
+	
+	\subsection{分析}
+	
+	\subsection{解答}
+	
+	
+\section{Maximum Length of Pair Chain}
+	You are given n pairs of numbers. In every pair, the first number is always smaller than the second number.
+	
+	Now, we define \verb|a pair (c, d)| can follow another\verb| pair (a, b)| if and \verb|only if b < c.| Chain of pairs can be formed in this fashion.
+	
+	Given a set of pairs, find the length longest chain which can be formed. You needn't use up all the given pairs. You can select pairs in any order.
+	
+	\url{https://leetcode.com/problems/maximum-length-of-pair-chain/description/}
+	\subparagraph{Examples}\verb|->|
+		\begin{lstlisting}
+	Input: [[1,2], [2,3], [3,4]]
+	Output: 2
+	Explanation: The longest chain is [1,2] -> [3,4]
+		\end{lstlisting}
+	\subsection{分析}
+		
+		\begin{enumerate}[itemindent = 2em]
+			\item \textbf{寻找最优子结构}：\verb|dp[当前] = max{自身, dp[之前某一个]+1}| ，\textbf{前提是}data[当前] > data[之前某一个], 区间排序
+			\item \textbf{确定边界值}
+		\end{enumerate}
+		
+	\subsection{解答}
+		\begin{lstlisting}
+	class Solution {
+		public:
+		int findLongestChain(vector<vector<int>>& pairs) {
+			vector<int> dp(pairs.size(), 1);
+			sort(pairs.begin(), pairs.end(), cmp);
+			for (int i = 1; i < pairs.size(); ++i)
+			{
+				for (int j = 0; j < i; ++j)
+				{
+					if (pairs[i][0] > pairs[j][1])
+					{
+						dp[i] = std::max(dp[i], dp[j] + 1);
+					}
+				}
+			}
+			
+			int big = 0;
+			for (int i = 0; i < dp.size(); ++i)
+			{
+				if (dp[i] > big)
+				big = dp[i];
+			}
+			return big;
+		}
+		
+		private:
+		static bool cmp(vector<int>& a, vector<int>&b) {
+			return a[1] < b[1] || a[1] == b[1] && a[0] < b[0];
+		}
+	};
+		\end{lstlisting}
+\section{合唱团-2016网易编程}
+	\url{http://blog.csdn.net/hui1140621618/article/details/65437387}
+	
+	有 n 个学生站成一排，每个学生有一个能力值，牛牛想从这 n 个学生中按照顺序选取 k 名学生，要求相邻两个学生的位置编号的差不超过 d，使得这 k 个学生的能力值的乘积最大，你能返回最大的乘积吗？
+	
+	每个输入包含 1 个测试用例。每个测试数据的第一行包含一个整数 n (1 <= n <= 50)，表示学生的个数，接下来的一行，包含 n 个整数，按顺序表示每个学生的能力值 ai（-50 <= ai <= 50）。接下来的一行包含两个整数，k 和 d (1 <= k <= 10, 1 <= d <= 50)。
+	
+	\subparagraph{Examples}
+		\begin{lstlisting}
+	// 输入
+	3
+	7 4 7
+	2 50
+	// 输出
+	49
+		\end{lstlisting}
+	\subsection{分析}
+		\url{http://blog.csdn.net/lengxiao1993/article/details/52305420}
+		
+		采用动态规划。设Maxval[i][j]表示以第i个人为最后一个人，一共选取了j+1个人时的最大乘积。
+		
+		同理，Minval[i][j]表示同样状态下的最小乘积（由于数据中存在负数，负数乘上某个极大的负数反而会变成正的极大值，因而需要同时记录最小值）。
+		
+		Maxval[i][j]很显然与Maxval[i][j-1]相关，可以理解为Maxval[i][j]由两部分组成，一部分是自身作为待选值，另一部分是Maxval[i][j-1]乘上一个人后得到的值，然后取它们的极大值，由此可以得到状态转移方程如下：
+		
+			$Maxval[i][j] = max(Maxval[i][j], Maxval[i][j-1]*a[i], Minval[i][j-1]*a[i])$
+			
+			$Minval[i][j] = max(Minval[i][j], Maxval[i][j-1]*a[i], Minval[i][j-1]*a[i])$
+			
+	\subsection{解答}
+		\begin{lstlisting}
+	public class Choir {  
+		
+		public static void main(String[] args){  
+			
+			Scanner s = new Scanner(System.in);  
+			while(s.hasNextInt()){  
+				int n = s.nextInt(); //学生人数  
+				int[] ability = new int[n];  
+				for(int i = 0; i < n; i++){  
+					ability[i] = s.nextInt();  
+				}  
+				int k = s.nextInt();  
+				int d = s.nextInt();  
+				
+				//maxProduct[i][j]表示以第i个人为结尾，合唱团的人数为j+1时，合唱团最大的能力乘积  
+				long[][] maxProduct = new long[n][k];   
+				//minProduct[i][j]表示以第i个人为结尾，合唱团的人数为j+1时，合唱团最小的能力乘积  
+				long[][] minProduct = new long[n][k];  
+				
+				//合唱团中只有一个人  
+				for(int i = 0; i < n; i++){  
+					maxProduct[i][0] = ability[i];  
+					minProduct[i][0] = ability[i];  
+				}  
+				
+				long max = Long.MIN_VALUE;  
+				for(int i = 0; i < n; i++){  
+					for(int j = 1; j < k; j++){  
+						for(int p = i-1; p >= Math.max(i-d,0); p--){  
+							maxProduct[i][j] = Math.max(maxProduct[i][j],  
+							maxProduct[p][j-1]*ability[i]);  
+							maxProduct[i][j] = Math.max(maxProduct[i][j],  
+							minProduct[p][j-1]*ability[i]);  
+							minProduct[i][j] = Math.min(minProduct[i][j],  
+							minProduct[p][j-1]*ability[i]);  
+							minProduct[i][j] = Math.min(minProduct[i][j],  
+							maxProduct[p][j-1]*ability[i]);  
+						}  
+					}  
+					max = Math.max(max, maxProduct[i][k-1]);  
+				}  
+
+				System.out.println(max);  	
+			}  
+		}  
+	
+	}// end of class  
+		\end{lstlisting}
+		
+\section{Palindrome Partitioning}
+	
+\section{Palindrome Partitioning II}
+	Given a string s, partition s such that every substring of the partition is a palindrome.
+	Return the minimum cuts needed for a palindrome partitioning of s.
+	
+	\subparagraph{Examples}\verb|->|
+		\begin{lstlisting}
+	For example, given s = "aab",
+	Return 1 since the palindrome partitioning ["aa","b"] could be produced using 1 cut.
+		\end{lstlisting}
+		
+	\subsection{分析}
+		\url{http://blog.csdn.net/yutianzuijin/article/details/16850031}
+		
+	\subsection{解答}
+	
+\section{Maximal Rectangle}
+	Given a 2D binary matrix filled with 0’s and 1’s, find the largest rectangle containing all ones and return
+	its area.
 	
 	\subparagraph{Examples}
 	
@@ -1773,7 +2602,25 @@
 	
 	\subsection{解答}
 	
-\section{}
+\section{Interleaving String}
+	Given s1, s2, s3, find whether s3 is formed by the interleaving of s1 and s2.
+	
+	\subparagraph{Examples}\verb|->|
+		\begin{lstlisting}
+	Given:
+	s1 = "aabcc",
+	s2 = "dbbca",
+	When s3 = "aadbbcbcac", return true.
+	When s3 = "aadbbbaccc", return false.
+		\end{lstlisting}
+		
+	\subsection{分析}
+	
+	\subsection{解答}
+	
+\section{Scramble String(混杂字符串)}
+	Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively.
+	Below is one possible representation of s1 = "great"
 	
 	\subparagraph{Examples}
 	
@@ -1781,135 +2628,58 @@
 	
 	\subsection{解答}
 	
-\section{}
-	
+\section{Minimum Path Sum}
+		Given a m n grid filled with non-negative numbers, find a path from top left to bottom right which
+		minimizes the sum of all numbers along its path.
+		Note: You can only move either down or right at any point in time
+		
 	\subparagraph{Examples}
 	
 	\subsection{分析}
 	
 	\subsection{解答}
 	
-\section{}
+\section{Edit Distance}
+	Given two words word1 and word2, find the minimum number of steps required to convert word1 to
+	word2. (each operation is counted as 1 step.)
+	You have the following 3 operations permitted on a word:
 	
+	• Insert a character
+	
+	• Delete a character
+	
+	• Replace a character
 	\subparagraph{Examples}
 	
 	\subsection{分析}
 	
 	\subsection{解答}
 	
-\section{}
+\section{Decode Ways}
+	A message containing letters from A-Z is being encoded to numbers using the following mapping:
+	'A' -> 1
 	
+	'B' -> 2
+	
+	...
+	
+	'Z' -> 26
+	
+	Given an encoded message containing digits, determine the total number of ways to decode it.
+	For example, Given encoded message "12", it could be decoded as "AB" (1 2) or "L" (12).
+	The number of ways decoding "12" is 2
 	\subparagraph{Examples}
 	
 	\subsection{分析}
 	
 	\subsection{解答}
 	
-\section{}
-	
-	\subparagraph{Examples}
-	
-	\subsection{分析}
-	
-	\subsection{解答}
-	
-\section{}
-	
-	\subparagraph{Examples}
-	
-	\subsection{分析}
-	
-	\subsection{解答}
-	
-\section{}
-	
-	\subparagraph{Examples}
-	
-	\subsection{分析}
-	
-	\subsection{解答}
-	
-	
-\section{}
-	
-	\subparagraph{Examples}
-	
-	\subsection{分析}
-	
-	\subsection{解答}
-	
-	
-\section{}
-	
-	\subparagraph{Examples}
-	
-	\subsection{分析}
-	
-	\subsection{解答}
-	
-\section{}
-	
-	\subparagraph{Examples}
-	
-	\subsection{分析}
-	
-	\subsection{解答}
-	
-\section{}
-	
-	\subparagraph{Examples}
-	
-	\subsection{分析}
-	
-	\subsection{解答}
-	
-\section{}
-	
-	\subparagraph{Examples}
-	
-	\subsection{分析}
-	
-	\subsection{解答}
-	
-\section{}
-	
-	\subparagraph{Examples}
-	
-	\subsection{分析}
-	
-	\subsection{解答}
-	
-\section{}
-	
-	\subparagraph{Examples}
-	
-	\subsection{分析}
-	
-	\subsection{解答}
-	
-\section{}
-	
-	\subparagraph{Examples}
-	
-	\subsection{分析}
-	
-	\subsection{解答}
-	
-\section{}
-	
-	\subparagraph{Examples}
-	
-	\subsection{分析}
-	
-	\subsection{解答}
-	
-\section{}
-	
-	\subparagraph{Examples}
-	
-	\subsection{分析}
-	
-	\subsection{解答}
+
+\section{Distinct Subsequences}
+
+\section{Word Break}
+
+
 \chapter{Backtracking- 34}
 \section{}
 	
@@ -2202,8 +2972,66 @@
 	
 	\url{http://www.cnblogs.com/jingmoxukong/p/4308823.html}
 	
-	\subsection{解答}
+	归并排序的思想就是把前一段排序，后一段排序，然后再整体排序。
 	
+	归并排序其实要做两件事：
+	\begin{enumerate}[itemindent = 2em]
+	  \item \textbf{“分解”}——将序列每次折半划分。
+	  \item \textbf{“合并”}——将划分后的序列段两两合并后排序。
+	\end{enumerate}
+	
+	\subsection{如何合并}
+		在每次合并过程中，都是对两个有序的序列段进行合并，然后排序。	这两个有序序列段分别为 \verb|R[low, mid]| 和 \verb|R[mid+1, high]|。
+		先将他们合并到一个局部的暂存数组\verb|R2|中，带合并完成后再将\verb|R2|复制回\verb|R|中。
+	
+		为了方便描述，我们称 \verb|R[low, mid]| 第一段，\verb|R[mid+1, high]| 为第二段。
+		
+		\textbf{每次从两个段中取出一个记录进行关键字的比较，将较小者放入R2中。最后将各段中余下的部分直接复制到R2中。}
+		经过这样的过程，R2已经是一个有序的序列，再将其复制回R中，一次合并排序就完成了。
+		
+		\subparagraph{实现}\verb|->|
+			\begin{lstlisting}
+	void mergearray(int a[], int first, int mid, int last, int temp[])  
+	{  
+		int i = first, j = mid + 1;  
+		int m = mid,   n = last;  
+		int k = 0;  
+		
+		while (i <= m && j <= n)  
+		{  
+			if (a[i] <= a[j])  
+				temp[k++] = a[i++];  
+			else  
+				temp[k++] = a[j++];  
+		}  
+		
+		while (i <= m)  
+			temp[k++] = a[i++];  
+		
+		while (j <= n)  
+			temp[k++] = a[j++];  
+		
+		for (i = 0; i < k; i++)  
+			a[first + i] = temp[i];  
+	}  
+			\end{lstlisting}
+		
+	\subsection{如何分解}
+		在某趟归并中，折半分解。
+	
+		\subparagraph{实现}\verb|->|
+		\begin{lstlisting}
+	void mergesort(int a[], int first, int last, int temp[])  
+	{  
+		if (first < last)  
+		{  
+			int mid = (first + last) / 2;  
+			mergesort(a, first, mid, temp);    //左边有序  
+			mergesort(a, mid + 1, last, temp); //右边有序  
+			mergearray(a, first, mid, last, temp); //再将二个有序数列合并  
+		}  
+	}  
+		\end{lstlisting}
 \section{堆}
 	\url{http://www.cnblogs.com/mengdd/archive/2012/11/30/2796845.html}
 	
