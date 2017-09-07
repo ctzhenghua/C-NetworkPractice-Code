@@ -786,6 +786,7 @@
 						\item  虽然按道理，四个报文都发送完毕，我们可以直接进入\verb|CLOSE|状态了，但是\textbf{我们必须假象网络是不可靠的}，有可以最后一个\verb|ACK|丢失。所以\verb|TIME_WAIT|状态就是用来\textbf{重发可能丢失的ACK报文}
 						
 						\item 允许老的重复分节在网络中消逝，这样就不会在新建在原来的IP端口上收到失效的过期数据，这也是\verb|TIME_WAIT|存在2MSL的原因
+						为什么是两倍的MSL,因为这样可以保证发送的字节组方向能够消失，而且还可以保证ack方向的确认报文也可以消失。
 					\end{itemize}
 	\section{套接字选项}
 		\subsection{相关函数}
@@ -2485,7 +2486,7 @@
 		\subsection{APP 分别使用传输层的 协议对照}
 			\begin{figure}[h]
 				\centering
-				\includegraphics[scale = 0.7]{App-Proposal.png}
+				%\includegraphics[scale = 0.7]{App-Proposal.png}
 			\end{figure}
 		
 	\section{传输层 TCP}		
