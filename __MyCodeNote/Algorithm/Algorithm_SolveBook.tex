@@ -2355,7 +2355,7 @@
 		
 			\begin{figure}[h]
 				\centering
-				\includegraphics[scale = 0.8]{0-1.png}
+				%\includegraphics[scale = 0.8]{0-1.png}
 				\caption{0-1贪心错误示例}
 			\end{figure}
 			
@@ -2440,7 +2440,57 @@
 	
 	\subsection{解答}
 	
+\section{石子合并}
+	有N堆石子，现要将石子有序的合并成一堆，规定如下：每次只能\textbf{移动相邻的2堆}石子合并，合并花费为新合成的一堆石子的数量。求将这N堆石子合并成一堆的总花费最小（或最大）。
 	
+	\subsection{分析}
+		  设\verb|dp[i][j]|表示第i到第j堆石子合并的最优值，\verb|sum[i][j]|表示第i到第j堆石子的总数量
+		  
+		  $$\verb|d[i][j]|=
+		  			\begin{cases}
+		  				0 & i=j\\
+		  			\verb|min(dp[i][k], dp[k+1][j]) + sum[i][j]| & i \not= j\\
+		  			\end{cases}$$	
+	  
+	  \subsection{实现}
+	  		\begin{lstlisting}
+	     #include <iostream>     
+	     using namespace std;  
+	     #define M 101  
+	     #define INF 1000000000  
+	     int n,f[M][M],sum[M][M],stone[M];  
+	     int main()  
+	     {  
+	         int i,j,k,t;  
+	         cin>>n;  
+	         for(i=1;i<=n;i++)  
+	             scanf("%d",&stone[i]);  
+	       
+	         for(i=1;i<=n;i++)  
+	         {  
+	             f[i][i]=0;  
+	             sum[i][i]=stone[i];  
+	             for(j=i+1;j<=n;j++)  
+	                 sum[i][j]=sum[i][j-1]+stone[j];  
+	         }  
+	       
+	         for(int len=2;len<=n;len++)//归并的石子长度  
+	         {  
+	             for(i=1;i<=n-len+1;i++)//i为起点，j为终点  
+	             {  
+	                 j=i+len-1;  
+	                 f[i][j]=INF;  
+	                 for(k=i;k<=j-1;k++)  
+	                 {  
+	                     if(f[i][j]>f[i][k]+f[k+1][j]+sum[i][j])  
+	                         f[i][j]=f[i][k]+f[k+1][j]+sum[i][j];  
+	                 }  
+	             }  
+	         }  
+	         printf("%d/n",f[1][n]);    
+	         return 0;  
+	     }  
+	  		\end{lstlisting}
 \section{Maximum Length of Pair Chain}
 	You are given n pairs of numbers. In every pair, the first number is always smaller than the second number.
 	

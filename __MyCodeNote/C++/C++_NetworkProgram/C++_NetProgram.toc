@@ -19,286 +19,288 @@
 \contentsline {subsection}{\numberline {2.4.1}TCP}{13}{subsection.2.4.1}
 \contentsline {subsubsection}{TCP 特点}{13}{section*.2}
 \contentsline {subsubsection}{TCP 报文格式}{13}{section*.3}
-\contentsline {subsubsection}{连接建立3次握手}{13}{section*.4}
-\contentsline {subsubsection}{连接终止4次握手}{13}{section*.5}
-\contentsline {subsubsection}{TCP 如何保证可靠性}{13}{section*.6}
+\contentsline {subsubsection}{TCP 如何保证可靠性}{13}{section*.4}
 \contentsline {subsection}{\numberline {2.4.2}UDP}{14}{subsection.2.4.2}
-\contentsline {subsubsection}{滑动窗口协议}{14}{section*.7}
-\contentsline {subsubsection}{UDP 特点}{14}{section*.8}
-\contentsline {subsubsection}{UDP 报文格式}{14}{section*.9}
+\contentsline {subsubsection}{滑动窗口协议}{14}{section*.5}
+\contentsline {subsubsection}{UDP 特点}{14}{section*.6}
+\contentsline {subsubsection}{UDP 报文格式}{14}{section*.7}
 \contentsline {chapter}{\numberline {第三章\hspace {0.3em}}socket编程篇}{15}{chapter.3}
 \contentsline {section}{\numberline {3.1}基本概念}{15}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}socket}{15}{subsection.3.1.1}
-\contentsline {subparagraph}{通用地址结构}{15}{section*.10}
-\contentsline {subparagraph}{IPv4地址结构}{15}{section*.11}
+\contentsline {subparagraph}{通用地址结构}{15}{section*.8}
+\contentsline {subparagraph}{IPv4地址结构}{15}{section*.9}
 \contentsline {subsection}{\numberline {3.1.2}网络字节序}{15}{subsection.3.1.2}
-\contentsline {subsubsection}{字节序}{15}{section*.12}
-\contentsline {subparagraph}{大端字节序}{15}{section*.13}
-\contentsline {subparagraph}{小端字节序}{15}{section*.14}
-\contentsline {subsubsection}{主机字节序}{16}{section*.15}
-\contentsline {subsubsection}{网络字节序}{16}{section*.16}
-\contentsline {subsubsection}{字节序转换函数}{16}{section*.17}
-\contentsline {subsubsection}{地址转换函数}{16}{section*.18}
+\contentsline {subsubsection}{字节序}{15}{section*.10}
+\contentsline {subparagraph}{大端字节序}{15}{section*.11}
+\contentsline {subparagraph}{小端字节序}{15}{section*.12}
+\contentsline {subsubsection}{主机字节序}{16}{section*.13}
+\contentsline {subsubsection}{网络字节序}{16}{section*.14}
+\contentsline {subsubsection}{字节序转换函数}{16}{section*.15}
+\contentsline {subsubsection}{地址转换函数}{16}{section*.16}
 \contentsline {subsection}{\numberline {3.1.3}套接字类型}{16}{subsection.3.1.3}
 \contentsline {subsection}{\numberline {3.1.4}流式套接字的粘包问题}{16}{subsection.3.1.4}
-\contentsline {subparagraph}{产生原因}{16}{section*.19}
-\contentsline {subparagraph}{处理方案}{16}{section*.20}
+\contentsline {subparagraph}{产生原因}{16}{section*.17}
+\contentsline {subparagraph}{处理方案}{16}{section*.18}
 \contentsline {subsection}{\numberline {3.1.5}获取本机网络地址}{17}{subsection.3.1.5}
 \contentsline {section}{\numberline {3.2}基本的C/S 通信模型}{17}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}通信模型}{17}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}客户端使用的函数及作用}{17}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}服务器使用的函数及作用}{18}{subsection.3.2.3}
 \contentsline {subsection}{\numberline {3.2.4}REUSEADDR}{19}{subsection.3.2.4}
-\contentsline {subparagraph}{解决方案}{19}{section*.21}
+\contentsline {subparagraph}{解决方案}{19}{section*.19}
 \contentsline {subsection}{\numberline {3.2.5}close与shutdown 的区别}{19}{subsection.3.2.5}
-\contentsline {subparagraph}{发送方}{19}{section*.22}
-\contentsline {subparagraph}{接收方}{19}{section*.23}
-\contentsline {subparagraph}{shutdown 与 close}{20}{section*.24}
+\contentsline {subparagraph}{发送方}{19}{section*.20}
+\contentsline {subparagraph}{接收方}{19}{section*.21}
+\contentsline {subparagraph}{shutdown 与 close}{20}{section*.22}
 \contentsline {subsection}{\numberline {3.2.6}FIN 与 RST}{20}{subsection.3.2.6}
-\contentsline {subsubsection}{FIN}{20}{section*.25}
-\contentsline {subsubsection}{RST}{20}{section*.26}
+\contentsline {subsubsection}{FIN}{20}{section*.23}
+\contentsline {subsubsection}{RST}{20}{section*.24}
 \contentsline {subsection}{\numberline {3.2.7}SIGPIPE}{20}{subsection.3.2.7}
 \contentsline {subsection}{\numberline {3.2.8}TCP No Delay}{20}{subsection.3.2.8}
 \contentsline {subsection}{\numberline {3.2.9}多进程服务器-允许多client访问}{20}{subsection.3.2.9}
 \contentsline {section}{\numberline {3.3}Peer To Peer 点对点通信：P2P}{22}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}信号机制}{22}{subsection.3.3.1}
-\contentsline {subparagraph}{应用}{22}{section*.27}
+\contentsline {subparagraph}{应用}{22}{section*.25}
 \contentsline {subsection}{\numberline {3.3.2}服务器端}{22}{subsection.3.3.2}
 \contentsline {subsection}{\numberline {3.3.3}客户端}{23}{subsection.3.3.3}
-\contentsline {section}{\numberline {3.4}僵尸进程}{23}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}参考}{23}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}wait 与 waitpid}{23}{subsection.3.4.2}
-\contentsline {section}{\numberline {3.5}守护进程}{23}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}守护进程的输出}{24}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}守护进程的启动方法有}{24}{subsection.3.5.2}
-\contentsline {section}{\numberline {3.6}TCP}{24}{section.3.6}
-\contentsline {subsection}{\numberline {3.6.1}11种状态}{24}{subsection.3.6.1}
-\contentsline {subsection}{\numberline {3.6.2}3次握手:建立链接}{26}{subsection.3.6.2}
-\contentsline {subsection}{\numberline {3.6.3}4次握手:终止链接}{27}{subsection.3.6.3}
-\contentsline {subsubsection}{Client 经历的状态}{27}{section*.28}
-\contentsline {subsubsection}{Server 经历的状态}{27}{section*.29}
-\contentsline {subsubsection}{Notice}{28}{section*.30}
-\contentsline {subparagraph}{为什么连接的时候是三次握手，关闭的时候却是四次握手？}{28}{section*.31}
-\contentsline {subparagraph}{TIME\_WAIT 存在的理由}{28}{section*.32}
-\contentsline {section}{\numberline {3.7}套接字选项}{28}{section.3.7}
-\contentsline {subsection}{\numberline {3.7.1}相关函数}{28}{subsection.3.7.1}
-\contentsline {subsection}{\numberline {3.7.2}低水位标记}{29}{subsection.3.7.2}
-\contentsline {subsection}{\numberline {3.7.3}高水位标记}{30}{subsection.3.7.3}
-\contentsline {subparagraph}{问题}{30}{section*.33}
-\contentsline {subparagraph}{解决办法}{30}{section*.34}
-\contentsline {subsection}{\numberline {3.7.4}SO\_KEEPALIVE}{30}{subsection.3.7.4}
-\contentsline {subsection}{\numberline {3.7.5}SO\_LINGER}{31}{subsection.3.7.5}
-\contentsline {subsection}{\numberline {3.7.6}SO\_RCVBUF}{31}{subsection.3.7.6}
-\contentsline {subsection}{\numberline {3.7.7}SO\_SNDBUF}{32}{subsection.3.7.7}
-\contentsline {subsection}{\numberline {3.7.8}SO\_RCVLOWAT}{32}{subsection.3.7.8}
-\contentsline {subsection}{\numberline {3.7.9}SO\_SNDLOWAT}{32}{subsection.3.7.9}
-\contentsline {subsection}{\numberline {3.7.10}SO\_RCVTIMEO}{32}{subsection.3.7.10}
-\contentsline {subsection}{\numberline {3.7.11}SO\_SNDTIMEO}{32}{subsection.3.7.11}
-\contentsline {subsection}{\numberline {3.7.12}SO\_REUSERADDR}{33}{subsection.3.7.12}
-\contentsline {subsection}{\numberline {3.7.13}SO\_BROADCAST}{33}{subsection.3.7.13}
-\contentsline {subsection}{\numberline {3.7.14}SO\_DEBUG}{33}{subsection.3.7.14}
-\contentsline {subsection}{\numberline {3.7.15}SO\_OOBINLINE}{33}{subsection.3.7.15}
-\contentsline {subsection}{\numberline {3.7.16}TCP\_MAXSEG}{33}{subsection.3.7.16}
-\contentsline {subsection}{\numberline {3.7.17}TCP\_NODELAY}{33}{subsection.3.7.17}
-\contentsline {subparagraph}{参考}{33}{section*.35}
-\contentsline {section}{\numberline {3.8}带外数据-Urgent标志}{33}{section.3.8}
-\contentsline {section}{\numberline {3.9}心搏函数-弥补keepAlive2小时等待时间}{33}{section.3.9}
-\contentsline {section}{\numberline {3.10}高级IO函数}{33}{section.3.10}
-\contentsline {subsection}{\numberline {3.10.1}创建文件描述符系列}{33}{subsection.3.10.1}
-\contentsline {subsubsection}{pipe}{33}{section*.36}
-\contentsline {subsubsection}{socketpair}{34}{section*.37}
-\contentsline {subsubsection}{dup..复制}{34}{section*.38}
-\contentsline {subparagraph}{执行dup 前}{35}{figure.3.7}
-\contentsline {subparagraph}{执行dup 后}{35}{section*.40}
-\contentsline {subparagraph}{例子}{35}{section*.41}
-\contentsline {subsubsection}{dup2.. 重定向}{35}{section*.42}
-\contentsline {subparagraph}{*例子}{35}{section*.43}
-\contentsline {subsection}{\numberline {3.10.2}读写数据系列}{36}{subsection.3.10.2}
-\contentsline {subsubsection}{readv/writev}{36}{section*.44}
-\contentsline {subsubsection}{sendfile}{36}{section*.45}
-\contentsline {subsubsection}{mmap/munmpa}{36}{section*.46}
-\contentsline {subsubsection}{splice}{36}{section*.47}
-\contentsline {subsubsection}{tee}{36}{section*.48}
-\contentsline {subsection}{\numberline {3.10.3}控制IO行为和属性系列}{37}{subsection.3.10.3}
-\contentsline {subsubsection}{fcntl}{37}{section*.49}
-\contentsline {section}{\numberline {3.11}IPC}{37}{section.3.11}
-\contentsline {subsection}{\numberline {3.11.1}IPC 简介}{37}{subsection.3.11.1}
-\contentsline {subsection}{\numberline {3.11.2}信号}{37}{subsection.3.11.2}
-\contentsline {subsection}{\numberline {3.11.3}消息传递}{37}{subsection.3.11.3}
-\contentsline {subsection}{\numberline {3.11.4}信号量}{37}{subsection.3.11.4}
-\contentsline {subsubsection}{信号量}{37}{section*.50}
-\contentsline {paragraph}{简介}{37}{section*.51}
-\contentsline {paragraph}{工作原理}{37}{section*.52}
-\contentsline {paragraph}{使用}{37}{section*.53}
-\contentsline {subsubsection}{与互斥锁的区别}{38}{section*.54}
-\contentsline {subparagraph}{信号量}{38}{section*.55}
-\contentsline {subsection}{\numberline {3.11.5}共享内存}{38}{subsection.3.11.5}
-\contentsline {subsubsection}{虚拟内存}{38}{section*.56}
-\contentsline {subsubsection}{mmap 系列}{39}{section*.57}
-\contentsline {subparagraph}{例子}{39}{section*.58}
-\contentsline {subsubsection}{shmget 系列}{40}{section*.59}
-\contentsline {subparagraph}{例子}{40}{section*.60}
-\contentsline {section}{\numberline {3.12}阻塞与非阻塞、同步与异步}{40}{section.3.12}
-\contentsline {subsection}{\numberline {3.12.1}同步/异步主要针对C端}{40}{subsection.3.12.1}
-\contentsline {subsection}{\numberline {3.12.2}阻塞/非阻塞主要针对S端}{40}{subsection.3.12.2}
-\contentsline {subsection}{\numberline {3.12.3}Linux 下的5种I/O 模型}{41}{subsection.3.12.3}
-\contentsline {subsubsection}{阻塞I/O: Blocking I/O}{41}{section*.61}
-\contentsline {subparagraph}{阻塞I/O模型图}{41}{section*.62}
-\contentsline {subsubsection}{非阻塞I/O： nonBlocking I/O}{43}{section*.63}
-\contentsline {subsubsection}{I/O复用： I/O multiplexing}{44}{section*.64}
-\contentsline {subsubsection}{信号驱动I/O：SIGIO}{44}{section*.65}
-\contentsline {subsubsection}{异步I/O：asynchronous I/O}{44}{section*.66}
-\contentsline {subsection}{\numberline {3.12.4}参考}{45}{subsection.3.12.4}
-\contentsline {section}{\numberline {3.13}Select 模型：管理多个IO}{45}{section.3.13}
-\contentsline {subsection}{\numberline {3.13.1}相关函数}{45}{subsection.3.13.1}
-\contentsline {paragraph}{可读事件发生条件}{46}{section*.67}
-\contentsline {paragraph}{可写事件发生条件}{46}{section*.68}
-\contentsline {paragraph}{异常事件发生条件}{46}{section*.69}
-\contentsline {paragraph}{最大处理描述符值}{46}{section*.70}
-\contentsline {subsection}{\numberline {3.13.2}使用select实现回射服务程序}{47}{subsection.3.13.2}
-\contentsline {subsubsection}{Client}{47}{section*.71}
-\contentsline {subsubsection}{Server}{47}{section*.72}
-\contentsline {section}{\numberline {3.14}Poll 模型：不再限制最大描述符值}{49}{section.3.14}
-\contentsline {subsection}{\numberline {3.14.1}相关函数}{49}{subsection.3.14.1}
-\contentsline {subsection}{\numberline {3.14.2}实例}{50}{subsection.3.14.2}
-\contentsline {section}{\numberline {3.15}Epoll 模型：实现更高效率}{50}{section.3.15}
-\contentsline {subsection}{\numberline {3.15.1}相关函数}{50}{subsection.3.15.1}
-\contentsline {subsection}{\numberline {3.15.2}使用epoll 实现回射服务器}{50}{subsection.3.15.2}
-\contentsline {subsubsection}{Server}{51}{section*.73}
-\contentsline {subsection}{\numberline {3.15.3}Epoll 触发方式}{55}{subsection.3.15.3}
-\contentsline {subparagraph}{EPOLLLT}{55}{section*.74}
-\contentsline {subparagraph}{EPOLLET}{55}{section*.75}
-\contentsline {section}{\numberline {3.16}select、poll、epoll比较}{55}{section.3.16}
-\contentsline {subsection}{\numberline {3.16.1}select}{55}{subsection.3.16.1}
-\contentsline {subsection}{\numberline {3.16.2}poll}{56}{subsection.3.16.2}
-\contentsline {subsection}{\numberline {3.16.3}epoll}{56}{subsection.3.16.3}
-\contentsline {subsection}{\numberline {3.16.4}区别对比}{56}{subsection.3.16.4}
-\contentsline {subsubsection}{支持一个进程所能打开的最大连接数}{56}{section*.76}
-\contentsline {subsubsection}{FD剧增后带来的IO效率问题}{56}{section*.77}
-\contentsline {subsubsection}{消息传递方式}{57}{section*.78}
-\contentsline {subsubsection}{总结}{57}{section*.79}
-\contentsline {section}{\numberline {3.17}UDP}{57}{section.3.17}
-\contentsline {section}{\numberline {3.18}套接字与流之间的转换}{57}{section.3.18}
-\contentsline {subsection}{\numberline {3.18.1}转换}{57}{subsection.3.18.1}
-\contentsline {subparagraph}{fileno()}{57}{section*.80}
-\contentsline {subparagraph}{fdopen()}{57}{section*.81}
-\contentsline {subsection}{\numberline {3.18.2}缓冲}{57}{subsection.3.18.2}
-\contentsline {section}{\numberline {3.19}非阻塞 socket}{57}{section.3.19}
-\contentsline {section}{\numberline {3.20}Unix 域套接字编程：本地进程间通信}{57}{section.3.20}
-\contentsline {section}{\numberline {3.21}HTTP}{57}{section.3.21}
-\contentsline {subsection}{\numberline {3.21.1}概要}{57}{subsection.3.21.1}
-\contentsline {subsection}{\numberline {3.21.2}技术架构}{57}{subsection.3.21.2}
-\contentsline {section}{\numberline {3.22}提高性能的措施}{58}{section.3.22}
-\contentsline {subsection}{\numberline {3.22.1}池}{58}{subsection.3.22.1}
-\contentsline {subsubsection}{内存池}{58}{section*.82}
-\contentsline {subsubsection}{进程池与线程池}{58}{section*.83}
-\contentsline {subsubsection}{连接池}{58}{section*.84}
-\contentsline {subsection}{\numberline {3.22.2}数据拷贝}{58}{subsection.3.22.2}
-\contentsline {subsection}{\numberline {3.22.3}锁与上下文切换}{58}{subsection.3.22.3}
-\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}负载均衡}{59}{chapter.4}
-\contentsline {section}{\numberline {4.1}负载均衡}{59}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}概述}{59}{subsection.4.1.1}
-\contentsline {subparagraph}{Example：}{59}{section*.85}
-\contentsline {subsection}{\numberline {4.1.2}设计思路}{59}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}群集技术}{59}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}集群系统}{59}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}服务器集群}{59}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}RPC}{59}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}分布式系统}{60}{subsection.4.2.4}
-\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}常见服务器模型}{61}{chapter.5}
-\contentsline {section}{\numberline {5.1}ReActor 模式}{61}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}例子学习ReActor}{61}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}参考}{62}{subsection.5.1.2}
-\contentsline {section}{\numberline {5.2}阻塞IO服务器模型之单线程服务器模型}{62}{section.5.2}
-\contentsline {section}{\numberline {5.3}ProActor}{63}{section.5.3}
-\contentsline {section}{\numberline {5.4}Reactor with Proactor}{63}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}reactor}{63}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}proactor}{63}{subsection.5.4.2}
-\contentsline {subsection}{\numberline {5.4.3}区别}{64}{subsection.5.4.3}
-\contentsline {section}{\numberline {5.5}半同步半异步模型}{64}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}同步}{64}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}异步}{64}{subsection.5.5.2}
-\contentsline {subsection}{\numberline {5.5.3}半同步半异步}{64}{subsection.5.5.3}
-\contentsline {subsubsection}{半同步半反应堆模式}{64}{section*.86}
-\contentsline {subparagraph}{缺点}{65}{section*.87}
-\contentsline {subparagraph}{例子}{65}{section*.88}
-\contentsline {subsubsection}{more Efficient}{65}{section*.89}
-\contentsline {section}{\numberline {5.6}领导者追随者模式}{65}{section.5.6}
-\contentsline {chapter}{\numberline {第六章\hspace {0.3em}}如何使用多台机器并行处理数据}{67}{chapter.6}
-\contentsline {section}{\numberline {6.1}集群服务器}{67}{section.6.1}
-\contentsline {section}{\numberline {6.2}分布式服务器}{67}{section.6.2}
-\contentsline {chapter}{\numberline {第七章\hspace {0.3em}}调试}{69}{chapter.7}
-\contentsline {section}{\numberline {7.1}ACK 与 Seq}{69}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}建立与释放阶段}{69}{subsection.7.1.1}
-\contentsline {subsection}{\numberline {7.1.2}数据传输阶段}{69}{subsection.7.1.2}
-\contentsline {subparagraph}{Note}{70}{section*.90}
-\contentsline {section}{\numberline {7.2}strace}{70}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}指定追踪类型}{70}{subsection.7.2.1}
-\contentsline {section}{\numberline {7.3}tcpdump}{71}{section.7.3}
-\contentsline {section}{\numberline {7.4}nc}{71}{section.7.4}
-\contentsline {section}{\numberline {7.5}lsof}{71}{section.7.5}
-\contentsline {section}{\numberline {7.6}netstat}{71}{section.7.6}
-\contentsline {section}{\numberline {7.7}vmstat}{71}{section.7.7}
-\contentsline {section}{\numberline {7.8}ifstat}{71}{section.7.8}
-\contentsline {section}{\numberline {7.9}mpstat}{71}{section.7.9}
-\contentsline {section}{\numberline {7.10}top}{71}{section.7.10}
-\contentsline {section}{\numberline {7.11}ping}{71}{section.7.11}
-\contentsline {section}{\numberline {7.12}iptables}{71}{section.7.12}
-\contentsline {section}{\numberline {7.13}TTCP}{71}{section.7.13}
-\contentsline {chapter}{\numberline {第八章\hspace {0.3em}}理论}{73}{chapter.8}
-\contentsline {section}{\numberline {8.1}网络的性能}{73}{section.8.1}
-\contentsline {subsection}{\numberline {8.1.1}速率}{73}{subsection.8.1.1}
-\contentsline {subsection}{\numberline {8.1.2}带宽}{73}{subsection.8.1.2}
-\contentsline {subsection}{\numberline {8.1.3}吞吐量}{73}{subsection.8.1.3}
-\contentsline {subsection}{\numberline {8.1.4}时延}{73}{subsection.8.1.4}
-\contentsline {subparagraph}{发送时延 Transmission Delay}{73}{section*.91}
-\contentsline {subparagraph}{传播时延 Propagation Delay}{73}{section*.92}
-\contentsline {subparagraph}{处理时延}{73}{section*.93}
-\contentsline {subparagraph}{排队时延}{74}{section*.94}
-\contentsline {subsection}{\numberline {8.1.5}时延带宽积}{74}{subsection.8.1.5}
-\contentsline {subsection}{\numberline {8.1.6}往返时间RTT}{74}{subsection.8.1.6}
-\contentsline {subsection}{\numberline {8.1.7}利用率}{74}{subsection.8.1.7}
-\contentsline {section}{\numberline {8.2}应用层 }{74}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}域名系统 DNS}{74}{subsection.8.2.1}
-\contentsline {subsection}{\numberline {8.2.2}文件传送 FTP}{74}{subsection.8.2.2}
-\contentsline {subsection}{\numberline {8.2.3}万维 WWW}{75}{subsection.8.2.3}
-\contentsline {subsection}{\numberline {8.2.4}动态主机配置 DHCP}{75}{subsection.8.2.4}
-\contentsline {subsection}{\numberline {8.2.5}电子邮件 SMTP IMAP}{75}{subsection.8.2.5}
-\contentsline {subsection}{\numberline {8.2.6}简单网络管理 SNMP}{75}{subsection.8.2.6}
-\contentsline {subsection}{\numberline {8.2.7}APP 分别使用传输层的 协议对照}{75}{subsection.8.2.7}
-\contentsline {section}{\numberline {8.3}传输层 TCP}{75}{section.8.3}
-\contentsline {subsection}{\numberline {8.3.1}基本概念对照}{75}{subsection.8.3.1}
-\contentsline {subsubsection}{TCP 可靠性}{75}{section*.95}
-\contentsline {subsubsection}{复用与分用}{76}{section*.96}
-\contentsline {subsubsection}{端口}{76}{section*.97}
-\contentsline {subparagraph}{引入问题}{76}{section*.98}
-\contentsline {subparagraph}{解决方法}{76}{section*.99}
-\contentsline {subparagraph}{端口号分类}{76}{section*.100}
-\contentsline {subsection}{\numberline {8.3.2}UDP}{77}{subsection.8.3.2}
-\contentsline {subsubsection}{特点}{77}{section*.101}
-\contentsline {subsubsection}{网络控制特点}{77}{section*.102}
-\contentsline {subsection}{\numberline {8.3.3}TCP}{77}{subsection.8.3.3}
-\contentsline {section}{\numberline {8.4}网络层 IP}{77}{section.8.4}
-\contentsline {subsection}{\numberline {8.4.1}分类的IP地址}{77}{subsection.8.4.1}
-\contentsline {subsubsection}{IP 地址类型}{77}{section*.103}
-\contentsline {subparagraph}{A类IP 地址}{77}{section*.104}
-\contentsline {subparagraph}{B类IP 地址}{77}{section*.105}
-\contentsline {subparagraph}{C类IP 地址}{77}{section*.106}
-\contentsline {subparagraph}{其他}{78}{section*.107}
-\contentsline {subsection}{\numberline {8.4.2}子网掩码}{78}{subsection.8.4.2}
-\contentsline {section}{\numberline {8.5}数据链路层 Hardware}{79}{section.8.5}
-\contentsline {chapter}{\numberline {第九章\hspace {0.3em}}资源}{81}{chapter.9}
-\contentsline {section}{\numberline {9.1}读书路线}{81}{section.9.1}
-\contentsline {subparagraph}{0.Linux 命令大全}{81}{section*.108}
-\contentsline {subparagraph}{1.Linux高性能服务器编程}{81}{section*.109}
-\contentsline {subparagraph}{2.构建高可用Linux服务器}{81}{section*.110}
-\contentsline {subparagraph}{3.Linux多线程服务端编程}{81}{section*.111}
-\contentsline {section}{\numberline {9.2}项目学习}{81}{section.9.2}
-\contentsline {subparagraph}{参见 C++\_Project}{81}{section*.112}
-\contentsline {section}{\numberline {9.3}参考}{81}{section.9.3}
-\contentsline {subparagraph}{0.学习路线}{81}{section*.113}
-\contentsline {subparagraph}{1.使用socket通信实现FTP服务器}{81}{section*.114}
-\contentsline {subparagraph}{2.游戏服务器的见闻}{81}{section*.115}
-\contentsline {subparagraph}{3.高性能服务器模型}{81}{section*.116}
-\contentsline {subparagraph}{4.面试题}{81}{section*.117}
-\contentsline {subparagraph}{5.相关函数}{81}{section*.118}
+\contentsline {section}{\numberline {3.4}fork 进程}{23}{section.3.4}
+\contentsline {section}{\numberline {3.5}僵尸进程}{24}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}参考}{24}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}wait 与 waitpid}{24}{subsection.3.5.2}
+\contentsline {section}{\numberline {3.6}孤儿进程}{24}{section.3.6}
+\contentsline {section}{\numberline {3.7}守护进程}{24}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}守护进程的输出}{25}{subsection.3.7.1}
+\contentsline {subsection}{\numberline {3.7.2}守护进程的启动方法有}{25}{subsection.3.7.2}
+\contentsline {subsection}{\numberline {3.7.3}分类}{25}{subsection.3.7.3}
+\contentsline {subsection}{\numberline {3.7.4}UID,EUID}{25}{subsection.3.7.4}
+\contentsline {section}{\numberline {3.8}TCP}{26}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}11种状态}{26}{subsection.3.8.1}
+\contentsline {subsection}{\numberline {3.8.2}3次握手:建立链接}{28}{subsection.3.8.2}
+\contentsline {subsection}{\numberline {3.8.3}4次握手:终止链接}{29}{subsection.3.8.3}
+\contentsline {subsubsection}{Client 经历的状态}{29}{section*.26}
+\contentsline {subsubsection}{Server 经历的状态}{29}{section*.27}
+\contentsline {subsubsection}{Notice}{30}{section*.28}
+\contentsline {subparagraph}{为什么连接的时候是三次握手，关闭的时候却是四次握手？}{30}{section*.29}
+\contentsline {subparagraph}{TIME\_WAIT 存在的理由}{30}{section*.30}
+\contentsline {section}{\numberline {3.9}套接字选项}{30}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}相关函数}{30}{subsection.3.9.1}
+\contentsline {subsection}{\numberline {3.9.2}低水位标记}{32}{subsection.3.9.2}
+\contentsline {subsection}{\numberline {3.9.3}高水位标记}{32}{subsection.3.9.3}
+\contentsline {subparagraph}{问题}{32}{section*.31}
+\contentsline {subparagraph}{解决办法}{32}{section*.32}
+\contentsline {subsection}{\numberline {3.9.4}SO\_KEEPALIVE}{32}{subsection.3.9.4}
+\contentsline {subsection}{\numberline {3.9.5}SO\_LINGER}{33}{subsection.3.9.5}
+\contentsline {subsection}{\numberline {3.9.6}SO\_RCVBUF}{34}{subsection.3.9.6}
+\contentsline {subsection}{\numberline {3.9.7}SO\_SNDBUF}{34}{subsection.3.9.7}
+\contentsline {subsection}{\numberline {3.9.8}SO\_RCVLOWAT}{34}{subsection.3.9.8}
+\contentsline {subsection}{\numberline {3.9.9}SO\_SNDLOWAT}{34}{subsection.3.9.9}
+\contentsline {subsection}{\numberline {3.9.10}SO\_RCVTIMEO}{34}{subsection.3.9.10}
+\contentsline {subsection}{\numberline {3.9.11}SO\_SNDTIMEO}{34}{subsection.3.9.11}
+\contentsline {subsection}{\numberline {3.9.12}SO\_REUSERADDR}{35}{subsection.3.9.12}
+\contentsline {subsection}{\numberline {3.9.13}SO\_BROADCAST}{35}{subsection.3.9.13}
+\contentsline {subsection}{\numberline {3.9.14}SO\_DEBUG}{35}{subsection.3.9.14}
+\contentsline {subsection}{\numberline {3.9.15}SO\_OOBINLINE}{35}{subsection.3.9.15}
+\contentsline {subsection}{\numberline {3.9.16}TCP\_MAXSEG}{35}{subsection.3.9.16}
+\contentsline {subsection}{\numberline {3.9.17}TCP\_NODELAY}{35}{subsection.3.9.17}
+\contentsline {subparagraph}{参考}{35}{section*.33}
+\contentsline {section}{\numberline {3.10}带外数据-Urgent标志}{35}{section.3.10}
+\contentsline {section}{\numberline {3.11}心搏函数-弥补keepAlive2小时等待时间}{36}{section.3.11}
+\contentsline {section}{\numberline {3.12}高级IO函数}{36}{section.3.12}
+\contentsline {subsection}{\numberline {3.12.1}创建文件描述符系列}{36}{subsection.3.12.1}
+\contentsline {subsubsection}{pipe}{36}{section*.34}
+\contentsline {subsubsection}{socketpair}{36}{section*.35}
+\contentsline {subsubsection}{dup..复制}{37}{section*.36}
+\contentsline {subparagraph}{执行dup 前}{37}{figure.3.7}
+\contentsline {subparagraph}{执行dup 后}{37}{section*.38}
+\contentsline {subparagraph}{例子}{37}{section*.39}
+\contentsline {subsubsection}{dup2.. 重定向}{38}{section*.40}
+\contentsline {subparagraph}{*例子}{38}{section*.41}
+\contentsline {subsection}{\numberline {3.12.2}读写数据系列}{38}{subsection.3.12.2}
+\contentsline {subsubsection}{readv/writev}{38}{section*.42}
+\contentsline {subsubsection}{sendfile}{38}{section*.43}
+\contentsline {subsubsection}{mmap/munmpa}{38}{section*.44}
+\contentsline {subsubsection}{splice}{39}{section*.45}
+\contentsline {subsubsection}{tee}{39}{section*.46}
+\contentsline {subsection}{\numberline {3.12.3}控制IO行为和属性系列}{39}{subsection.3.12.3}
+\contentsline {subsubsection}{fcntl}{39}{section*.47}
+\contentsline {section}{\numberline {3.13}IPC}{39}{section.3.13}
+\contentsline {subsection}{\numberline {3.13.1}IPC 简介}{39}{subsection.3.13.1}
+\contentsline {subsection}{\numberline {3.13.2}信号}{39}{subsection.3.13.2}
+\contentsline {subsection}{\numberline {3.13.3}消息传递}{39}{subsection.3.13.3}
+\contentsline {subsection}{\numberline {3.13.4}信号量}{39}{subsection.3.13.4}
+\contentsline {subsubsection}{信号量}{39}{section*.48}
+\contentsline {paragraph}{简介}{39}{section*.49}
+\contentsline {paragraph}{工作原理}{39}{section*.50}
+\contentsline {paragraph}{使用}{39}{section*.51}
+\contentsline {subsubsection}{与互斥锁的区别}{40}{section*.52}
+\contentsline {subparagraph}{信号量}{40}{section*.53}
+\contentsline {subsection}{\numberline {3.13.5}共享内存}{40}{subsection.3.13.5}
+\contentsline {subsubsection}{虚拟内存}{40}{section*.54}
+\contentsline {subsubsection}{mmap 系列}{41}{section*.55}
+\contentsline {subparagraph}{例子}{41}{section*.56}
+\contentsline {subsubsection}{shmget 系列}{42}{section*.57}
+\contentsline {subparagraph}{例子}{42}{section*.58}
+\contentsline {section}{\numberline {3.14}阻塞与非阻塞、同步与异步}{42}{section.3.14}
+\contentsline {subsection}{\numberline {3.14.1}同步/异步主要针对C端}{42}{subsection.3.14.1}
+\contentsline {subsection}{\numberline {3.14.2}阻塞/非阻塞主要针对S端}{42}{subsection.3.14.2}
+\contentsline {subsection}{\numberline {3.14.3}Linux 下的5种I/O 模型}{43}{subsection.3.14.3}
+\contentsline {subsubsection}{阻塞I/O: Blocking I/O}{43}{section*.59}
+\contentsline {subparagraph}{阻塞I/O模型图}{43}{section*.60}
+\contentsline {subsubsection}{非阻塞I/O： nonBlocking I/O}{45}{section*.61}
+\contentsline {subsubsection}{I/O复用： I/O multiplexing}{46}{section*.62}
+\contentsline {subsubsection}{信号驱动I/O：SIGIO}{46}{section*.63}
+\contentsline {subsubsection}{异步I/O：asynchronous I/O}{46}{section*.64}
+\contentsline {subsection}{\numberline {3.14.4}参考}{47}{subsection.3.14.4}
+\contentsline {section}{\numberline {3.15}Select 模型：管理多个IO}{47}{section.3.15}
+\contentsline {subsection}{\numberline {3.15.1}相关函数}{47}{subsection.3.15.1}
+\contentsline {paragraph}{可读事件发生条件}{48}{section*.65}
+\contentsline {paragraph}{可写事件发生条件}{48}{section*.66}
+\contentsline {paragraph}{异常事件发生条件}{48}{section*.67}
+\contentsline {paragraph}{最大处理描述符值}{48}{section*.68}
+\contentsline {subsection}{\numberline {3.15.2}使用select实现回射服务程序}{49}{subsection.3.15.2}
+\contentsline {subsubsection}{Client}{49}{section*.69}
+\contentsline {subsubsection}{Server}{49}{section*.70}
+\contentsline {section}{\numberline {3.16}Poll 模型：不再限制最大描述符值}{51}{section.3.16}
+\contentsline {subsection}{\numberline {3.16.1}相关函数}{51}{subsection.3.16.1}
+\contentsline {subsection}{\numberline {3.16.2}实例}{52}{subsection.3.16.2}
+\contentsline {section}{\numberline {3.17}Epoll 模型：实现更高效率}{52}{section.3.17}
+\contentsline {subsection}{\numberline {3.17.1}相关函数}{52}{subsection.3.17.1}
+\contentsline {subsection}{\numberline {3.17.2}使用epoll 实现回射服务器}{52}{subsection.3.17.2}
+\contentsline {subsubsection}{Server}{53}{section*.71}
+\contentsline {subsection}{\numberline {3.17.3}Epoll 触发方式}{57}{subsection.3.17.3}
+\contentsline {subparagraph}{EPOLLLT}{57}{section*.72}
+\contentsline {subparagraph}{EPOLLET}{57}{section*.73}
+\contentsline {section}{\numberline {3.18}select、poll、epoll比较}{57}{section.3.18}
+\contentsline {subsection}{\numberline {3.18.1}select}{57}{subsection.3.18.1}
+\contentsline {subsection}{\numberline {3.18.2}poll}{58}{subsection.3.18.2}
+\contentsline {subsection}{\numberline {3.18.3}epoll}{58}{subsection.3.18.3}
+\contentsline {subsection}{\numberline {3.18.4}区别对比}{58}{subsection.3.18.4}
+\contentsline {subsubsection}{支持一个进程所能打开的最大连接数}{58}{section*.74}
+\contentsline {subsubsection}{FD剧增后带来的IO效率问题}{58}{section*.75}
+\contentsline {subsubsection}{消息传递方式}{59}{section*.76}
+\contentsline {subsubsection}{总结}{59}{section*.77}
+\contentsline {section}{\numberline {3.19}UDP}{59}{section.3.19}
+\contentsline {section}{\numberline {3.20}套接字与流之间的转换}{59}{section.3.20}
+\contentsline {subsection}{\numberline {3.20.1}转换}{59}{subsection.3.20.1}
+\contentsline {subparagraph}{fileno()}{59}{section*.78}
+\contentsline {subparagraph}{fdopen()}{59}{section*.79}
+\contentsline {subsection}{\numberline {3.20.2}缓冲}{59}{subsection.3.20.2}
+\contentsline {section}{\numberline {3.21}非阻塞 socket}{59}{section.3.21}
+\contentsline {section}{\numberline {3.22}Unix 域套接字编程：本地进程间通信}{59}{section.3.22}
+\contentsline {section}{\numberline {3.23}HTTP}{59}{section.3.23}
+\contentsline {subsection}{\numberline {3.23.1}概要}{59}{subsection.3.23.1}
+\contentsline {subsection}{\numberline {3.23.2}技术架构}{59}{subsection.3.23.2}
+\contentsline {section}{\numberline {3.24}提高性能的措施}{60}{section.3.24}
+\contentsline {subsection}{\numberline {3.24.1}池}{60}{subsection.3.24.1}
+\contentsline {subsubsection}{内存池}{60}{section*.80}
+\contentsline {subsubsection}{进程池与线程池}{60}{section*.81}
+\contentsline {subsubsection}{连接池}{60}{section*.82}
+\contentsline {subsection}{\numberline {3.24.2}数据拷贝}{60}{subsection.3.24.2}
+\contentsline {subsection}{\numberline {3.24.3}锁与上下文切换}{60}{subsection.3.24.3}
+\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}负载均衡}{61}{chapter.4}
+\contentsline {section}{\numberline {4.1}负载均衡}{61}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}概述}{61}{subsection.4.1.1}
+\contentsline {subparagraph}{Example：}{61}{section*.83}
+\contentsline {subsection}{\numberline {4.1.2}设计思路}{61}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}群集技术}{61}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}集群系统}{61}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}服务器集群}{61}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}RPC}{61}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}分布式系统}{62}{subsection.4.2.4}
+\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}常见服务器模型}{63}{chapter.5}
+\contentsline {section}{\numberline {5.1}ReActor 模式}{63}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}例子学习ReActor}{63}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}参考}{64}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}阻塞IO服务器模型之单线程服务器模型}{64}{section.5.2}
+\contentsline {section}{\numberline {5.3}ProActor}{65}{section.5.3}
+\contentsline {section}{\numberline {5.4}Reactor with Proactor}{65}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}reactor}{65}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}proactor}{65}{subsection.5.4.2}
+\contentsline {subsection}{\numberline {5.4.3}区别}{66}{subsection.5.4.3}
+\contentsline {section}{\numberline {5.5}半同步半异步模型}{66}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}同步}{66}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}异步}{66}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.3}半同步半异步}{66}{subsection.5.5.3}
+\contentsline {subsubsection}{半同步半反应堆模式}{66}{section*.84}
+\contentsline {subparagraph}{缺点}{67}{section*.85}
+\contentsline {subparagraph}{例子}{67}{section*.86}
+\contentsline {subsubsection}{more Efficient}{67}{section*.87}
+\contentsline {section}{\numberline {5.6}领导者追随者模式}{67}{section.5.6}
+\contentsline {chapter}{\numberline {第六章\hspace {0.3em}}如何使用多台机器并行处理数据}{69}{chapter.6}
+\contentsline {section}{\numberline {6.1}集群服务器}{69}{section.6.1}
+\contentsline {section}{\numberline {6.2}分布式服务器}{69}{section.6.2}
+\contentsline {chapter}{\numberline {第七章\hspace {0.3em}}调试}{71}{chapter.7}
+\contentsline {section}{\numberline {7.1}ACK 与 Seq}{71}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}建立与释放阶段}{71}{subsection.7.1.1}
+\contentsline {subsection}{\numberline {7.1.2}数据传输阶段}{71}{subsection.7.1.2}
+\contentsline {subparagraph}{Note}{72}{section*.88}
+\contentsline {section}{\numberline {7.2}strace}{72}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}指定追踪类型}{72}{subsection.7.2.1}
+\contentsline {section}{\numberline {7.3}tcpdump}{72}{section.7.3}
+\contentsline {section}{\numberline {7.4}nc}{72}{section.7.4}
+\contentsline {section}{\numberline {7.5}lsof}{72}{section.7.5}
+\contentsline {section}{\numberline {7.6}netstat}{73}{section.7.6}
+\contentsline {section}{\numberline {7.7}vmstat}{73}{section.7.7}
+\contentsline {section}{\numberline {7.8}ifstat}{73}{section.7.8}
+\contentsline {section}{\numberline {7.9}mpstat}{73}{section.7.9}
+\contentsline {section}{\numberline {7.10}top}{73}{section.7.10}
+\contentsline {section}{\numberline {7.11}ping}{73}{section.7.11}
+\contentsline {section}{\numberline {7.12}iptables}{73}{section.7.12}
+\contentsline {section}{\numberline {7.13}TTCP}{73}{section.7.13}
+\contentsline {chapter}{\numberline {第八章\hspace {0.3em}}理论}{75}{chapter.8}
+\contentsline {section}{\numberline {8.1}网络的性能}{75}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}速率}{75}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}带宽}{75}{subsection.8.1.2}
+\contentsline {subsection}{\numberline {8.1.3}吞吐量}{75}{subsection.8.1.3}
+\contentsline {subsection}{\numberline {8.1.4}时延}{75}{subsection.8.1.4}
+\contentsline {subparagraph}{发送时延 Transmission Delay}{75}{section*.89}
+\contentsline {subparagraph}{传播时延 Propagation Delay}{75}{section*.90}
+\contentsline {subparagraph}{处理时延}{75}{section*.91}
+\contentsline {subparagraph}{排队时延}{76}{section*.92}
+\contentsline {subsection}{\numberline {8.1.5}时延带宽积}{76}{subsection.8.1.5}
+\contentsline {subsection}{\numberline {8.1.6}往返时间RTT}{76}{subsection.8.1.6}
+\contentsline {subsection}{\numberline {8.1.7}利用率}{76}{subsection.8.1.7}
+\contentsline {section}{\numberline {8.2}应用层 }{76}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}域名系统 DNS}{76}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}文件传送 FTP}{76}{subsection.8.2.2}
+\contentsline {subsection}{\numberline {8.2.3}万维 WWW}{77}{subsection.8.2.3}
+\contentsline {subsection}{\numberline {8.2.4}动态主机配置 DHCP}{77}{subsection.8.2.4}
+\contentsline {subsection}{\numberline {8.2.5}电子邮件 SMTP IMAP}{77}{subsection.8.2.5}
+\contentsline {subsection}{\numberline {8.2.6}简单网络管理 SNMP}{77}{subsection.8.2.6}
+\contentsline {subsection}{\numberline {8.2.7}APP 分别使用传输层的 协议对照}{77}{subsection.8.2.7}
+\contentsline {section}{\numberline {8.3}传输层 TCP}{77}{section.8.3}
+\contentsline {subsection}{\numberline {8.3.1}基本概念对照}{77}{subsection.8.3.1}
+\contentsline {subsubsection}{TCP 可靠性}{77}{section*.93}
+\contentsline {subsubsection}{复用与分用}{78}{section*.94}
+\contentsline {subsubsection}{端口}{78}{section*.95}
+\contentsline {subparagraph}{引入问题}{78}{section*.96}
+\contentsline {subparagraph}{解决方法}{78}{section*.97}
+\contentsline {subparagraph}{端口号分类}{78}{section*.98}
+\contentsline {subsection}{\numberline {8.3.2}UDP}{79}{subsection.8.3.2}
+\contentsline {subsubsection}{特点}{79}{section*.99}
+\contentsline {subsubsection}{网络控制特点}{79}{section*.100}
+\contentsline {subsection}{\numberline {8.3.3}TCP}{79}{subsection.8.3.3}
+\contentsline {section}{\numberline {8.4}网络层 IP}{79}{section.8.4}
+\contentsline {subsection}{\numberline {8.4.1}分类的IP地址}{79}{subsection.8.4.1}
+\contentsline {subsubsection}{IP 地址类型}{79}{section*.101}
+\contentsline {subparagraph}{A类IP 地址}{79}{section*.102}
+\contentsline {subparagraph}{B类IP 地址}{79}{section*.103}
+\contentsline {subparagraph}{C类IP 地址}{79}{section*.104}
+\contentsline {subparagraph}{其他}{80}{section*.105}
+\contentsline {subsection}{\numberline {8.4.2}子网掩码}{80}{subsection.8.4.2}
+\contentsline {section}{\numberline {8.5}数据链路层 Hardware}{81}{section.8.5}
+\contentsline {chapter}{\numberline {第九章\hspace {0.3em}}资源}{83}{chapter.9}
+\contentsline {section}{\numberline {9.1}读书路线}{83}{section.9.1}
+\contentsline {subparagraph}{0.Linux 命令大全}{83}{section*.106}
+\contentsline {subparagraph}{1.Linux高性能服务器编程}{83}{section*.107}
+\contentsline {subparagraph}{2.构建高可用Linux服务器}{83}{section*.108}
+\contentsline {subparagraph}{3.Linux多线程服务端编程}{83}{section*.109}
+\contentsline {section}{\numberline {9.2}项目学习}{83}{section.9.2}
+\contentsline {subparagraph}{参见 C++\_Project}{83}{section*.110}
+\contentsline {section}{\numberline {9.3}参考}{83}{section.9.3}
+\contentsline {subparagraph}{0.学习路线}{83}{section*.111}
+\contentsline {subparagraph}{1.使用socket通信实现FTP服务器}{83}{section*.112}
+\contentsline {subparagraph}{2.游戏服务器的见闻}{83}{section*.113}
+\contentsline {subparagraph}{3.高性能服务器模型}{83}{section*.114}
+\contentsline {subparagraph}{4.面试题}{83}{section*.115}
+\contentsline {subparagraph}{5.相关函数}{83}{section*.116}

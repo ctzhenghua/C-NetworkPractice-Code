@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2017.9.7)  7 SEP 2017 14:03
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2017.9.7)  7 SEP 2017 23:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1974,7 +1974,7 @@ File: TCP-4.png Graphic file (type QTm)
 * Font 'FandolFang-Regular' does not contain script 'CJK'.
 *************************************************
 \g__fontspec_family_FandolFang-Regular_int=\count201
-LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 197
+LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 204
 .
 (/usr/local/texlive/2015/texmf-dist/tex/latex/euenc/eu1lmtt.fd
 File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -2009,10 +2009,10 @@ File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 LaTeX Font Warning: Font shape `EU1/FandolSong-Regular(0)/bx/it' undefined
 (Font)              using `EU1/FandolSong-Regular(0)/bx/n' instead on input lin
-e 276.
+e 283.
 
 [16]
-Overfull \hbox (7.72827pt too wide) in paragraph at lines 278--279
+Overfull \hbox (7.72827pt too wide) in paragraph at lines 285--286
 []\EU1/lmr/m/it/10 struct hostent* gethostbyname(char *host)\EU1/lmr/m/n/10 : \
 EU1/FandolSong-Regular(0)/bx/n/10 通 过 主 机 名 返 回 该 主 机 的 网 络 地 址 \EU1/lmr/bx/n/1
 0 list\EU1/lmr/m/n/10 ,ip = hostent->h_addr_list[i]
@@ -2023,10 +2023,32 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21]
 [22] [23]
+
+LaTeX Warning: File `fork.jpg' not found on input line 665.
+
+! Unable to load picture or PDF file 'fork.jpg'.
+<to be read again> 
+                   }
+l.665 ...^I\includegraphics[scale = 0.7]{fork.jpg}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+File: fork.jpg Graphic file (type QTm)
+<use  "fork.jpg" >
+! Unable to load picture or PDF file 'fork.jpg'.
+<to be read again> 
+                   \GXT@clipend 
+l.665 ...^I\includegraphics[scale = 0.7]{fork.jpg}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+[24]
 File: TCP-status.jpg Graphic file (type QTm)
- <use  "TCP-status.jpg" > [24] [25]
+ <use  "TCP-status.jpg" > [25] [26] [27]
 File: TCP-3times.png Graphic file (type QTm)
- <use  "TCP-3times.png" > [26]
+ <use  "TCP-3times.png" > [28]
 File: Tcp-close.png Graphic file (type QTm)
 
 <use  "Tcp-close.png" >
@@ -2034,76 +2056,64 @@ File: Client-status.png Graphic file (type QTm)
  <use  "Client-status.png" >
 File: Server-status.png Graphic file (type QTm)
 
-<use  "Server-status.png" > [27]
-Overfull \hbox (2.12068pt too wide) in paragraph at lines 788--790
-[]\EU1/FandolSong-Regular(0)/m/n/10 允 许 老 的 重 复 分 节 在 网 络 中 消 逝，|  这 样 就 不 会 在 
-新 建 在 原 来 的 \EU1/lmr/m/n/10 IP \EU1/FandolSong-Regular(0)/m/n/10 端 口 上 收 到 失 效 
-的 过 期 数 据，|  这 也 是[]\EU1/lmtt/m/n/10 TIME_WAIT
- []
-
-[28] [29]
-Overfull \hbox (15.52174pt too wide) in paragraph at lines 843--844
+<use  "Server-status.png" > [29] [30] [31]
+Overfull \hbox (15.52174pt too wide) in paragraph at lines 913--914
 []\EU1/FandolSong-Regular(0)/m/n/10 对 于 \EU1/FandolSong-Regular(0)/bx/n/10 消 息 
 传 递\EU1/FandolSong-Regular(0)/m/n/10 ，|  解 决 办 法 是 \EU1/FandolSong-Regular(0)/b
 x/n/10 设 置 缓 冲 区 的 大 小 限 制\EU1/FandolSong-Regular(0)/m/n/10 ，|  然 后，|  当 我 们 到 
 达 这 些 限 制 时，|  采 取 一 些 明 智 的 行 动。| []\EU1/FandolFang-Regular(0)/m/n/10 在某些情况下
  []
 
+[32]
 File: keepAlive.jpg Graphic file (type QTm)
-<use  "keepAlive.jpg" >
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[30] [31]
+ <use  "keepAlive.jpg" > [33]
 Missing character: There is no μ in font [lmroman10-regular]:mapping=tex-text!
- [32] [33]
+ [34] [35] [36]
 File: orgi.png Graphic file (type QTm)
  <use  "orgi.png" >
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 File: after.png Graphic file (type QTm)
-<use  "after.png" > [34] [35] [36]
-Overfull \hbox (12.97177pt too wide) in paragraph at lines 1162--1163
+
+<use  "after.png" > [37] [38]
+Overfull \hbox (12.97177pt too wide) in paragraph at lines 1232--1233
 \EU1/FandolSong-Regular(0)/m/n/10 作。|  设 置 了[]\EU1/lmtt/m/n/10 IPC_CREAT \EU1/F
 andolSong-Regular(0)/m/n/10 标 志 后，|  即 使 给 出 的 键 是 一 个 已 有 信 号 量 的 键，|  也 不 会 产
  生 错 误。|  而[]\EU1/lmtt/m/n/10 IPC_CREAT\EU1/lmr/m/n/10 |[]\EU1/lmtt/m/n/10 IPC_
 EXCL
  []
 
-[37] [38] [39]
-Overfull \hbox (24.95175pt too wide) in paragraph at lines 1280--1282
+[39] [40] [41]
+Overfull \hbox (24.95175pt too wide) in paragraph at lines 1350--1352
  []\EU1/FandolSong-Regular(0)/bx/n/10 例 子[] []\EU1/lmtt/m/n/10 -> [][]$[][][][]
 [] [] [] [] [][][][][][] [] [][][] [] [][][][][][][][][][] [] [][][][][][][][][
 ][][][][][][][][][][][][][][][] [] [][][][] [] [][][] [] [][][][] [] [][][][][]
 [][][][][][][] [] [][][][][][][] []
  []
 
-[40]
+[42]
 File: BlockingIO.jpg Graphic file (type QTm)
- <use  "BlockingIO.jpg" > [41]
+ <use  "BlockingIO.jpg" > [43]
 File: MultiThread.jpg Graphic file (type QTm)
- <use  "MultiThread.jpg" > [42]
+ <use  "MultiThread.jpg" > [44]
 File: nonBlockingIO.jpg Graphic file (type QTm)
 
-<use  "nonBlockingIO.jpg" > [43]
+<use  "nonBlockingIO.jpg" > [45]
 File: IOMultiplexing.jpg Graphic file (type QTm)
  <use  "IOMultiplexing.jpg" >
-Overfull \hbox (33.42822pt too wide) in paragraph at lines 1391--1392
+Overfull \hbox (33.42822pt too wide) in paragraph at lines 1461--1462
  [][] 
  []
 
 File: asyIO.jpg Graphic file (type QTm)
 <use  "asyIO.jpg" >
-Overfull \hbox (20.78093pt too wide) in paragraph at lines 1401--1402
+Overfull \hbox (20.78093pt too wide) in paragraph at lines 1471--1472
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[44]
-Overfull \hbox (15.20512pt too wide) in paragraph at lines 1414--1415
+[46]
+Overfull \hbox (15.20512pt too wide) in paragraph at lines 1484--1485
 [][]\EU1/lmtt/m/n/10 int select(int nfds\EU1/lmr/m/n/10 [\EU1/FandolSong-Regula
 r(0)/bx/n/10 最 大 套 接 字 \EU1/lmr/bx/n/10 +1\EU1/lmr/m/n/10 ][]\EU1/lmtt/m/n/10 ,
 fd_set *readfds\EU1/lmr/m/n/10 [\EU1/FandolSong-Regular(0)/bx/n/10 可 读 事 件 套 接 
@@ -2113,7 +2123,7 @@ fd_set *readfds\EU1/lmr/m/n/10 [\EU1/FandolSong-Regular(0)/bx/n/10 可 读 事 �
  []
 
 
-Overfull \hbox (15.95378pt too wide) in paragraph at lines 1414--1415
+Overfull \hbox (15.95378pt too wide) in paragraph at lines 1484--1485
 \EU1/FandolSong-Regular(0)/bx/n/10 写 事 件 套 接 字 集 合\EU1/lmr/bx/n/10 -\EU1/Fandol
 Song-Regular(0)/bx/n/10 输 入 输 出\EU1/lmr/m/n/10 ][]\EU1/lmtt/m/n/10 ,fd_set *exc
 eptfds\EU1/lmr/m/n/10 [\EU1/FandolSong-Regular(0)/bx/n/10 异 常 事 件 套 接 字 集 合\EU1
@@ -2121,25 +2131,25 @@ eptfds\EU1/lmr/m/n/10 [\EU1/FandolSong-Regular(0)/bx/n/10 异 常 事 件 套 �
 U1/lmtt/m/n/10 struct timeval* timeout); 
  []
 
-[45] [46] [47]
+[47] [48] [49]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [48]
-[49] [50] [51]
+ [50]
+[51] [52] [53]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [52]
+ [54]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [53]
-[54] [55] [56] [57] [58]
+ [55]
+[56] [57] [58] [59] [60]
 第四章
-[59
+[61
 
-] [60]
+] [62]
 第五章
 File: Reactor.png Graphic file (type QTm)
-<use  "Reactor.png" > [61
+<use  "Reactor.png" > [63
 
 ]
 File: ReactorExample.png Graphic file (type QTm)
@@ -2150,10 +2160,10 @@ File: IO_SingleThread_Blocking.jpg Graphic file (type QTm)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[62] [63]
+[64] [65]
 File: half.png Graphic file (type QTm)
- <use  "half.png" > [64]
-Overfull \hbox (36.50174pt too wide) in paragraph at lines 2288--2289
+ <use  "half.png" > [66]
+Overfull \hbox (36.50174pt too wide) in paragraph at lines 2358--2359
 []\EU1/FandolSong-Regular(0)/bx/n/10 改 进 方 面\EU1/FandolSong-Regular(0)/m/n/10 ：
 |  让 一 个 工 作 线 程 能 够 处 理 很 多 的 客 户 请 求。|  即 对 每 一 个 工 作 线 程，|  对 于 各 自 连 接 的[]\
 EU1/lmtt/m/n/10 socket \EU1/FandolSong-Regular(0)/m/n/10 们 调 用[]\EU1/lmtt/m/n/1
@@ -2161,59 +2171,76 @@ EU1/lmtt/m/n/10 socket \EU1/FandolSong-Regular(0)/m/n/10 们 调 用[]\EU1/lmtt/
  []
 
 File: half2.png Graphic file (type QTm)
-<use  "half2.png" > [65] [66
+<use  "half2.png" > [67] [68
 
 ]
 第六章
-[67] [68
+[69] [70
 
 ]
 第七章
-[69]
+[71]
 File: strace-Net.png Graphic file (type QTm)
- <use  "strace-Net.png" >
-Underfull \vbox (badness 2142) has occurred while \output is active []
-
- [70]
-[71] [72
+ <use  "strace-Net.png" > [72] [73] [74
 
 ]
 第八章
-[73]
+[75]
 File: DNS.png Graphic file (type QTm)
- <use  "DNS.png" > [74] [75]
-File: TCP-MM.jpg Graphic file (type QTm)
- <use  "TCP-MM.jpg" > [76]
-File: IPClassify.png Graphic file (type QTm)
+ <use  "DNS.png" > [76]
 
-<use  "IPClassify.png" >
-Underfull \hbox (badness 3965) in paragraph at lines 2591--2591
+LaTeX Warning: File `App-Proposal.png' not found on input line 2559.
+
+! Unable to load picture or PDF file 'App-Proposal.png'.
+<to be read again> 
+                   }
+l.2559 ...egraphics[scale = 0.7]{App-Proposal.png}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+File: App-Proposal.png Graphic file (type QTm)
+<use  "App-Proposal.png" >
+! Unable to load picture or PDF file 'App-Proposal.png'.
+<to be read again> 
+                   \GXT@clipend 
+l.2559 ...egraphics[scale = 0.7]{App-Proposal.png}
+                                                  
+The requested image couldn't be read because
+it was not a recognized image format.
+
+[77]
+File: TCP-MM.jpg Graphic file (type QTm)
+ <use  "TCP-MM.jpg" > [78]
+File: IPClassify.png Graphic file (type QTm)
+ <use  "IPClassify.png" >
+Underfull \hbox (badness 3965) in paragraph at lines 2661--2661
 []|\EU1/FandolSong-Regular(0)/m/n/10 最 大 可 指 派 的 网 络
  []
 
 
-Underfull \hbox (badness 3965) in paragraph at lines 2591--2591
+Underfull \hbox (badness 3965) in paragraph at lines 2661--2661
 []|\EU1/FandolSong-Regular(0)/m/n/10 第 一 个 可 指 派 的 网
  []
 
 
-Underfull \hbox (badness 3965) in paragraph at lines 2591--2591
+Underfull \hbox (badness 3965) in paragraph at lines 2661--2661
 []|\EU1/FandolSong-Regular(0)/m/n/10 最 后 一 个 可 指 派 的
  []
 
 
-Underfull \hbox (badness 3965) in paragraph at lines 2591--2592
+Underfull \hbox (badness 3965) in paragraph at lines 2661--2662
 []|\EU1/FandolSong-Regular(0)/m/n/10 每 个 网 络 中 最 大 的
  []
 
-[77]
-Overfull \hbox (2.2963pt too wide) in paragraph at lines 2611--2611
+[79]
+Overfull \hbox (2.2963pt too wide) in paragraph at lines 2681--2681
 []|[]\EU1/FandolFang-Regular(0)/m/n/10 非全\EU1/lmtt/m/n/10 0\EU1/FandolFang-Regu
 lar(0)/m/n/10 或全\EU1/lmtt/m/n/10 1\EU1/FandolFang-Regular(0)/m/n/10 的任何数| 
  []
 
 
-Overfull \hbox (0.16966pt too wide) in paragraph at lines 2620--2621
+Overfull \hbox (0.16966pt too wide) in paragraph at lines 2690--2691
 []\EU1/FandolSong-Regular(0)/m/n/10 子 网 掩 码 ——|  屏 蔽 一 个[]\EU1/lmtt/m/n/10 IP \
 EU1/FandolSong-Regular(0)/m/n/10 地 址 的 网 络 部 分 的  |“全 \EU1/lmr/m/n/10 1\EU1/Fan
 dolSong-Regular(0)/m/n/10 ”|  比 特 模 式。|  对 于 \EU1/lmr/bx/n/10 A \EU1/FandolSong
@@ -2222,12 +2249,12 @@ dolSong-Regular(0)/m/n/10 ”|  比 特 模 式。|  对 于 \EU1/lmr/bx/n/10 A 
  []
 
 File: subNetMask.png Graphic file (type QTm)
-<use  "subNetMask.png" > [78] [79] [80
+<use  "subNetMask.png" > [80] [81] [82
 
 ]
 第九章
 
-Overfull \hbox (0.42722pt too wide) in paragraph at lines 2650--2651
+Overfull \hbox (0.42722pt too wide) in paragraph at lines 2720--2721
  []\EU1/lmr/bx/n/10 1. \EU1/FandolSong-Regular(0)/bx/n/10 使 用 \EU1/lmr/bx/n/10 
 socket \EU1/FandolSong-Regular(0)/bx/n/10 通 信 实 现 \EU1/lmr/bx/n/10 FTP \EU1/Fan
 dolSong-Regular(0)/bx/n/10 服 务 器[] [][]$[][][][] [] [] [] [][][] [] [][][] [] [
@@ -2235,24 +2262,27 @@ dolSong-Regular(0)/bx/n/10 服 务 器[] [][]$[][][][] [] [] [] [][][] [] [][][]
 [][][][][][][][][]$[][] 
  []
 
-[81]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2658.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2658.
+[83]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2728.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2728.
  (./C++_NetProgram.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2658.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2658.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2728.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2728.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 38849 strings out of 493706
- 779035 string characters out of 6145770
+ 38857 strings out of 493706
+ 779123 string characters out of 6145770
  915528 words of memory out of 5000000
- 41669 multiletter control sequences out of 15000+600000
+ 41675 multiletter control sequences out of 15000+600000
  10746 words of font info for 79 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 63i,13n,74p,10420b,2054s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,13n,74p,10420b,1795s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on C++_NetProgram.pdf (81 pages).
+Output written on C++_NetProgram.pdf (83 pages).
