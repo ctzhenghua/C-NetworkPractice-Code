@@ -275,6 +275,7 @@
 \contentsline {subsection}{\numberline {25.4.1}定义问题}{120}{subsection.25.4.1}
 \contentsline {subsection}{\numberline {25.4.2}空指针解引用}{120}{subsection.25.4.2}
 \contentsline {subsection}{\numberline {25.4.3}指针非法使用}{120}{subsection.25.4.3}
+\contentsline {subsection}{\numberline {25.4.4}数组参数}{121}{subsection.25.4.4}
 \contentsline {section}{\numberline {25.5}安全缺陷}{121}{section.25.5}
 \contentsline {subsection}{\numberline {25.5.1}外部输入安全缺陷}{121}{subsection.25.5.1}
 \contentsline {subsection}{\numberline {25.5.2}资源泄漏}{121}{subsection.25.5.2}
@@ -289,6 +290,6 @@
 \contentsline {subsection}{\numberline {25.7.1}预处理}{122}{subsection.25.7.1}
 \contentsline {subsection}{\numberline {25.7.2}异常}{122}{subsection.25.7.2}
 \contentsline {subsection}{\numberline {25.7.3}多线程和同步性}{122}{subsection.25.7.3}
-\contentsline {subsection}{\numberline {25.7.4}代码不可达}{122}{subsection.25.7.4}
-\contentsline {subsection}{\numberline {25.7.5}关于VS2013中的相对路径问题}{122}{subsection.25.7.5}
+\contentsline {subsection}{\numberline {25.7.4}代码不可达}{123}{subsection.25.7.4}
+\contentsline {subsection}{\numberline {25.7.5}关于VS2013中的相对路径问题}{123}{subsection.25.7.5}
 \contentsline {subsection}{\numberline {25.7.6}编译}{123}{subsection.25.7.6}

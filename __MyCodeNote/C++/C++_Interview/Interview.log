@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/W32TeX) (preloaded format=xelatex 2017.2.16)  22 AUG 2017 21:42
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/W32TeX) (preloaded format=xelatex 2017.2.16)  28 SEP 2017 14:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1671,43 +1671,59 @@ File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 . and font adjustment code:
 . 
 .................................................
- [4]
-Overfull \hbox (8.48175pt too wide) in paragraph at lines 76--77
+ [4] [5]
+[6]
+Overfull \hbox (8.48175pt too wide) in paragraph at lines 190--191
 [][][]$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][][][][][][][] [] []
 [][][][][][][][][][][][][][][][][][][][][][][] [] [][][][] [] [][][] [] [][][][
 ][][][] [] [][][][][][][][][][][] [] [][][][][][][][] [] [][]$[][] 
  []
 
-[5] [6] [7] [8]
-Overfull \hbox (10.09221pt too wide) in paragraph at lines 278--279
+[7] [8]
+Overfull \hbox (1.96344pt too wide) in paragraph at lines 245--246
+\EU1/SimSun(0)/m/n/10 里 看，|  是 \EU1/SimSun(0)/bx/n/10 半 小 时 监 控 一 次 \EU1/lmr/bx
+/n/10 crontab \EU1/SimSun(0)/bx/n/10 文 件 是 否 有 改 动\EU1/SimSun(0)/m/n/10 。|  对 \
+EU1/lmr/m/n/10 suse \EU1/SimSun(0)/m/n/10 而 言，| \EU1/lmr/m/n/10 crontab \EU1/Si
+mSun(0)/m/n/10 服 务 启 动 后，|  会 检 查[]\EU1/lmtt/m/n/10 /var/spool/cron/tabs
+ []
+
+
+Overfull \hbox (14.90363pt too wide) in paragraph at lines 247--248
+\EU1/SimSun(0)/m/it/10 动\EU1/SimSun(0)/m/n/10 ，|  如 果 有 变 动，|  则 发 送 信 号 到 调 度 
+进 程，|  调 度 进 程 再 重 新 读 取 配 置 文 件 更 新 内 存 中 的 任 务 队 列，|  同 理，| []\EU1/lmtt/m/n/1
+0 service cron stop
+ []
+
+[9] [10] [11] [12] [13]
+Overfull \hbox (10.09221pt too wide) in paragraph at lines 459--460
 \EU1/SimSun(0)/m/n/10 类 都 重 写 了 这 个 方 法。|  那 么 我 们 可 以 定 义 一 个[]\EU1/lmtt/m/n/1
 0 superClass \EU1/SimSun(0)/m/n/10 的[]\EU1/FangSong(0)/m/n/10 引用\EU1/lmtt/m/n/1
 0 obj\EU1/SimSun(0)/m/n/10 ，|  让 它 指 向 一 个 子 类 的 对 象，|  比 如[]\EU1/lmtt/m/n/10 s
 uperClass
  []
 
-[9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22]
-Overfull \hbox (9.20175pt too wide) in paragraph at lines 535--538
+[14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26]
+Overfull \hbox (9.20175pt too wide) in paragraph at lines 738--741
  []\EU1/SimSun(0)/bx/n/10 连 跳[] [][]$[][][][][] [] [] [] [][][][][][] [] [][][]
 [][] [] [][][] [] [][][][][][][][] [] [][][][][][][][][][][][][][][][][][] [] [
 ][][][]$[][] [][]$[][][][] [] [] [] [][][][] [] [][][][] [] [][][] [] [][][][][
 ][][] [] [][][][] []
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 566.
-[23]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 566.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 769.
+[27]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 769.
  (./Interview.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 566.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 566.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 769.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 769.
  ) 
 Here is how much of TeX's memory you used:
- 29328 strings out of 493706
- 567889 string characters out of 6145376
- 660285 words of memory out of 5000000
- 32375 multiletter control sequences out of 15000+600000
+ 29349 strings out of 493706
+ 568894 string characters out of 6145376
+ 664285 words of memory out of 5000000
+ 32396 multiletter control sequences out of 15000+600000
  10682 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  63i,6n,75p,10417b,1190s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Interview.pdf (23 pages).
+Output written on Interview.pdf (27 pages).

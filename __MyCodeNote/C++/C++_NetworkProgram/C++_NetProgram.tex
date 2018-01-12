@@ -61,7 +61,114 @@
 \begin{document}          %正文排版开始
  	\maketitle
  	\tableofcontents
- 	 
+\chapter{架构篇}
+	 \section{架构篇}
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[width=0.8\linewidth]{server-Arch}
+			\caption{基本架构}
+			\label{fig:server-arch}
+		\end{figure}
+		 
+		\subsection{队列+连接池}
+			主要的业务逻辑挪到应用服务器处理，数据库只做辅助的业务处理，解决数据库的瓶颈问题。
+		
+		\subsection{缓存}
+			缓存更新（缓存同步）。 缓存 time out
+			
+			如果缓存失效，重新去数据库查询，实时性比较差，替而代之的，一旦数据库中的数据更新，立即通知前端的缓存更新，实时性较高。
+			
+			缓存换页  内存不够， 将不活跃的数据换出内存。常用的有以下算法（FIFO先进先出, LRU最近最少使用, LFU最不频繁使用）
+			
+			no-sql
+			
+			分布式缓存-redis 
+		\subsection{数据库读写分离}
+			将数据库的读操作与写操作分离
+			
+			对数据库进行负载均衡  replication机制
+		\subsection{数据分区}
+			分库  垂直分区
+			分表  水平分区（常用）
+			
+		
+		\subsection{应用服务器的负载均衡}
+			增加一个任务服务器来实现，任务服务器可以监视应用服务器的负载，cpu高，IO高，并发高，内存换页高，查询到这些信息后选取负载最低的服务器分配任务。应用服务器被动接受任务。
+			
+			理想状态...应用服务器主动到任务服务器接受任务进行处理。
+			
+			
+		\subsection{服务器性能的四大杀死}
+			\begin{itemize}
+				\item 数据拷贝  缓存
+				\item 环境切换  理性创建多线程
+				\item 内存分配  内存池
+				\item 锁竞争
+			\end{itemize}
+	\section{架构演化流程}
+		\subsection{服务器与数据库分离}
+			\begin{figure}[ht]
+				\centering
+				\includegraphics[width=0.7\linewidth]{server-database}
+				\caption{web server与数据库分离}
+				\label{fig:server-database}
+			\end{figure}
+			
+			\subsubsection{动静分离}	
+				\begin{figure}[ht]
+					\centering
+					\includegraphics[width=0.7\linewidth]{web-Server}
+					\caption{动态请求与静态请求分离}
+					\label{fig:web-server}
+				\end{figure}
+		\subsection{缓存处理}
+			\begin{figure}[ht]
+				\centering
+				\includegraphics[width=0.7\linewidth]{server-cache}
+				\caption{缓存}
+				\label{fig:server-cache}
+			\end{figure}
+		
+		\subsection{服务器集群+读写分离}
+			\begin{figure}[ht]
+			\centering
+				\includegraphics[width=0.4\linewidth]{server-readwrite}
+				\includegraphics[width=0.4\linewidth]{server-readwrite2}
+				\caption{读写分离}
+				\label{fig:server-readwrite}
+			\end{figure}
+			
+		\subsection{负载均衡}
+			\subsubsection{前端负载均衡}
+				\begin{itemize}
+					\item DNS 负载均衡：在DNS服务器中，可以为多个不同的地址配置同一个名字，对于不同的客户机访问同一个名字，得到不同的地址。
+					
+					\item 反向代理： 使用代理服务器将请求发给内部服务器，让代理服务器将请求均匀转发给多台内部web服务器之一，从而达到负载均衡的目的。标准代理方式是客户使用代理访问多个外部Web服务器，而这种代理方式是多个客户使用它访问内部Web服务器，因此也被称为反向代理模式。
+					
+					\item 基于NAT的负载均衡
+					\item LVS
+					\item F5硬件负载均衡技术
+				\end{itemize}
+			\subsubsection{应用服务器负载均衡}
+			
+			\subsubsection{数据库负载均衡}
+			
+		\subsection{CDN、分布式缓存、分库分表}
+			\subsubsection{CDN}内容分割网络
+			
+			\subsubsection{分布式缓存}		
+				\begin{figure}[ht]
+					\centering
+					\includegraphics[width=0.7\linewidth]{server-distributedCache}
+					\caption{分布式缓存}
+					\label{fig:server-distributedcache}
+				\end{figure}
+				
+			 目前流行分布式缓存方案：memcached、membase、redis等，基本上当前的NoSQL方案都可以用来做分布式缓存方案
+			 
+		\subsection{多数据中心+分布式存储与计算}
+		
+		
 \chapter{进程与线程篇}
 	\section{进程、线程-比对}
  	 每个人都有自己的记忆(Memory)，人与人通过谈话(消息传递)来交流，谈话即可以面谈(同一台服务器)，也可以电话里谈(不同的服务器、有网络通信)。面谈和电话谈的区别在于，面谈可以立即知道对方是否死了，而电话谈只能通过周期性的心跳来判断对方是否还活着。
@@ -192,6 +299,10 @@
 					\item 一般情况下UDP\textbf{更高效}
 				\end{itemize}
 			\subsubsection{UDP 报文格式}
+				\begin{itemize}
+					\item 确认服务的端口号
+					\item 正确传输的数据校验和
+				\end{itemize}
 
 \chapter{socket编程篇}
 	\section{基本概念}
@@ -273,7 +384,7 @@
 				本质上是要在应用层维护消息与消息的边界：
 				
 				\begin{itemize}
-					\item 定长包：write\_N --> read\_N
+					\item 定长包：\verb|write_N -> read_N|
 					\item 包围加结束标记\verb|\r \n|等
 					\item 报文头部包括 信息长度.
 				\end{itemize}
@@ -2376,6 +2487,11 @@
 			
 	\section{分布式服务器}
 			\textbf{一个业务分拆多个子业务}，部署在不同的服务器上，具体的平台有Hadoop.分布式 强调 机器间的协作，\textbf{其重点是任务可拆分}， 如 某个任务需要一个机器运行10个小时， 将该该任务用10台机器的分布式跑，可能2个小时就跑完了。（\textbf{子任务之间有依赖关系}）。
+\chapter{网络库}
+	\section{ACE}
+	\section{muduo}
+		 
+		
 \chapter{调试}
 	\section{ACK 与 Seq}
 		\subsection{建立与释放阶段}

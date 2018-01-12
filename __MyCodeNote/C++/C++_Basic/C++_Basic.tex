@@ -1384,6 +1384,7 @@ inline FuncX(...){}
 		{
 			char mutable_c_str[] = "another C-style string";
 			// string::string(InputIt first, InputIt last)
+			// 左闭右开
 			std::string s(std::begin(mutable_c_str)+8, std::end(mutable_c_str)-1);
 			std::cout << s << '\n'; // "C-style string"
 		}
@@ -1638,6 +1639,7 @@ inline FuncX(...){}
 	       	\item   不指明继承方式关键字\verb|public|时，编译器会默认继承方式为\verb|private|或\verb|protected|
 	       	\item   基类的所有私有成员仅在基类中可见，而在派生类中是不可见的。基类的私有成员可以由派生类继承，但是派生类不可见
 	       	\item   继承相当于把父类所有的东西复制了一份，但是可能因访问权限的设置而不能使用。
+	       	\item   公有继承的保护成员，\textbf{只能在派生类中访问，不能用派生类对象访问}
 	       	\item   如果派生类添加了一个数据成员，而该成员与基类中的某个数据成员同名，新的数据类型就  隐藏  了继承来的同名成员；同理，函数也存在隐藏
 	       	\item   派生类可对从基类继承来的保护成员进行访问，也就是说保护成员在派生类中是可见的 ,但是只能在对象内部进行调用，但是不能通过对象在外部调用
 	       	
@@ -1998,6 +2000,8 @@ inline FuncX(...){}
 		
         C++的编译器应该是保证虚函数表的指针存在于对象实例中最前面的位置,这意味着\textbf{我们通过对象实例的地址得到这张虚函数表，然后就可以遍历其中函数指针，并调用相应的函数}。
         
+        
+        \textbf{同属于一个类}的\textit{对象}\textbf{共享虚函数表}， 但是有各自的\verb|_vptr|
         \begin{lstlisting}
 	class Base {
 	public:
@@ -2159,7 +2163,7 @@ inline FuncX(...){}
 \chapter{explicit 关键字}
 
 	\section{作用}
-			explicit关键字用来修饰类的构造函数，被修饰的构造函数的类，不能发生相应的\textbf{隐式类型转换-根据构造函数}，只能以显示的方式进行类型转换。
+			explicit关键字用来修饰类的构造函数，被修饰的构造函数的类，\textbf{不能发生}相应的\textbf{隐式类型转换-根据构造函数}，\textbf{只能以显示的方式}进行\textbf{类型转换}。
         
 	        explicit 关键字作用于单个参数的构造函数。
 	        \subparagraph{示例}：
@@ -3325,6 +3329,7 @@ inline FuncX(...){}
 			\verb|#define INT_PTR int*| 这是\textbf{宏定义}，编译预处理阶段要进行宏替换，\verb|INT_PTR a,b会变成 int* a,b| 所以b不是指针类型
 			
 			\verb|typedef int* int_ptr;| 这是\textbf{自定义类型}，也就是把\verb|int_ptr|定义为 int型指针，编译阶段会把c,d\textbf{都识别}为指针
+			
 		\subsection{空指针解引用}
 			\begin{itemize}
 				\item 
@@ -3333,6 +3338,10 @@ inline FuncX(...){}
 			\begin{itemize}
 				\item 
 			\end{itemize}
+			
+		\subsection{数组参数}
+			数组做函数参数时，\textbf{当做普通指针}来用
+			
 \section{安全缺陷}
 		\subsection{外部输入安全缺陷}
 			\begin{itemize}

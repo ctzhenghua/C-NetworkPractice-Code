@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/W32TeX) (preloaded format=xelatex 2017.2.16)  23 AUG 2017 16:02
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/W32TeX) (preloaded format=xelatex 2017.2.16)  29 SEP 2017 02:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1837,7 +1837,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [67
 
 ]
-Overfull \hbox (9.93369pt too wide) in paragraph at lines 1991--1992
+Overfull \hbox (9.93369pt too wide) in paragraph at lines 1993--1994
 []\EU1/SimSun(0)/bx/n/12 深 入 \EU1/lmr/bx/n/12 c++ \EU1/SimSun(0)/bx/n/12 内 存 模 
 型\EU1/SimSun(0)/m/n/12 ：| [][]$[][][][] [] [] [] [][][][] [] [][][][] [] [][][]
  [] [][][][][][][][][][][][][][][] [] [][][][][][][] [] [][][][][][][] [] [][][
@@ -1845,7 +1845,7 @@ Overfull \hbox (9.93369pt too wide) in paragraph at lines 1991--1992
  []
 
 
-Overfull \hbox (7.5136pt too wide) in paragraph at lines 1996--1997
+Overfull \hbox (7.5136pt too wide) in paragraph at lines 1998--1999
 []\EU1/SimSun(0)/m/n/12 虚 函 数  |（[]\EU1/lmtt/m/n/12 Virtual Function\EU1/SimSun
 (0)/m/n/12 ）|  是 通 过 一 张 虚 函 数 表  |（[]\EU1/lmtt/m/n/12 Virtual Table\EU1/SimSun
 (0)/m/n/12 ）|  来 实 现 的。|  简 称 为[]\EU1/lmtt/m/n/12 V-Table\EU1/SimSun(0)/m/n/12 
@@ -1874,10 +1874,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 第十章
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 2095.
+(hyperref)                than one, level fixed on input line 2099.
 
 [73]
-Overfull \hbox (15.633pt too wide) in paragraph at lines 2147--2149
+Overfull \hbox (15.633pt too wide) in paragraph at lines 2151--2153
 []\EU1/SimSun(0)/m/n/12 目 前 业 界 针 对 这 种 情 况 的 处 理 没 有 一 个 很 完 美 的 方 案，| \EU1/Si
 mSun(0)/bx/n/12 通 常 的 做 法 是 提 供 方 在 自 己 的[]\EU1/lmtt/m/n/12 xxx_pub.h
  []
@@ -1942,14 +1942,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 第二十三章
 
-Overfull \hbox (17.27399pt too wide) in paragraph at lines 2931--2932
+Overfull \hbox (17.27399pt too wide) in paragraph at lines 2935--2936
 []\EU1/SimSun(0)/m/n/12 打 开 属 性 管 理 器，|  点 击 项 目 前 的 箭 头，|  展 开 项 目，|  找 到[]\EU
 1/lmtt/m/n/12 Debug \EU1/SimSun(0)/m/n/12 或 者[]\EU1/lmtt/m/n/12 Release \EU1/Si
 mSun(0)/m/n/12 下 面 的 []\EU1/lmtt/m/n/12 Microsoft.Cpp
  []
 
 [107]
-Overfull \hbox (111.77289pt too wide) in paragraph at lines 2952--2953
+Overfull \hbox (111.77289pt too wide) in paragraph at lines 2956--2957
 []\EU1/lmr/m/n/12 -\EU1/SimSun(0)/m/n/12 配 置 \EU1/lmr/m/n/12 include Directorie
 s += \EU1/SimSun(0)/m/n/12 安 装 目 录 $[]$\EU1/lmr/m/n/12 opencv$[]$build$[]$inclu
 de; += \EU1/SimSun(0)/m/n/12 安 装 目 录 $[]$ \EU1/lmr/m/n/12 opencv$[]$build$[]$in
@@ -1957,7 +1957,7 @@ clude$[]$opencv;
  []
 
 
-Overfull \hbox (28.81364pt too wide) in paragraph at lines 2975--2976
+Overfull \hbox (28.81364pt too wide) in paragraph at lines 2979--2980
 []\EU1/lmr/m/n/12 win10 \EU1/SimSun(0)/m/n/12 权 限 更 改：| [][]$[][][][] [] [] [] 
 [][][][] [] [][][] [] [][][] [] [][][][][][][] [] [][][] [] [][][][] [] [][][][
 ][][] [] [][][][][][][][][][][][][][][][][][][][][][][][]$[][] 
@@ -1969,10 +1969,10 @@ Overfull \hbox (28.81364pt too wide) in paragraph at lines 2975--2976
 第二十四章
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 3092.
+(hyperref)                than one, level fixed on input line 3096.
 
 
-Overfull \hbox (17.79639pt too wide) in paragraph at lines 3117--3118
+Overfull \hbox (17.79639pt too wide) in paragraph at lines 3121--3122
 [][]\EU1/lmtt/m/n/12 break +offset,  break -offset\EU1/lmr/m/n/12 : \EU1/SimSun
 (0)/m/n/12 在 当 前 行 号 的 前 面 或 后 面 的[]\EU1/lmtt/m/n/12 offset \EU1/SimSun(0)/m/n/
 12 行 停 住。| []\EU1/lmtt/m/n/12 offiset \EU1/SimSun(0)/m/n/12 为
@@ -1985,7 +1985,7 @@ Overfull \hbox (17.79639pt too wide) in paragraph at lines 3117--3118
 [117]
 File: Naming.png Graphic file (type QTm)
  <use  "Naming.png" >
-Overfull \hbox (5.12567pt too wide) in paragraph at lines 3269--3270
+Overfull \hbox (5.12567pt too wide) in paragraph at lines 3273--3274
  [][] 
  []
 
@@ -1993,14 +1993,14 @@ Overfull \hbox (5.12567pt too wide) in paragraph at lines 3269--3270
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [118] [119]
-Overfull \hbox (24.302pt too wide) in paragraph at lines 3325--3326
+Overfull \hbox (24.302pt too wide) in paragraph at lines 3329--3330
 [][]\EU1/lmtt/m/n/12 #define INT_PTR int* \EU1/SimSun(0)/m/n/12 这 是 \EU1/SimSun
 (0)/bx/n/12 宏 定 义\EU1/SimSun(0)/m/n/12 ，|  编 译 预 处 理 阶 段 要 进 行 宏 替 换，| []\EU1/l
 mtt/m/n/12 INT_PTR a,b\EU1/FangSong(0)/m/n/12 会变成 \EU1/lmtt/m/n/12 int* a,b
  []
 
 [120] [121] [122]
-Overfull \hbox (201.52167pt too wide) in paragraph at lines 3434--3435
+Overfull \hbox (201.52167pt too wide) in paragraph at lines 3443--3444
 [][][]$[][][][] [] [] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][]
 [][] [] [][][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -2008,26 +2008,26 @@ Overfull \hbox (201.52167pt too wide) in paragraph at lines 3434--3435
  []
 
 
-Overfull \hbox (2.29971pt too wide) in paragraph at lines 3438--3439
+Overfull \hbox (2.29971pt too wide) in paragraph at lines 3447--3448
 []\EU1/lmr/m/n/12 LNK2019: \EU1/SimSun(0)/m/n/12 无 法 解 析 的 外 部 符 号 \EU1/lmr/m/n
 /12 __imp__InitCommonControlsEx@4\EU1/SimSun(0)/m/n/12 ，|  该 符 号 在 函 数 \EU1/lmr
 /m/n/12 _Win-
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3442.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3451.
 [123]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3442.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3451.
  (./C++_Basic.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3442.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3442.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3451.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3451.
  ) 
 Here is how much of TeX's memory you used:
  30674 strings out of 493706
  589179 string characters out of 6145376
- 735067 words of memory out of 5000000
+ 735171 words of memory out of 5000000
  33693 multiletter control sequences out of 15000+600000
  11646 words of font info for 82 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 63i,10n,75p,10445b,1967s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,10n,75p,10445b,1977s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on C++_Basic.pdf (123 pages).

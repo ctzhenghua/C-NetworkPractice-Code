@@ -1004,7 +1004,7 @@ void AVLTree<T>::traversal()
 			\end{itemize}
 		\subsection{Unsorted associative containers}
 			\begin{itemize}
-				\item \verb|unordered_[multi]{set,map}|: all iterators invalidated when rehashing occurs, but references unaffected [23.2.5/8]. Rehashing does not occur if the insertion does not cause the container's size to exceed z * B where z is the maximum load factor and B the current number of buckets.
+				\item \verb|unordered_[multi]{set,map}|: \textbf{all iterators invalidated when rehashing occurs}, but references unaffected [23.2.5/8]. Rehashing does not occur if the insertion does not cause the container's size to exceed z * B where z is the maximum load factor and B the current number of buckets.
 			\end{itemize}
 		
 		\subsection{Container adaptors}
@@ -1013,7 +1013,7 @@ void AVLTree<T>::traversal()
 				\item \verb|queue|: inherited from underlying container
 				\item \verb|priority_queue|: inherited from underlying container
 			\end{itemize}
-	\section{Erasure 失效总结}
+	\section{Eraser 失效总结}
 		\subsection{Sequence containers}
 			\begin{itemize}
 				\item \verb|vector|: every iterator and reference at or after the point of erase is invalidated 

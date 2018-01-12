@@ -76,7 +76,7 @@
 \contentsline {subsection}{\numberline {2.5.2}Associative containers}{36}{subsection.2.5.2}
 \contentsline {subsection}{\numberline {2.5.3}Unsorted associative containers}{36}{subsection.2.5.3}
 \contentsline {subsection}{\numberline {2.5.4}Container adaptors}{36}{subsection.2.5.4}
-\contentsline {section}{\numberline {2.6}Erasure 失效总结}{36}{section.2.6}
+\contentsline {section}{\numberline {2.6}Eraser 失效总结}{36}{section.2.6}
 \contentsline {subsection}{\numberline {2.6.1}Sequence containers}{36}{subsection.2.6.1}
 \contentsline {subsection}{\numberline {2.6.2}Associative containers}{37}{subsection.2.6.2}
 \contentsline {subsection}{\numberline {2.6.3}Unsorted associative containers}{37}{subsection.2.6.3}

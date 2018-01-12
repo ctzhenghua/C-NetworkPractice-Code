@@ -67,14 +67,124 @@
 	
 	面试题：\url{http://blog.csdn.net/huaweitman/article/category/1487663}
 	
+	后台开发 同道：\url{http://blog.csdn.net/fycy2010/article/category/5648813}
+	
 \newpage
 \section{Linux}
 	\subsection{题目}
 		\subsubsection{熟练netstat tcpdump ipcs ipcrm}
 		\subsubsection{共享内存段被映射进进程空间之后，存在于进程空间的什么位置？共享内存段}
+			\subparagraph{共享内存定义}：共享内存是最快的可用IPC（进程间通信）形式。它允许多个不相关的进程去访问\textbf{同一部分逻辑内存}。共享内存是由IPC为一个进程创建的一个特殊的地址范围，\textbf{它将出现在进程的地址空间中}。\textbf{其他进程可以把同一段共享内存段“连接到”它们自己的地址空间里去}。所有进程都可以访问共享内存中的地址。如果一个进程向这段共享内存写了数据，所做的改动会立刻被有访问同一段共享内存的其他进程看到。因此共享内存对于数据的传输是非常高效的。
+			
+			共享内存段紧靠在栈之下，最大限制为32M
+			
+			\subparagraph{共享内存的使用实现原理}：
+			要使用一块共享内存，进程必须首先分配它。随后需要访问这个共享内存块的每一个进程都必须将这个共享内存绑定到自己的地址空间中。当完成通信之后，所有进程都将脱离共享内存，并且由一个进程释放该共享内存块。
+			
+			理解 Linux 系统内存模型可以有助于解释这个绑定的过程。在 Linux 系统中，每个进程的虚拟内存是被分为许多页面的。这些内存页面中包含了实际的数据。每个进程都会维护一个从内存地址到虚拟内存页面之间的映射关系。尽管每个进程都有自己的内存地址，不同的进程可以同时将同一个内存页面映射到自己的地址空间中，从而达到共享内存的目的。
+			
+			分配一个新的共享内存块会创建新的内存页面。因为所有进程都希望共享对同一块内存的访问，只应由一个进程创建一块新的共享内存。再次分配一块已经存在的内存块不会创建新的页面，而只是会返回一个标识该内存块的标识符。一个进程如需使用这个共享内存块，则首先需要将它绑定到自己的地址空间中。这样会创建一个从进程本身虚拟地址到共享页面的映射关系。当对共享内存的使用结束之后，这个映射关系将被删除。当再也没有进程需要使用这个共享内存块的时候，必须有一个（且只能是一个）进程负责释放这个被共享的内存页面。
+			
+			
+			所有共享内存块的大小都必须是系统页面大小的整数倍。系统页面大小指的是系统中单个内存页面包含的字节数。在 Linux 系统中，内存页面大小是4KB，不过您仍然应该通过调用 getpagesize 获取这个值。
 		\subsubsection{进程内存空间分布情况}
+			\subparagraph{内核空间和用户空间}\verb|->|
+				
+				所有os分配给每个进程一个独立的，连续的，虚拟的，地址内存空间，该大小一般是4G（32位操作系统，\textbf{即2的32次方}），其中将高地址值的内存空间分配给os占用，\textbf{linux os占用1G}，\textbf{window os占用2G}；\textit{其余内存地址空间分配给进程使用}；分别称作内核空间和用户空间；
+				
+				\textbf{通常情况下，用户进程不能访问内核空间的地址，例外情况是用户进程通过系统调用访问内核空间}；
+			
+			\subparagraph{用户空间布局}\verb|->|
+			
+				用户空间\textbf{被分成几个段(Segment)}，从高地址到低地址分别为：Stack, Heap, BSS, Data, Text;
+				
+					\begin{itemize}[itemindent = 2em]
+						\item \textbf{Stack}:  \verb|local variables|
+						\item \textbf{Heap}:	\verb|dynamically allocated withnew delete malloc free|
+						\item \textbf{BSS}: \verb|unInitialized global and static data|
+						\item \textbf{Data}: \verb|initialized global and static data |
+						\item \textbf{Text}: \verb|编译后的代码段|
+					\end{itemize}
+			
+			\verb|Notice->|
+				\begin{itemize}[itemindent = 2em]
+					\item Text，ro-data，Data，BSS四个段的\textbf{大小是在程序编译时确定的}；
+					\item Text，ro-data，Data三个段的内容存储在可执行文件中；
+					\item Text, ro-data, Data, BSS四个段的内容是\textbf{常驻内存的}，即进程从开始运行到僵死它们都一直存在内存，所以访问它们用的是\textbf{常量地址}
+					
+					\item Stack Segment被放在高地址值是有原因的，原因是：调用函数（加帧）是减esp的，函数返回（减帧）是加esp的，调用在前，所以栈是向低地址扩展的，放在高地址比较合适
+				\end{itemize}
+
+			
+			\subparagraph{多线程程序与普通程序的内存布局的不同}\verb|->|
+			
+				\textbf{多线程程序和普通程序}在内存中的\textbf{不同只要表现在栈的不同}，\textit{每一个线程一个栈，所以线程的局部变量不会受到其他线程的影响}。而\textbf{.text, .data. .bss等部分段是各个线程共享的}，所以线程间通信很简单，可以直接在这些共享内存中存取就可以了；
+				
+				所谓祸福相依，线程内操作这些共享内存的数据时候，要非常小心，以避免有两个或多个线程同时操作同一块内存区域；
+			
+			\subparagraph{其他细节}\verb|->|
+			
+			\begin{itemize}[itemindent = 2em]
+				\item 初始化了的：
+					\begin{itemize}
+						\item 初始化了的全局变量 ： \verb|data segment|
+						\item 初始化了的静态变量 ： \verb|data segment|
+					\end{itemize}
+				\item 未初始化的：
+					\begin{itemize}
+						\item 未初始化的全局变量 ： \verb|bss segment|
+						\item 未初始化的静态变量 ： \verb|bss segment|
+					\end{itemize}
+				
+				\item 类中静态变量 ：\verb|data  segment|
+				\item 字符串常量 ：\verb|ro-data segment|
+				\item 局部变量：\verb|stack segment|
+				\item New/malloc ：\verb|heap Segment|
+			\end{itemize}
+			
+			
 		\subsubsection{ELF是什么？其大小与程序中全局变量的是否初始化有什么关系}
+			\verb|Linux ELF  ELF = Executable and Linkable Format|，可执行连接格式，是UNIX系统实验室（USL）作为应用程序二进制接口（Application Binary Interface，ABI）而开发和发布的。扩展名为\verb|elf|。工具接口标准委员会(TIS)选择了正在发展中的\textbf{ELF标准作为}工作在32位INTEL体系上\textbf{不同操作系统之间可移植的二进制文件格式}。假定开发者定义了一个二进制接口集合，ELF标准用它来支持流线型的软件发展。应该减少不同执行接口的数量。因此\textbf{可以减少重新编程重新编译的代码}。
+			
 		\subsubsection{动态链接和静态链接的区别？}
+			\subparagraph{静态库与动态库}
+			\begin{itemize}[itemindent = 1em]
+				\item \textbf{静态库}：函数和数据被编译进一个二进制文件(通常扩展名为.LIB)。在使用静态库的情况下，在\textbf{编译链接}可执行文件\textbf{时}，链接器从库中复制这些函数和数据并把它们和应用程序的其它模块	\textbf{组合起来创建最终的可执行文件(.EXE文件)}
+				
+				\item \textbf{导入库(动态库)}：在使用动态链接库的时候，往往提供两个文件：\textbf{一个引入库和一个DLL}。引入库包含被DLL导出的函数和变量的符号名，DLL包含实际的函数和数据。\textbf{在编译链接可执行文件时}，只需要链接引入库，DLL中的函数代码和数据并不复制到可执行文件中，\textbf{在运行的时候}，再去加载DLL，访问DLL中导出的函数。
+				
+					\begin{itemize}
+						\item 装入：在运行Windows程序时，它通过一个被称作“\textbf{动态链接}”的进程与Windows相接。一个Windows的.EXE文件拥有它使用不同动态链接库的引用，所使用的函数即在那里。
+						
+						当Windows程序被加载到内存中时，程序中的调用被指向DLL函数的入口，如果DLL不在内存中，系统就将其加载到内存中。当链接Windows程序以产生一个可执行文件时，你必须链接由编程环境提供的专门的“导入库(import library)库”。这些导入库包含了动态链接库名称和所有Windows函数调用的引用信息。
+						
+						链接程序使用该信息在.EXE文件中构造一个表，当加载程序时，Windows使用它将调用转换为Windows函数。
+					\end{itemize}
+			\end{itemize}
+			
+			\subparagraph{静态库与导入库的区别}\verb|->|
+			
+				导入库和静态库的区别很大，他们实质是不一样的东西。\textbf{静态库}本身就包含了实际执行代码、符号表等等，而\textbf{对于导入库而言}，其实际的执行代码位于动态库中，导入库只包含了地址符号表等，确保程序找到对应函数的一些基本地址信息。
+			
+			\subparagraph{动态链接与静态链接}
+				\begin{itemize}[itemindent = 1em]
+					\item 静态链接方法:\verb|#pragma comment(lib, "test.lib")| ，静态链接的时候，\textit{载入代码就会把程序会用到的动态代码或动态代码的地址确定下来}
+					
+					\textbf{静态库的链接}可以使用静态链接，\textbf{动态链接库}也可以使用这种方法链接导入库
+					
+					\item 动态链接方法:\verb|LoadLibrary()/GetProcessAddress()和FreeLibrary()|，使用这种方式的程序并不在一开始就完成动态链接，而是直到真正调用\textbf{动态库}代码时，载入程序才计算(被调用的那部分)动态代码的逻辑地址，然后等到某个时候，程序又需要调用另外某块动态代码时，载入程序又去计算这部分代码的逻辑地址，所以，这种方式使程序初始化时间较短，但运行期间的\textbf{性能比不上静态链接的程序}。
+				\end{itemize}
+			
+				简单的说，\textbf{静态库}和应用程序编译在一起，在任何情况下都能运行，\textbf{而动态库}是动态链接，顾名思义就是在应用程序启动的时候才会链接，所以，当用户的系统上没有该动态库时，应用程序就会运行失败。
+				
+				\textbf{动态库}：
+				\begin{enumerate}[itemindent = 1em]
+					\item 共享：多个应用程序可以使用同一个动态库，\textit{启动多个应用程序的时候，只需要将动态库加载到内存一次即可}；
+					\item 开发模块好：要求设计者对功能划分的比较好。
+				\end{enumerate}
+				
+				\textbf{静态库}：代码的\textit{装载速度快，执行速度也比较快}，因为编译时它只会把你需要的那部分链接进去，应用程序相对比较大。但是如果\textit{多个应用程序使用的话，会被装载多次，浪费内存}。
+				
 		\subsubsection{32位系统一个进程最多有多少堆内存}
 		\subsubsection{写一个c程序辨别系统是大端or小端字节序}
 			\url{https://github.com/ctzhenghua/C-NetworkPractice-Code/blob/Dev/Network/BasicSocket/ByteOder.cc}
@@ -131,7 +241,63 @@
 			\url{http://www.cnblogs.com/simplepaul/p/7361032.html}
 			
 			\url{http://blog.csdn.net/yeyuangen/article/details/38318709}
+		\subsubsection{crontab原理}
+			crontab实际上是启动服务后读取所有配置文件，然后睡一段时间（一般也是一分钟）后运行下一个任务，从链接里看，是\textbf{半小时监控一次crontab文件是否有改动}。对suse而言，crontab服务启动后，会检查\verb|/var/spool/cron/tabs|下所有用户的定时任务，然后加载到内存的队列中，然后每分钟检查一下\verb|crontab文件|是否有改动。
+			
+			\textbf{可以理解为cron服务有2个线程}，一个是调度处理\textbf{定时任务}，一个\textbf{后台线程}，\textit{后台线程检查配置文件是否有变动}，如果有变动，则发送信号到调度进程，调度进程再重新读取配置文件更新内存中的任务队列，同理，\verb|service cron stop|也是发信号到\verb|cron服务|（本次确认cron服务半僵死就是因为无法响应了）导致调度线程不知道变动，没有更新内存中的队列。从\verb|/var/log/messages|观察，依然是修改或删除之前的定时任务在运行。
+			
+			因此，为了保险，在用户里\verb|crontab -r|删除用户的定时任务后，建议重启一下\verb|crontab|服务\textit{（service cron stop后记得service cron status查看一下是否停止成功，如果没有kill -9再service cron start）}，也就是\textbf{清空一下当前定时任务的内存队列}，让cron服务重新加载，更重要的是防止cron服务挂住没重新加载定时任务队列。
+		
+		\subsubsection{*coreDump}
+			\url{http://blog.csdn.net/tenfyguo/article/details/8159176/}
+			\subparagraph{概念}
+				我们经常听到大家说到\textbf{程序core掉}了，需要\textbf{定位解决}，这里说的\textit{大部分是指}对应\textbf{程序由于各种异常或者bug导致在运行过程中异常退出或者中止}，\textit{并且}在满足一定条件下\textbf{会产生一个叫做core的文件}。
+				
+				通常情况下，\textbf{core文件}会\textbf{包含}了\textit{程序运行时的内存，寄存器状态，堆栈指针，内存管理信息还有各种函数调用堆栈信息等}，我们可以理解为是程序工作当前状态存储生成第一个文件，许多的程序出错的时候都会产生一个core文件，通过工具分析这个文件，我们可以定位到程序异常退出的时候对应的堆栈调用等信息，找出问题所在并进行及时解决。
+			
+			\subparagraph{coreDump 文件}
+				 \verb|core|文件\textbf{默认的存储位置与对应的可执行程序在同一目录下}，文件名是\verb|core|，大家可以通过下面的命令看到core文件的存在位置：
+				 \verb|cat  /proc/sys/kernel/core_pattern|
+				 
+				 缺省值是\verb|core|
 
+			\subparagraph{如何判断一个文件是coredump文件}
+				在类unix系统下，\verb|coredump文件|本身主要的格式也是\verb|ELF格式|，因此，我们可以通过\verb|readelf|命令进行判断.
+				
+				可以通过简单的\verb|file|命令进行快速判断 文件是什么类型。
+			
+			\subparagraph{coredump产生的几种可能情况}
+				\begin{enumerate}[itemindent = 1em]
+					\item 内存访问越界
+					\item 多线程程序使用了线程不安全的函数
+					\item 多线程读写的数据未加锁保护
+					\item 非法指针
+					\item 堆栈溢出
+				\end{enumerate}
+			\subparagraph{利用gdb进行coredump的定位}
+			
+				堆错误示例：
+				\begin{itemize}
+					\item 先写一个存在段错误的代码
+					\item 编译成gdb文件，需要-g选项编译
+					\item 运行代码，崩溃，产生core文件
+					\item 利用file core 查看错误信息
+				\end{itemize}
+			
+		\subsubsection{线程达到线程池定义个数，怎么办}
+			首先线程池有一个排队策略
+			
+			\textbf{排队策略}
+				\begin{enumerate}
+					\item \textbf{直接提交}。工作队列的默认选项是 SynchronousQueue，它\textbf{将任务直接提交给线程而不保持它们}。在此，如果不存在可用于立即运行任务的线程，则试图把任务加入队列将失败，因此会构造一个新的线程。此策略可以避免在处理可能具有内部依赖性的请求集时出现锁。直接提交通常要求无界 maximumPoolSizes 以避免拒绝新提交的任务。当命令以超过队列所能处理的平均数连续到达时，此策略允许无界线程具有增长的可能性。 
+					
+					\item \textbf{无界队列}。使用无界队列（例如，不具有预定义容量的 LinkedBlockingQueue）\textbf{将导致在所有 corePoolSize 线程都忙时新任务在队列中等待。这样，创建的线程就不会超过 corePoolSize。}（因此，maximumPoolSize 的值也就无效了。）当每个任务完全独立于其他任务，即任务执行互不影响时，适合于使用无界队列 
+					
+					\item  \textbf{有界队列}。当使用有限的 maximumPoolSizes 时，\textbf{有界队列（如 ArrayBlockingQueue）有助于防止资源耗尽，但是可能较难调整和控制}。队列大小和最大池大小可能需要相互折衷：\textbf{使用大型队列和小型池可以最大限度地降低 CPU 使用率、操作系统资源和上下文切换开销，但是可能导致人工降低吞吐量}。如果任务频繁阻塞（例如，如果它们是 I/O 边界），则系统可能为超过您许可的更多线程安排时间。\textbf{使用小型队列通常要求较大的池大小，CPU 使用率较高，但是可能遇到不可接受的调度开销，这样也会降低吞吐量。}
+				\end{enumerate}
+				
+			
+		
 \newpage
 \section{C++}
 	\subsection{题目}
@@ -146,6 +312,12 @@
 		\url{http://www.cnblogs.com/bozhicheng/p/6259784.html}
 
 		\url{http://www.cnblogs.com/simplepaul/p/6820533.html}
+		\subsubsection{文本文件和二进制文件的区别}
+			ASCII文件也称为文本文件，这种文件在磁盘中存放时每个字符对应一个字节，用于存放对应的ASCII码
+			
+			ASCII码文件可在屏幕上按字符显示， 例如源程序文件就是ASCII文件，用DOS命令TYPE可显示文件的内容。 由于是按字符显示，因此能读懂文件内容。
+			
+			二进制文件是按二进制的编码方式来存放文件的。 例如， 数5678的存储形式为： 00010110 00101110只占二个字节。二进制文件虽然也可在屏幕上显示， 但其内容无法读懂。C系统在处理这些文件时，并不区分类型，都看成是字符流，按字节进行处理。 输入输出字符流的开始和结束只由程序控制而不受物理符号(如回车符)的控制。 因此也把这种文件称作“流式文件”。
 		\subsubsection{结构体用memcmp比较的问题}
 				可以通过\verb|memcmp()|来比较2个相同的结构体变量，但这2个变量必须在赋值前进行清零初始化（否则结果不准确）
 				
@@ -294,10 +466,25 @@
 				\item  隐藏实现细节，使得代码能够模块化；扩展代码模块，实现代码重用；
 				\item  接口重用：为了类在继承和派生的时候，保证使用家族中任一类的实例的某一属性时的正确调用。
 			\end{itemize}
+		
+		\subsubsection{virtual 指针与对象初始化的区别}
+			对象，有无虚析构无关要紧，都会调用父类析构函数
+			
+			如果是用父类指针的话，调用子类初始化，由于当父类指针指向子类对象，父类析构不是虚函数，则执行时，不能执行到子类的析构函数。
+			
 		\subsubsection{New delete 与malloc free 的联系与区别?}
 			都是在堆(\verb|heap|)上进行动态的内存操作。
 			
 			用\verb|malloc|函数需要指定内存分配的字节数并且\textbf{不能}初始化对象，\verb|new| \textbf{会}自动调用对象的构造函数。\verb|delete| \textbf{会}调用对象的\verb|destructor|，而\verb|free |\textbf{不会}调用对象的\verb|destructor|.
+			
+			\verb|new| 类型安全、返回的是某种数据类型指针，\verb|malloc| 非类型安全、返回的是\verb|void|指针
+			
+			关于\textbf{内存分配失败}：
+				\begin{itemize}[itemindent = 2em]
+					\item \verb|new| 会抛出\verb|bad_alloc|异常
+					\item \verb|malloc| 则会 返回\verb|NULL|指针
+				\end{itemize}
+				
 		\subsubsection{有哪几种情况只能用intializationlist 而不能用assignment?}
 			\begin{enumerate}
 				\item 当类中含有\verb|const| 成员变量
@@ -371,7 +558,14 @@
 				\verb|cout<<__LINE__ ;|
 				
 				\verb|__FILE__和__LINE__|是系统预定义宏，这种宏并不是在某个文件中定义的，而是由编译器定义的
-		\subsection{腾讯-输出是什么 }
+				
+		\subsubsection{关于\_\_stdcall和\_\_cdecl调用方式的理解}
+			深入汇编理解：\url{http://blog.csdn.net/beanjoy/article/details/9135373}
+			\begin{itemize}[itemindent = 1em]
+				\item\verb| __stdcall|：参数\textbf{由右向左}压入堆栈；堆栈\textbf{由函数本身}清理。
+				\item \verb|__cdecl|：参数也是\textbf{由右向左}压入堆栈；但堆栈\textbf{由调用者}清理。
+			\end{itemize}
+		\subsubsection{腾讯-输出是什么 }
 		\begin{lstlisting}
 	main()
 	{
@@ -384,8 +578,8 @@
 		\begin{enumerate}
 			\item \verb|&a|   a是一个数组名，也就是数组的首地址。
 			\item \textit{对a进行取地址运算符}，得到的是一个\textbf{指向数组的指针}！也就相当于 \verb|int (*p) [5] = &a;|
-			\item \verb|p|是一个指针，它指向的是一个包含\verb|5个int|元素的数组！
-			\item 执行\verb|p+1|后，p的偏移量相当于 \verb|p + sizeof(int) * 5| ！
+			\item \verb|a|是一个指针，它指向的是一个包含\verb|5个int|元素的数组！
+			\item 执行\verb|a+1|后，p的偏移量相当于 \verb|a + sizeof(int) * 5| ！
 			\item 程序中强制将指针\verb|p|转换成一个\verb|int*| 那么 \verb|p -1| 其实就是 \verb|p - sizeof(int)|
 		\end{enumerate}
 \newpage

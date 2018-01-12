@@ -2446,11 +2446,13 @@
 	\subsection{分析}
 		  设\verb|dp[i][j]|表示第i到第j堆石子合并的最优值，\verb|sum[i][j]|表示第i到第j堆石子的总数量
 		  
-		  $$\verb|d[i][j]|=
-		  			\begin{cases}
+		  $$
+		  \verb|d[i][j]|=
+		  \begin{cases}
 		  				0 & i=j\\
 		  			\verb|min(dp[i][k], dp[k+1][j]) + sum[i][j]| & i \not= j\\
-		  			\end{cases}$$	
+		  \end{cases}
+		  $$	
 	  
 	  \subsection{实现}
 	  		\begin{lstlisting}
