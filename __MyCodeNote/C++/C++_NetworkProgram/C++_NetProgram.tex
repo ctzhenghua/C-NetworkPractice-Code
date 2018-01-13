@@ -2490,7 +2490,26 @@
 \chapter{网络库}
 	\section{ACE}
 	\section{muduo}
-		 
+		\subsection{bind/function}适配器函数
+			\begin{lstlisting}
+	class Foo{
+		public:
+		void memberFunc(double d, int i, int j)
+		{
+			cout<<d<<endl;
+			cout<<i<<endl;
+			cout<<j<<endl;
+		}
+	};
+	
+	int main()
+	{
+		Foo foo;
+		boost::function<void (int)>fp = boost::bind(&Foo::memberFunc,&foo,0.5,_1,10);
+		fp(100);
+		return 0;
+	}
+			\end{lstlisting}
 		
 \chapter{调试}
 	\section{ACK 与 Seq}
@@ -2672,7 +2691,7 @@
 		\subsection{APP 分别使用传输层的 协议对照}
 			\begin{figure}[h]
 				\centering
-				\includegraphics[scale = 0.7]{App-Proposal.png}
+				%\includegraphics[scale = 0.7]{App-Proposal.png}
 			\end{figure}
 		
 	\section{传输层 TCP}		

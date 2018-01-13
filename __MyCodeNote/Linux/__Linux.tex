@@ -208,8 +208,58 @@
 					 最多只有1个，在使用MBR(主引导分区记录)方式下 主分区与扩展分区最多只能有4个，而且扩展分区不能写入数据，只能包含逻辑分区
 					 
 			\subsection{GUID}
+	\section{裸机装机必备软件及技巧}
+		\subparagraph{vim}必备，要么你修改配置文档都是个问题。
+			\verb|sudo apt-get install vim|
+		\subparagraph{网络配置}有网才能工作
+			
+			1.ln -s 创建快捷命令
+			
+			2.1配置IP(一般不动)
+			\begin{itemize}[itemindent = 1em]
+				\item \verb|vim /etc/network/interfaces|
+				\item 根据情况确定用动态IP 还是静态IP 
+				\begin{lstlisting}
+#动态IP 
+	auto eth0
+	iface eth0 inet dhcp
+	
+#静态IP
+	auto eth0
+	iface eth0 inet static
+	address xx.xx.xx.xx
+	netmask xx.xx.xx.xx
+	gateway xx.xx.xx.xx
+				\end{lstlisting}
+			\end{itemize}
+			
+			2.2配置DNS
+			\begin{itemize}[itemindent = 1em]
+				\item \verb|sudo vi /etc/resolv.conf|
+				\item 添加\verb|nameserver 8.8.8.8 或 8.8.4.4|
+				\item 重启网络：
 				
-			 
+				\verb|service networking restart|
+				
+				\verb|sudo /etc/init.d/networking restart|
+			\end{itemize}
+			
+		\subparagraph{更新源}使用国内阿里云镜像，更快速度。
+
+		\subparagraph{输入法}
+			\begin{enumerate}[itemindent = 2em]
+				\item \verb|sudo apt-get update|
+				\item \verb|sudo apt-get install fcitx-googlepinyin|
+				\item 注销或重启
+				\item 找标题栏中的小企鹅，点开找配置fcitx
+				\item 点\verb|+|,取消选中only.查找Google-pinyin
+			\end{enumerate}	
+					
+		\subparagraph{文本工具Texlive与Texstudio}
+		
+		\subparagraph{git}	 
+		
+		
  \chapter{命令相关}
 	 \section{导航命令}
 		 \paragraph{pwd}查看当前工作目录
@@ -273,7 +323,27 @@
 						\item 使用绝对路径或相对路径指定命令 \verb|./ls| 或 \verb|/root/ls|
 						\item 将目标目录添加到\verb|PATH|中 \verb|PATH = "${PATH}:/root"|
 					\end{enumerate}
-				
+			
+			\paragraph{用户配置}
+				\begin{itemize}
+					\item  \verb|~/.bash_profile|
+					
+						每个用户都可\textit{使用该文件输入}\textbf{专用于自己使用的shell}\textit{信息},\underline{当用户登录时},该文件仅仅执行一次!默认情况下,他设置一些环境变量,执行用户的\verb|.bashrc|文件. 此文件类似于\verb|/etc/profile|，也是需要需要重启才会生效，\verb|~/.bash_profile|\textbf{只对当前用户生效}。
+					\item  \verb|~/.bashrc|
+						
+						该文件包含\textbf{专用于你的bash shell的bash信息},\textit{当登录时以及每次\underline{打开新的shell时},该文件被读取}.（每个用户都有一个\verb|.bashrc|文件，在用户目录下） 此文件类似于\verb|/etc/bashrc|，\textbf{不需要重启生效，重新打开一个bash即可生效}， 但\verb|~/.bashrc|只对当前用户新打开的bash生效。
+						
+					\item  \verb|/etc/profile|
+					
+						\verb|/etc/profile|对所有用户生效
+					
+					\item  \verb|/etc/bashrc|
+					
+						\verb|/etc/bashrc|对所有用户新打开的bash都生效
+				\end{itemize}
+			
+			\paragraph{交换区} 在内存小于2G的情况下，交换分区\textbf{应为内存的2倍}，超过2G的话，交换分区为\textbf{物理内存加上2G}	
+			
 			\paragraph{符号链接}符号链接又叫软链接,是一类特殊的文件，这个文件包含了\textbf{另一个文件的路径名}
 			
 			\paragraph{开关机}
@@ -314,7 +384,15 @@
 					\item \verb|-a| 选项， 显示所有文件系统的磁盘使用情况
 					\item \verb|-i| 选项， 用于显示文件系统的 inode 信息
 				\end{itemize}
+			
 			 参考 \url{https://linux.cn/article-6466-1.html}
+			\paragraph{du}du可以\textbf{显示当前目录及子目录的磁盘占用情况}
+				\begin{itemize}
+					\item \verb|-d|选项可以指明递归目录的深度
+					\item \verb|-s|等价于\erhao
+					\item \verb|-h|表示以可读的形式显示，比如\verb|B, KB, GB|等
+				\end{itemize}
+		
 		\subsection{相关命令}
 		\paragraph{通配符}\verb|->|
 			\begin{table}[H]
@@ -397,7 +475,7 @@
 				\item \verb|rm -f|:强制删除，不用确认是否删除
 			\end{itemize}
 
-		\paragraph{in} 创建硬链接和符号链接
+		\paragraph{ln} 创建硬链接和符号链接
 			\begin{itemize}
 				\item \textbf{硬链接}:\verb|ln file file_hard|
 					\begin{enumerate}
@@ -463,7 +541,12 @@
 				
 				\verb|-n|：后面接数字，代表显示几行的意思
 			\subparagraph{tail} 只看尾部几行，\verb|tail -n 5 ls-text.txt|
+				\begin{itemize}
+					\item \verb|-f| 当文件增长时,输出后续添加的数据
+					\item \verb|-s| 与-f合用,表示在每次反复的间隔休眠S秒
+				\end{itemize}
 			
+				为了查看不断更新的日志文件，可以使用的指令\verb|tail -f|
 			\subparagraph{od} 以二进制的方式读取文件内容
 			
 		\paragraph{touch} 修改文件时间 或 创建新文件
@@ -978,6 +1061,47 @@
 			
 			\subparagraph{iptables}
 			
+			\subparagraph{vmstate} vmstat命令是最常见的\textbf{Linux/Unix监控工具}，可以展现\textbf{给定时间间隔}的\textbf{服务器的状态值},包括服务器的\textbf{CPU使用率，内存使用，虚拟内存交换情况,IO读写情况}
+			
+			\verb|-> 使用：|
+			
+			\verb|vmstat [-a] [-n] [-S unit] [delay [ count]]|
+			
+			\verb|vmstat [-s] [-n] [-S unit]|
+			
+			\verb|vmstat [-m] [-n] [delay [ count]]|
+			
+			\verb|vmstat [-d] [-n] [delay [ count]]|
+			
+			\verb|vmstat [-p disk partition] [-n] [delay [ count]]|
+			
+			\verb|vmstat [-f]|
+			
+			
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{l|m{14cm}}
+					\hline
+					\verb|参数 |   	   & \verb|含义| \\
+					\hline
+					\verb|delay |      & 刷新时间间隔。如果不指定，只显示一条结果。	\\
+					\verb|count |      & 刷新次数。如果不指定刷新次数，但指定了刷新时间间隔，这时刷新次数为无穷。	\\
+					\verb|-a |   	   & 开启显示active/inactive memory	\\
+					\verb|-f |   	   & 显示此系统启动以来的forks的总数，包括fork、vfork和clone system calls	\\
+					\verb|-m |   	   & 显示slabinfo信息	\\
+					\verb|-n |   	   & 只显示头信息，不周期性显示.也就是说开启这个参数，只显示头部信息一次。	\\
+					\verb|-s |   	   & 显示各种事件计数器表和内存统计信息，这显示不重复	\\
+					\verb|-d |   	   & 显示磁盘统计数据	\\
+					\verb|-w |   	   & 可以扩大字段长度，当内存较大时，默认长度不够完全展示内存。	\\
+					\verb|-p |   	   & 显示磁盘分区数据	\\
+					\verb|-S |   	   & 参数S控制输出性能指标的单位，k(1000) K(1024) 或 M(1048576) 默认单位为K（1024 bytes）	\\
+					\hline
+				\end{tabular}
+			\end{table}	
+			
+		 \url{http://www.cnblogs.com/tommyli/p/3746187.html}
+		 
+		 \url{http://www.cnblogs.com/ggjucheng/archive/2012/01/05/2312625.html}
 	\section{正则表达式}
 		$$\verb|正则表达式|=
 			\begin{cases}
@@ -1128,6 +1252,7 @@
 					\verb| |   	   & \verb|-n |显示匹配行及 行号& \verb|\>  |到匹配正则表达式的行结束\\
 					\verb| |   	   & \verb|-s |不显示不存在或无匹配文本的错误信息 & \verb|[ ] |单个字符，如[A]即A符合要求\\
 					\verb| |   	   & \verb|-v |显示不包含匹配文本的所有行 & \verb|*  | 有字符，长度可以为0\\
+					\verb| |   	   & \verb|-R |递归的对目录下的所有文件（包括子目录）进行 grep & \\
 					\verb| |   	   & & \verb|[ - ]|范围，如[A-Z]，即A、B、C一直到Z都符合要求\\
 					\hline
 				\end{tabular}
@@ -1178,6 +1303,16 @@
 		\url{http://blog.jobbole.com/109089/}	
 		
 		\subsection{cat} 连接文件并打印到标准输出
+			\begin{itemize}
+				\item -A, --show-all 等价于 -vET
+				\item -b, --number-nonblank 对非空输出行编号
+				\item -e 等价于 -vE
+				\item -E, --show-ends 在每行结束处显示\verb| $|
+				\item -n, --number 对输出的所有行编号
+				\item -s, --squeeze-blank 不输出多行空行
+				\item -t 与 -vT 等价
+				\item -T, --show-tabs 将跳 字符显示为 \verb|^I|
+			\end{itemize}
 		
 		\subsection{sort} 对\textbf{文本行}排序..
 		
@@ -1568,6 +1703,12 @@ ls
 	 
 		 \subsection{Shell 传递参数}
 			 我们可以在执行 Shell 脚本时，向脚本传递参数，脚本内获取参数的格式为：\verb|$n|。n 代表一个数字，1 为执行脚本的第一个参数，2 为执行脚本的第二个参数，以此类推……
+			 
+			 \begin{itemize}
+			 	\item  \verb|$#|：参数个数
+			 	\item  \verb|$$|：当前shell的PID进程ID
+			 	\item  \verb|$@和$*|均表示所有参数，形式有所不同。\verb|$@："$1" "$2" … "$n"|； \verb|$*: "$1 $2 … $n"|。
+			 \end{itemize}
 			 
 			 \begin{lstlisting}[xleftmargin=.06\textwidth]
 	//以下实例我们向脚本传递三个参数，并分别输出，其中 $0 为执行的文件名
@@ -2189,12 +2330,80 @@ ls
 	done < file.txt
 			\end{lstlisting}
 \chapter{Linux 系统编程}
+	\section{进程}
+		\subsection{进程空间}
+			\url{http://www.cnblogs.com/xzzzh/p/6596982.html}
+			
+			\url{http://www.cnblogs.com/smile267/archive/2012/10/21/2732099.html}
+		\subsection{uid、euid}
+		
+		\subsection{fork}
+			fork之后子进程到底复制了父进程什么? \url{http://blog.csdn.net/xy010902100449/article/details/44851453}
+			
+			
+			这里就涉及到物理地址和逻辑地址（或称虚拟地址）的概念。
+			
+			从逻辑地址到物理地址的映射称为地址重定向。分为：
+			
+			静态重定向--在程序装入主存时已经完成了逻辑地址到物理地址和变换，在程序执行期间不会再发生改变。
+			
+			动态重定向--程序执行期间完成，其实现依赖于硬件地址变换机构，如基址寄存器。
+			
+			逻辑地址：CPU所生成的地址。CPU产生的逻辑地址被分为 :p （页号） 它包含每个页在物理内存中的基址，用来作为页表的索引；d （页偏移），同基址相结合，用来确定送入内存设备的物理内存地址。
+			
+			物理地址：内存单元所看到的地址。
+			用户程序看不见真正的物理地址。用户只生成逻辑地址，且认为进程的地址空间为0到max。物理地址范围从R+0到R+max，R为基地址,地址映射－将程序地址空间中使用的逻辑地址变换成内存中的物理地址的过程。由内存管理单元（MMU）来完成。
+			
+			fork（）会产生一个和父进程完全相同的子进程，但子进程在此后多会exec系统调用，出于效率考虑，linux中引入了“写时复制“技术，也就是只有进程空间的各段的内容要发生变化时，才会将父进程的内容复制一份给子进程。在fork之后exec之前两个进程用的是相同的物理空间（内存区），子进程的代码段、数据段、堆栈都是指向父进程的物理空间，也就是说，\textbf{两者的虚拟空间不同，但其对应的物理空间是同一个}。\textbf{当父子进程中有更改相应段的行为发生时，再为子进程相应的段分配物理空间}，如果不是因为exec，内核会给子进程的数据段、堆栈段分配相应的物理空间（至此两者有各自的进程空间，互不影响），\textbf{而代码段继续共享父进程的物理空间}（两者的代码完全相同）。而如果是因为exec，由于两者执行的代码不同，子进程的代码段也会分配单独的物理空间。
+			
+			\textbf{fork时子进程获得父进程数据空间、堆和栈的复制，所以变量的地址（当然是虚拟地址(相对位置)）也是一样的}。
+			
+			\textbf{每个进程都有自己的虚拟地址空间}，不同进程的相同的虚拟地址显然可以对应不同的物理地址。因此地址相同（虚拟地址）而值不同没什么奇怪。
+			具体过程是这样的：
+			fork子进程完全复制父进程的栈空间，也复制了页表，但没有复制物理页面，所以这时虚拟地址相同，物理地址也相同，但是会把父子共享的页面标记为“只读”（类似mmap的private的方式），如果父子进程一直对这个页面是同一个页面，知道其中任何一个进程要对共享的页面“写操作”，这时内核会复制一个物理页面给这个进程使用，同时修改页表。而把原来的只读页面标记为“可写”，留给另外一个进程使用。
+			
+			这就是所谓的“写时复制”。正因为fork采用了这种写时复制的机制，所以fork出来子进程之后，父子进程哪个先调度呢？内核一般会先调度子进程，因为很多情况下子进程是要马上执行exec，会清空栈、堆。。这些和父进程共享的空间，加载新的代码段。。。，这就避免了“写时复制”拷贝共享页面的机会。如果父进程先调度很可能写共享页面，会产生“写时复制”的无用功。所以，一般是子进程先调度滴。
+			
+			\textbf{假定父进程malloc的指针指向0x12345678, fork 后，子进程中的指针也是指向0x12345678，但是这两个地址都是虚拟内存地址 （virtual memory)，经过内存地址转换后所对应的 物理地址是不一样的。所以两个进程中的这两个地址相互之间没有任何关系。}
+			
+			
+			（注1：在理解时，你可以认为fork后，这两个相同的虚拟地址指向的是不同的物理地址，这样方便理解父子进程之间的独立性）
+			（注2：但实际上，Linux为了提高 fork 的效率，采用了 copy-on-write 技术，fork后，这两个虚拟地址实际上指向相同的物理地址（内存页），只有任何一个进程试图修改这个虚拟地址里的内容前，两个虚拟地址才会指向不同的物理地址（新的物理地址的内容从原物理地址中复制得到））
 	\section{共享内存区}
 	
 	\section{消息队列}
 	
 	\section{信号量}
-
+	
+	\section{库的使用}
+		\subsection{介绍}
+			使用GNU的工具我们如何在Linux下创建自己的程序函数库?一个“程序函数库”简单的说就是一个文件包含了一些编译好的代码和数据，这些编译好的代码和数据可以在事后供其他的程序使用。程序函数库可以使整个程序更加模块化，更容易重新编译，而且更方便升级。  
+			
+			程序函数库可分为3种类型：静态函数库（static libraries）、共享函数库（shared libraries）、动态加载函数库（dynamically loaded libraries）
+			
+		\subsection{静态函数库}是在程序执行前就加入到目标程序中去了；
+		
+			静态函数库实际上就是简单的一个普通的目标文件的集合，一般来说习惯用“\verb|.a|”作为文件的\textbf{后缀}
+			
+			静态库函数允许程序员把程序link起来而不用重新编译代码，节省了重新编译代码的时间。
+			
+			如你想把自己提供的函数给别人使用，但是又想对函数的源代码进行保密，你就可以给别人提供一个静态函数库文件。理论上说，使用ELF格式的静态库函数生成的代码可以比使用共享函数库（或者动态函数库）的程序运行速度上快一些，大概1－5\%。
+			
+			\verb|-->example:|
+			
+			创建一个静态函数库文件，或者往一个已经存在地静态函数库文件添加新的目标代码，可以用下面的命令： 
+			
+			\verb|ar rcs my_library.a file1.o file2.o| 
+			
+			这个例子中是把目标代码\verb|file1.o和file2.o|加入到\verb|my_library.a|这个函数库文件中，如果\verb|my_library.a|不存在则创建一个新的文件。在用\verb|ar|命令创建静态库函数的时候，还有其他一些可以选择的参数，可以参加\verb|ar|的使用帮助。这里不再赘述。
+			
+			一旦你创建了一个静态函数库，你可以使用它了。你可以把它作为你编译和连接过程中的一部分用来生成你的可执行代码。如果你用\verb|gcc|来编译产生可执行代码的话，你可以用“\verb|-l|”参数来指定这个库函数。你也可以用\verb|ld|来做，使用它的“\verb|-l|”和“\verb|-L|”参数选项。具体用法可以参考\verb|info:gcc|。 
+			
+		\subsection{共享函数库}是在程序启动的时候加载到程序中，它可以被不同的程序共享；动态加载函数库则可以在程序运行的任何时候动态的加载。
+		
+		\subsection{动态函数库}
+		
+		
 \chapter{Linux 服务器搭建}
 	\section{基本技能需求}
 		首先，到底我们是如何连线到伺服器的？连线到伺服器又取得啥咚咚？我们先以底下这张图示来作个简单的说明好了：
