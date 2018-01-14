@@ -1451,6 +1451,7 @@ inline FuncX(...){}
 	       
 \section{const 型成员函数}\verb|int getAge()  const;|
 	       \begin{enumerate}[fullwidth,itemindent=2em,label=(\arabic*)]
+		       \item  会隐含第一个参数为this,即如果没有参数，实际类型为带有本身类型的一个参数。
 		       \item  用于限制该函数，不允许该函数对任何数据成员进行修改。
 		       
 		       \item  一个\verb|const|成员函数仅能调用其他\verb|const|成员函数，因为\verb|const|成员不允许直接或间接的改变对象的状态，而调用非\verb|const|成员函数可能会间接的改变对象的状态

@@ -257,7 +257,15 @@
 					
 		\subparagraph{文本工具Texlive与Texstudio}
 		
-		\subparagraph{git}	 
+		\subparagraph{git}	
+		
+		\subparagraph{网易云音乐}有音乐工作才有动力
+			\begin{enumerate}[itemindent = 2em]
+				\item 官网下载deb
+				\item \verb|sudo dpkg -i ~/Downloads/xx.deb|
+				\item 出现错误时\verb|sudo apt install -f|
+				\item 再次运行安装命令
+			\end{enumerate} 
 		
 		
  \chapter{命令相关}
@@ -2330,6 +2338,14 @@ ls
 	done < file.txt
 			\end{lstlisting}
 \chapter{Linux 系统编程}
+	\section{线程}
+		\subparagraph{pthread\_create}
+
+		\verb|pthread_create(pthread_t*  id, pthread_attr_t* attr, void*(*start_routine)(void*), void* arg)|
+		
+		\begin{itemize}
+			\item \verb|void* (*start_routine) (void*)|:这里是个陷阱，如果使用成员函数会存在一个参数不匹配问题，因为成员函数有一个隐含的第一参数this,而this 为类指针类型，与void* 不匹配，造成了notMatch 错误。
+		\end{itemize}		 
 	\section{进程}
 		\subsection{进程空间}
 			\url{http://www.cnblogs.com/xzzzh/p/6596982.html}

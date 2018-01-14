@@ -2488,7 +2488,6 @@
 	\section{分布式服务器}
 			\textbf{一个业务分拆多个子业务}，部署在不同的服务器上，具体的平台有Hadoop.分布式 强调 机器间的协作，\textbf{其重点是任务可拆分}， 如 某个任务需要一个机器运行10个小时， 将该该任务用10台机器的分布式跑，可能2个小时就跑完了。（\textbf{子任务之间有依赖关系}）。
 \chapter{网络库}
-	\section{ACE}
 	\section{muduo}
 		\subsection{bind/function}适配器函数
 			\begin{lstlisting}
@@ -2511,7 +2510,68 @@
 	}
 			\end{lstlisting}
 		
+		\subsection{面向对象的编程}
+			
+		\subsection{基于对象的编程}
+		
+		
 \chapter{调试}
+	\section{core 文件}
+		\url{http://blog.csdn.net/zzwdkxx/article/details/73788226}
+		\subsection{什么是Core Dump}
+		Core的意思是\textbf{内存}, Dump的意思是\textbf{扔出来}, 堆出来.
+		开发和使用Unix程序时, 有时程序莫名其妙的down了, 却没有任何的提示(有时候会提示\textbf{core dumped}). 这时候可以查看一下有没有形如core.进程号的文件生成, 这个文件便是操作系统把程序down掉时的内存内容扔出来生成的, 它可以做为调试程序的参考.
+		
+		\verb|core dump|又叫\textbf{核心转储}, 当程序运行过程中发生异常, 程序异常退出时, \textbf{由操作系统把程序当前的内存状况存储在一个core文件中, 叫core dump}.
+		
+		\subsection{如何使用core文件}
+		\verb|gdb 运行程序 core文件|
+			\begin{figure}[h]
+				\centering
+				\includegraphics[scale=0.4]{core.png}
+				\caption{如何使用core文件}
+			\end{figure}
+		
+		\subsection{为什么没有core文件生成}
+		有时候\textbf{程序down了, 但是core文件却没有生成}. core文件的生成跟你当前系统的环境设置有关系, 可以用下面的语句设置一下, 然后再运行程序便成生成core文件.
+		
+		\verb|ulimit -c unlimited|
+		
+		【没有找到core文件，我们改改ulimit的设置，让它产生。1024是随便取的，要是core文件大于1024个块，就产生不出来了。）
+		
+		\verb|$ ulimit -c 1024 （转者注: 使用-c unlimited不限制core文件大小|
+		
+		\textbf{core文件生成的位置一般于运行程序的路径相同}, 文件名一般为core.进程号
+	
+		\subsection{如何定位到行}
+		 在编译的时候开启\verb|-g|调试开关就可以了
+		 
+		 \verb|gcc -o main -g a.c|
+		 
+		 \verb|gdb main /tmp/core-main-10815 |
+		 
+		 最终看到的结果如下，好棒。
+		 \begin{lstlisting}
+Program terminated with signal 11, Segmentation fault.
+#0  0x080483ba in func (p=0x0) at a.c:55          *p = 0;
+		 \end{lstlisting}
+		 
+		 总结一下，需要定位进程挂在哪一行我们只需要4个操作，
+		 \begin{enumerate}[itemindent = 2em]
+		 	\item \verb|ulimit -c unlimited|
+		 	\item \verb|echo "/tmp/core-%e-%p" > /proc/sys/kernel/core_pattern|
+		 	\item \verb|gcc -o main -g a.c|
+		 	\item \verb|gdb main /tmp/core-main-10815| 
+		 \end{enumerate}
+		 
+		\verb|->Notice:|通常导致\textbf{段错误}的几个直接原因：
+		\begin{enumerate}[itemindent = 2em]
+			\item 引用一个包含非法值的指针
+			\item 常常由于从系统程序中返回空指针，并未经检查就使用
+			\item 用删除指针的方式删除对象。
+		\end{enumerate}
+		
+		
 	\section{ACK 与 Seq}
 		\subsection{建立与释放阶段}
 			\begin{table}[htbp]

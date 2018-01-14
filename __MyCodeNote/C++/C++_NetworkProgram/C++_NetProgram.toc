@@ -251,27 +251,33 @@
 \contentsline {section}{\numberline {7.1}集群服务器}{75}{section.7.1}
 \contentsline {section}{\numberline {7.2}分布式服务器}{75}{section.7.2}
 \contentsline {chapter}{\numberline {第八章\hspace {0.3em}}网络库}{77}{chapter.8}
-\contentsline {section}{\numberline {8.1}ACE}{77}{section.8.1}
-\contentsline {section}{\numberline {8.2}muduo}{77}{section.8.2}
-\contentsline {subsection}{\numberline {8.2.1}bind/function}{77}{subsection.8.2.1}
+\contentsline {section}{\numberline {8.1}muduo}{77}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}bind/function}{77}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}面向对象的编程}{77}{subsection.8.1.2}
+\contentsline {subsection}{\numberline {8.1.3}基于对象的编程}{77}{subsection.8.1.3}
 \contentsline {chapter}{\numberline {第九章\hspace {0.3em}}调试}{79}{chapter.9}
-\contentsline {section}{\numberline {9.1}ACK 与 Seq}{79}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}建立与释放阶段}{79}{subsection.9.1.1}
-\contentsline {subsection}{\numberline {9.1.2}数据传输阶段}{79}{subsection.9.1.2}
-\contentsline {subparagraph}{Note}{80}{section*.94}
-\contentsline {section}{\numberline {9.2}strace}{80}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}指定追踪类型}{80}{subsection.9.2.1}
-\contentsline {section}{\numberline {9.3}tcpdump}{80}{section.9.3}
-\contentsline {section}{\numberline {9.4}nc}{80}{section.9.4}
-\contentsline {section}{\numberline {9.5}lsof}{80}{section.9.5}
-\contentsline {section}{\numberline {9.6}netstat}{81}{section.9.6}
-\contentsline {section}{\numberline {9.7}vmstat}{81}{section.9.7}
-\contentsline {section}{\numberline {9.8}ifstat}{81}{section.9.8}
-\contentsline {section}{\numberline {9.9}mpstat}{81}{section.9.9}
-\contentsline {section}{\numberline {9.10}top}{81}{section.9.10}
-\contentsline {section}{\numberline {9.11}ping}{81}{section.9.11}
-\contentsline {section}{\numberline {9.12}iptables}{81}{section.9.12}
-\contentsline {section}{\numberline {9.13}TTCP}{81}{section.9.13}
+\contentsline {section}{\numberline {9.1}core 文件}{79}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}什么是Core Dump}{79}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}如何使用core文件}{79}{subsection.9.1.2}
+\contentsline {subsection}{\numberline {9.1.3}为什么没有core文件生成}{79}{subsection.9.1.3}
+\contentsline {subsection}{\numberline {9.1.4}如何定位到行}{79}{subsection.9.1.4}
+\contentsline {section}{\numberline {9.2}ACK 与 Seq}{80}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}建立与释放阶段}{80}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}数据传输阶段}{80}{subsection.9.2.2}
+\contentsline {subparagraph}{Note}{81}{section*.94}
+\contentsline {section}{\numberline {9.3}strace}{81}{section.9.3}
+\contentsline {subsection}{\numberline {9.3.1}指定追踪类型}{81}{subsection.9.3.1}
+\contentsline {section}{\numberline {9.4}tcpdump}{82}{section.9.4}
+\contentsline {section}{\numberline {9.5}nc}{82}{section.9.5}
+\contentsline {section}{\numberline {9.6}lsof}{82}{section.9.6}
+\contentsline {section}{\numberline {9.7}netstat}{82}{section.9.7}
+\contentsline {section}{\numberline {9.8}vmstat}{82}{section.9.8}
+\contentsline {section}{\numberline {9.9}ifstat}{82}{section.9.9}
+\contentsline {section}{\numberline {9.10}mpstat}{82}{section.9.10}
+\contentsline {section}{\numberline {9.11}top}{82}{section.9.11}
+\contentsline {section}{\numberline {9.12}ping}{82}{section.9.12}
+\contentsline {section}{\numberline {9.13}iptables}{82}{section.9.13}
+\contentsline {section}{\numberline {9.14}TTCP}{82}{section.9.14}
 \contentsline {chapter}{\numberline {第十章\hspace {0.3em}}理论}{83}{chapter.10}
 \contentsline {section}{\numberline {10.1}网络的性能}{83}{section.10.1}
 \contentsline {subsection}{\numberline {10.1.1}速率}{83}{subsection.10.1.1}
