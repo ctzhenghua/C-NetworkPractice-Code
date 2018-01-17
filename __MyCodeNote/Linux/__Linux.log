@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2018.1.13)  17 JAN 2018 18:36
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2018.1.13)  17 JAN 2018 22:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2334,28 +2334,55 @@ dolSong-Regular(0)/bx/n/12 后，|  子 进 程 中 的 指 针 也 是 指 向 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [84]
-[85] [86] [87] [88
+File: compileProcess.png Graphic file (type QTm)
 
-]
+<use  "compileProcess.png" >
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[85] [86] [87]
+File: staticLib-disAdvantage.png Graphic file (type QTm)
+ <use  "staticLib-disAdvantage.png" >
+File: dynamicLib.png Graphic file (type QTm)
+ <use  "dynamicLib.png" >
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[88]
+Overfull \hbox (5.43172pt too wide) in paragraph at lines 2532--2534
+[]\EU1/FandolSong-Regular(0)/m/n/12 使 用 如 下 命 令 进 行 编 译：| []\EU1/lmtt/m/n/12 g+
++ -o Test Main.cc -L ./addlib/ -ladd -Wl,-rpath=./addlib/ 
+ []
+
+
+Overfull \hbox (20.21518pt too wide) in paragraph at lines 2544--2546
+[][][]$[][][][] [] [] [] [][][][] [] [][][][] [] [][][] [] [][][][][][][][][][]
+ [] [][][][][][][] [] [][][][][][][] [] [][][][][][][][]$[][] [][]$[][][][][] [
+] [] [] [][][] [] [][][][][][][] [] [][][] []
+ []
+
+[89] [90]
 第五章
 File: linuxServerExample.jpg Graphic file (type QTm)
 <use  "linuxServerExample.jpg" >
 Missing character: There is no 啰 in font [FandolSong-Regular.otf]/OT:!
 Missing character: There is no 啰 in font [FandolSong-Regular.otf]/OT:!
- [89] [90] [91]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2500.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2500.
+ [91
+
+] [92] [93]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2609.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2609.
  (./__Linux.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2500.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2500.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2609.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2609.
  ) 
 Here is how much of TeX's memory you used:
- 38988 strings out of 493706
- 777200 string characters out of 6145769
+ 39028 strings out of 493706
+ 777642 string characters out of 6145769
  887557 words of memory out of 5000000
- 41819 multiletter control sequences out of 15000+600000
+ 41856 multiletter control sequences out of 15000+600000
  11678 words of font info for 86 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  63i,13n,74p,10413b,1925s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on __Linux.pdf (91 pages).
+Output written on __Linux.pdf (93 pages).

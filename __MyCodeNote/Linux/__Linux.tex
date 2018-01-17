@@ -2405,7 +2405,17 @@ ls
 		\subsection{介绍}
 			使用GNU的工具我们如何在Linux下创建自己的程序函数库?一个“程序函数库”简单的说就是一个文件包含了一些编译好的代码和数据，这些编译好的代码和数据可以在事后供其他的程序使用。程序函数库可以使整个程序更加模块化，更容易重新编译，而且更方便升级。  
 			
-			程序函数库可分为3种类型：静态函数库（static libraries）、共享函数库（shared libraries）、动态加载函数库（dynamically loaded libraries）
+			引用的那些\textbf{头文件中的函数}是怎么被执行的呢？这就要牵扯到\textbf{链接库}了！
+			
+			库有两种，一种是 \textbf{静态链接库}，一种是 \textbf{动态链接库}，不管是哪一种库，\textit{要使用它们，都要在程序中包含相应的 include 头文件}。编译过程如下：
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[scale = 0.7]{compileProcess.png}
+				\caption{编译过程}
+			\end{figure}
+			
+			\verb|gcc -o helloWorld helloWorld.c| 生成一个helloWorld 的执行文件，格式为ELF(与widows的exe类似)。
 			
 		\subsection{静态函数库}是在程序执行前就加入到目标程序中去了；
 		
@@ -2413,19 +2423,73 @@ ls
 			
 			静态库函数允许程序员把程序link起来而不用重新编译代码，节省了重新编译代码的时间。
 			
-			如你想把自己提供的函数给别人使用，但是又想对函数的源代码进行保密，你就可以给别人提供一个静态函数库文件。理论上说，使用ELF格式的静态库函数生成的代码可以比使用共享函数库（或者动态函数库）的程序运行速度上快一些，大概1－5\%。
+			如你想把自己提供的函数给别人使用，但是又想对函数的源代码进行保密，你就可以给别人提供一个静态函数库文件。理论上说，使用ELF格式的静态库函数生成的代码可以比使用共享函数库（或者动态函数库）的程序\textbf{运行速度上快一些，大概1－5\%，但是占用空间却大了很多。}
 			
-			\verb|-->example:|
+			\subparagraph{Example}\verb|->|
+				
+				定义一个加法函数，做成静态库,首先需要将声明放到头文件以便引用。
+				\begin{lstlisting}
+	// add.h
+	#ifndef _ADD_
+	#define _ADD_
+	#include <iostream>
+	
+	int add(int a, int b);
+	#endif
+				\end{lstlisting}
+				
+				实现该函数
+				\begin{lstlisting}
+	#include "add.h"
+	
+	int add(int a, int b)
+	{
+		return a+b;
+	}
+				\end{lstlisting}
 			
-			创建一个静态函数库文件，或者往一个已经存在地静态函数库文件添加新的目标代码，可以用下面的命令： 
-			
-			\verb|ar rcs my_library.a file1.o file2.o| 
-			
-			这个例子中是把目标代码\verb|file1.o和file2.o|加入到\verb|my_library.a|这个函数库文件中，如果\verb|my_library.a|不存在则创建一个新的文件。在用\verb|ar|命令创建静态库函数的时候，还有其他一些可以选择的参数，可以参加\verb|ar|的使用帮助。这里不再赘述。
-			
-			一旦你创建了一个静态函数库，你可以使用它了。你可以把它作为你编译和连接过程中的一部分用来生成你的可执行代码。如果你用\verb|gcc|来编译产生可执行代码的话，你可以用“\verb|-l|”参数来指定这个库函数。你也可以用\verb|ld|来做，使用它的“\verb|-l|”和“\verb|-L|”参数选项。具体用法可以参考\verb|info:gcc|。 
-			
-			\subparagraph{搜索路径}\verb|->|
+				生成静态库：
+				\begin{enumerate}[itemindent = 2em]
+					\item \verb|g++ -c add.cc|生成\verb|.o|文件
+					\item \verb|ar -crv libadd.a add.o|生成一个静态库
+				\end{enumerate}
+				
+				
+				测试：
+				\begin{lstlisting}
+	//目录结构
+	project
+		|
+		+---Main.cc
+		|
+		+---addlib
+				|
+				+----add.h
+				|
+				+----add.cc
+	
+	#include <iostream>
+	#include "./addlib/add.h"
+	
+	using namespace std;
+	int main()
+	{
+		int num1 = 10;
+		int num2 = 90;
+		cout <<"the result is"<< add(num1,num2)<<endl;
+		return 0;
+	}
+				\end{lstlisting}
+				不管是哪一种库，\textit{要使用它们，都要在程序中包含相应的 include 头文件},所以include使用相对路径找到头文件\verb|add.h|
+				
+				然后我们使用\verb|g++ -o Test Main.cc -L ./addlib/ -ladd| 进行编译
+				
+				\begin{itemize}[itemindent = 2em]
+					\item \verb|L |是指定加载库文件的路径
+					\item \verb|l |是指定加载的库文件
+				\end{itemize}
+				
+			\subparagraph{静态库搜索路径}\verb|->|
 			
 				\begin{enumerate}[itemindent= 2em]
 					\item 编译目标代码时指定的静态库搜索路径。 \verb|-L ./src/ -lpthread|
@@ -2435,17 +2499,62 @@ ls
 					\item 配置文件\verb|/etc/ld.so.conf| 中指定的动态库搜索路径,然后运行\verb|/sbin/ldconfig|刷新缓存
 					\item 默认的动态库搜索路径\verb|/lib, /usr/lib|
 				\end{enumerate}
-		\subsection{动态函数库}
-			\subparagraph{搜索路径}\verb|->|
-			
-			\begin{enumerate}[itemindent= 2em]
-				\item 编译目标代码时指定的动态库搜索路径。\verb|-rpath  ./src/|
-				\item 环境变量\verb|LD_LIBRARY_PATH| 指定的动态库搜索路径。
 				
-				\verb|   export LD_LIBRARY_PATH=/opt/lib:$LD_LIBRARY_PATH|
-				\item 配置文件\verb|/etc/ld.so.conf| 中指定的动态库搜索路径，然后运行\verb|/sbin/ldconfig|刷新缓存
-				\item 默认的动态库搜索路径\verb|/lib, /usr/lib|
-			\end{enumerate}
+		\subsection{动态函数库}
+			静态链接的话，文件会很大，往往实现很小的一个功能就需要占用很大的空间，而且每次库文件升级的话，都要重新编译源文件，很不方便。如下：
+			\begin{figure}[h]
+				\centering
+				\includegraphics[scale = 0.7]{staticLib-disAdvantage.png}
+				\caption{静态库冗余空间}
+			\end{figure}
+			
+			对于静态编译的程序１和程序２，都应用库staticMath。在内存中就又\textbf{两份相同的staticＭath目标文件，很浪费空间}，一旦程序数量过多就很可能会内存不足。
+			
+			这么大的内存才只能运行这几个程序，实在不甘心。
+			这样就又了动态库发挥威力的地方了。我们来看看动态链接的结果：
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[scale = 0.7]{dynamicLib.png}
+				\caption{动态库解决静态库冗余空间问题}
+			\end{figure}
+
+			在这种模型中，两个程序只应用一个库，这个目标文件在内存中只有一份，供所有程序使用。
+			并且在程序运行过程中动态调用库文件，\textbf{很方便，又不占空间}，但是动态链接有一个\textbf{缺点就是可移植性太差}，如果两台电脑运行环境不同，动态库存放的位置不一样，很可能导致程序运行失败。
+			
+			\subparagraph{Example}使用静态库代码结构与代码
+			
+			生成一个\verb|libadd.so|的动态库
+			\verb|g++ -fPIC -shared -o libadd.so add.cpp|。
+			这样就生成一个了一个libadd.so 的动态库。
+			
+			
+			使用如下命令进行编译：
+			\verb|g++ -o Test Main.cc -L ./addlib/ -ladd -Wl,-rpath=./addlib/|
+			
+			但是如果不指定运行时搜索路径的话，会出现cannot open shared obj错误。如下编译：
+			
+			\verb|g++ g++ -o Test Main.cc -L ./addlib/ -ladd|
+			
+			此时可以通过\verb|ldd ./Test|进行查看调用的动态库情况。具体的设置可参考动态库搜索路径的4种方法。
+			
+			
+			\subparagraph{动态库搜索路径}\verb|->|
+			
+				\url{http://blog.csdn.net/weicao1990/article/details/51028335}			
+				\url{https://www.cnblogs.com/cute/archive/2011/02/24/1963957.html}
+				
+				\begin{enumerate}[itemindent= 2em]
+					\item 编译目标代码时指定的动态库搜索路径。\verb|-L./src/ -ladd -Wl,-rpath=./src/|
+					
+					\verb|   |前面两个\verb|-L -l|分别指明了动态库的位置和库的名字用于编译，只有引用， 后面的\verb|-Wl,-rpath|则指明运行时到哪里运行,有内容。
+					
+					\item 环境变量\verb|LD_LIBRARY_PATH| 指定的动态库搜索路径。
+					
+					\verb|   export LD_LIBRARY_PATH=/opt/lib:$LD_LIBRARY_PATH|
+					\item 配置文件\verb|/etc/ld.so.conf| 中指定的动态库搜索路径，然后运行\verb|/sbin/ldconfig|刷新缓存
+					\item 默认的动态库搜索路径\verb|/lib, /usr/lib|，\verb|mv ./src/xx.lib  /lib|
+				\end{enumerate}
 		
 \chapter{Linux 服务器搭建}
 	\section{基本技能需求}
