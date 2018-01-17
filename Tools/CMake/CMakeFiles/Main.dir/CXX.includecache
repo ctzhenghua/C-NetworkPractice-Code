@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/hua/C-NetworkPractice-Code/Tools/CMake/./src/Test.h
+iostream
+-
+
+/home/hua/C-NetworkPractice-Code/Tools/CMake/Main.cc
+iostream
+-
+./src/Test.h
+/home/hua/C-NetworkPractice-Code/Tools/CMake/./src/Test.h
+

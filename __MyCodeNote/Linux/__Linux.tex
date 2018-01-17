@@ -804,6 +804,7 @@
 			\end{figure}
 		
 		\subsection{常用命令}
+			\url{http://blog.csdn.net/weixin_40910753/article/details/79077074}
 			\subsubsection{选中一块区域并缩进缩出}
 				\begin{enumerate}
 					\item 按\verb|ESC| 进入正常模式
@@ -841,7 +842,7 @@
 				\subparagraph{p} 粘贴复制文本到当前光标前
 				\subparagraph{J} 合并后一行至当前行
 				\url{https://stackoverflow.com/questions/2770739/vim-error-e492-not-an-editor-command-dd}
-			\subsubsection{查找和替换}
+			\subsubsection{查找}
 				\subparagraph{'/keyword'} 在当前文本 向后查找 \verb|keyword|
 				\subparagraph{'?keyword'} 在当前文本 向前查找 \verb|keyword|
 				\subparagraph{n} 寻找下一个 
@@ -863,7 +864,15 @@
 					\end{tabular}
 				\end{table}	
 				\url{http://blog.sina.com.cn/s/blog_736f1c59010136ry.html}
-			
+			\subsubsection{查找删除注释}
+				\subparagraph{'s/old/new/ '}用old替换new，替换当前行的第一个匹配
+				\subparagraph{'s/old/new/g '}用old替换new，替换当前行的所有匹配
+				\subparagraph{'\%s/old/new/'}用old替换new，替换所有行的第一个匹配
+				\subparagraph{'\%s/old/new/g'}用old替换new，替换整个文件的所有匹配
+				\subparagraph{',5 s/\^ /\#/g'} 注释当前行到第5行
+				\subparagraph{',+5 s/\^ /\#/g'} 注释当前行与之后的5行
+				\subparagraph{'3,5 s/\^ \#//g'} 解除3-5行的注释	
+				
 			\subsubsection{编辑多文本}
 				\subparagraph{vi file1 file2 }
 				\subparagraph{n 与 N} 切换下一个文件
@@ -2392,6 +2401,7 @@ ls
 	\section{信号量}
 	
 	\section{库的使用}
+		\url{http://www.cnblogs.com/52php/p/5681711.html}
 		\subsection{介绍}
 			使用GNU的工具我们如何在Linux下创建自己的程序函数库?一个“程序函数库”简单的说就是一个文件包含了一些编译好的代码和数据，这些编译好的代码和数据可以在事后供其他的程序使用。程序函数库可以使整个程序更加模块化，更容易重新编译，而且更方便升级。  
 			
@@ -2415,10 +2425,27 @@ ls
 			
 			一旦你创建了一个静态函数库，你可以使用它了。你可以把它作为你编译和连接过程中的一部分用来生成你的可执行代码。如果你用\verb|gcc|来编译产生可执行代码的话，你可以用“\verb|-l|”参数来指定这个库函数。你也可以用\verb|ld|来做，使用它的“\verb|-l|”和“\verb|-L|”参数选项。具体用法可以参考\verb|info:gcc|。 
 			
-		\subsection{共享函数库}是在程序启动的时候加载到程序中，它可以被不同的程序共享；动态加载函数库则可以在程序运行的任何时候动态的加载。
-		
+			\subparagraph{搜索路径}\verb|->|
+			
+				\begin{enumerate}[itemindent= 2em]
+					\item 编译目标代码时指定的静态库搜索路径。 \verb|-L ./src/ -lpthread|
+					\item 环境变量\verb|LIBRARY_PATH| 指定的动态库搜索路径。
+					
+					 \verb|   export LIBRARY_PATH=/opt/lib:$LIBRARY_PATH|
+					\item 配置文件\verb|/etc/ld.so.conf| 中指定的动态库搜索路径,然后运行\verb|/sbin/ldconfig|刷新缓存
+					\item 默认的动态库搜索路径\verb|/lib, /usr/lib|
+				\end{enumerate}
 		\subsection{动态函数库}
-		
+			\subparagraph{搜索路径}\verb|->|
+			
+			\begin{enumerate}[itemindent= 2em]
+				\item 编译目标代码时指定的动态库搜索路径。\verb|-rpath  ./src/|
+				\item 环境变量\verb|LD_LIBRARY_PATH| 指定的动态库搜索路径。
+				
+				\verb|   export LD_LIBRARY_PATH=/opt/lib:$LD_LIBRARY_PATH|
+				\item 配置文件\verb|/etc/ld.so.conf| 中指定的动态库搜索路径，然后运行\verb|/sbin/ldconfig|刷新缓存
+				\item 默认的动态库搜索路径\verb|/lib, /usr/lib|
+			\end{enumerate}
 		
 \chapter{Linux 服务器搭建}
 	\section{基本技能需求}

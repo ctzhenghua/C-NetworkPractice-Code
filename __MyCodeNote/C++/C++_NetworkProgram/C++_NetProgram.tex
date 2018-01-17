@@ -2511,9 +2511,207 @@
 			\end{lstlisting}
 		
 		\subsection{面向对象的编程}虚函数类型多态类，面向继承
+			\begin{lstlisting}
+	// EventLoop 调用TcpServer, TcpServer 利用虚函数接口回调具体的子类方法，即利用父指针调用子对象的虚函数实现功能的更新
+	class TcpServer
+	{
+	public:
+		TcpServer(){}
+		virtual ~TcpServer(){}
+		
+		virtual void onConnection()=0;
+		virtual void onMessage()=0;
+	};
+	
+	class EchoServer: public TcpServer
+	{
+	public:
+		EchoServer(){}
+		virtual ~EchoServer(){}
+		
+		virtual void onConnection(){}
+		virtual void onMessage(){}		
+	};		
+			\end{lstlisting}
 			
 		\subsection{基于对象的编程}利用bind/function 实现多态，实现参数上的适配。
+			\begin{lstlisting}
+	//EventLoop 调用TcpServer， TcpServer 利用回调机制绑定具体执行函数，所以并不涉及虚函数。 		
+	class TcpServer
+	{
+	public:
+		TcpServer(){}
+		~TcpServer(){}
 		
+		typedef function<void()> func;
+		void onConnection()
+		{
+			onConnection_func();
+		}
+	    void onMessage()
+	    {
+		    onMessage_func();
+	    }
+	    void setConnectionCallback(func func_onConnect)
+	    {
+		    onConnection_func = func_onConnect;
+	    }
+	    void setMessageCallback(func func_Message)
+	    {
+		    onMessage_func = func_Message;
+	    }
+    private:
+	    func onConnection_func;
+	    func onMessage_func;
+	    
+	};
+				
+	class EchoServer
+	{
+	public:
+		EchoServer()
+		{
+			server.setConnectionCallback(bind(onConnection));
+			server.setMessageCallback(bind(onMessage));
+		}
+		
+		void onConnection();
+		void onMessage();
+		
+		TcpServer server;
+	};
+			\end{lstlisting}
+
+\chapter{Redis}
+	\section{NoSQL} Not Only Sql
+		\subsection{解决问题}
+			\begin{itemize}
+				\item 高并发读写(传统问题)
+				\item 海量数据的高效存储与访问(亿级数据的访问)
+				\item 高可扩展性和高可用性(7*24)
+			\end{itemize}
+		
+		\subsection{四大分类}
+			\begin{itemize}
+				\item 键值存储(key-value)
+				\item 列存储
+				\item 文档数据库
+				\item 图形数据库
+			\end{itemize}
+	
+	\section{Redis}
+		\subsection{应用场景}
+			\begin{itemize}
+				\item 缓存
+				\item 聊天室，秒杀，任务队列
+				\item 应用排行榜.网站统计
+				\item 数据存储(add,del,update,select)定期持久化到硬盘中
+				\item 分布式集群架构中的session 分离
+			\end{itemize}
+		\subsection{安装}
+		 
+		\subsection{使用}
+		
+		
+\chapter{编译}
+	\section{常规}
+	
+	\section{Makefile}
+	
+	
+	\section{CMAKE}	
+		\url{https://www.ibm.com/developerworks/cn/linux/l-cn-cmake/}
+		\subsection{流程}
+			在 linux 平台下使用 CMake 生成 Makefile 并编译的流程如下:
+			
+			\begin{enumerate}
+				\item 编写 \verb|CmakeLists.txt|。
+				\item 执行命令“\verb|cmake PATH|”或者“\verb|ccmake PATH|”生成 \verb|Makefile| ( \textbf{PATH 是 CMakeLists.txt 所在的目录} )。
+				\item 使用 \verb|make| 命令进行编译。
+			\end{enumerate}
+			
+		\subsection{单目录结构}
+			\subparagraph{0.工程目录}
+				\verb|mkdir Project|
+			\subparagraph{1.添加源文件}
+				\begin{itemize}[itemindent = 2em]
+					\item \verb|cd ./Project|
+					\item \verb|vi Main.cc ...|
+				\end{itemize}
+				
+			\subparagraph{2.编写CMakeLists.txt}\verb|-> |
+				\begin{lstlisting}
+	#项目的名称
+	PROJECT(Main)
+	
+	#限定CMake版本
+	CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+	
+	#将当前目录中的源文件名称赋值给变量DIR_SRCS
+	AUX_SOURCE_DIRECTORY(. DIR_SRCS)
+	
+	#指示需要编译成的可执行文件的名称  如 -o
+	ADD_EXECUTABLE(Main ${DIR_SRCS})
+				\end{lstlisting}
+			\subparagraph{3.编译}
+				\begin{enumerate}[itemindent = 2em]
+					\item \verb|cmake .| 生成makefile
+					\item \verb|make| 编译生成可执行文件
+				\end{enumerate}
+				
+		\subsection{多目录结构}
+			\subparagraph{代码结构}\verb|-> |
+				\begin{lstlisting}
+	./step2
+		|
+		+---Main.cc
+		|
+		+---src
+			 |
+			 +---Test1.h
+			 |
+			 +---Test1.cc
+				\end{lstlisting}
+				
+			\subparagraph{编写项目主目录 CMakeLists.txt}
+				\begin{lstlisting}
+	#项目的名称
+	PROJECT(Main)
+	
+	#限定CMake版本
+	CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+	
+	#指明本项目包含的一个子目录
+	ADD_SUBDIRECTORY(src)
+	
+	#将当前目录中的源文件名称赋值给变量DIR_SRCS
+	AUX_SOURCE_DIRECTORY(. DIR_SRCS)
+	
+	#指示需要编译成的可执行文件的名称  如 -o
+	ADD_EXECUTABLE(Main ${DIR_SRCS})
+	
+	#指明可执行文件 需要链接的库
+	TARGET_LINK_LIBRARIES(Main Test)
+				\end{lstlisting}
+			
+			\subparagraph{编写次目录 CMakeLists.txt}如果次目录的文件需要使用，那么就必须如基本的CMake流程了。
+			
+				\begin{lstlisting}
+	#将当前目录中的源文件名称赋值给变量DIR_TEST_SRCS
+	AUX_SOURCE_DIRECTORY(. DIR_TEST_SRCS)
+	
+	#使用该命令将 当前目录中的源文件 编译成共享库
+	ADD_LIBRARY(Test ${DIR_TEST_SRCS})
+				\end{lstlisting}
+			
+			\subparagraph{编译}
+				\begin{enumerate}[itemindent = 2em]
+					\item \verb|cmake .|
+					\item \verb|make|
+				\end{enumerate}
+			
+		\subsection{使用其他链接库}
+			
 		
 \chapter{调试}
 	\section{core 文件}

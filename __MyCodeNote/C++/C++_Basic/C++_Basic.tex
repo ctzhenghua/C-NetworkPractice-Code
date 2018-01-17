@@ -1440,7 +1440,7 @@ inline FuncX(...){}
 	    	\item  \verb|setlocale(LC_ALL,"chs");|
 	    	\item  \verb|wchar_t *p = L"中文";|
 	    \end{enumerate}
-         
+       
 \chapter{class}
        
 \section{C++ 中使用Struct 创建1个类}\verb|struct|关键字创建的类，类成员默认是公有的,但可以有私有的
@@ -1504,6 +1504,16 @@ inline FuncX(...){}
 		cout << e.what() << endl;
 	}
 			  \end{lstlisting} 
+	
+\section{值语义与对象语义}
+	\url{http://blog.csdn.net/chdhust/article/details/9927083}
+	
+	\subsection{值语义}
+		所谓值语义是一个对象被系统标准的复制方式复制后，与被复制的对象之间毫无关系，可以彼此独立改变互不影响
+	
+	\subsection{对象语义}
+		也叫指针语义，引用语义等，通常是指一个对象被系统标准的复制方式复制后，与被复制的对象之间依然共享底层资源，对任何一个的改变都将改变另一个
+	
 \section{拷贝构造函数} 拷贝构造函数创建一个新的对象，此对象是另外一个对象的拷贝品
 	       \begin{enumerate}[fullwidth,itemindent=2em,label=(\arabic*)]		       
 		       \item  \verb|Person(Person &)| ; 或 \verb|Person(const Person & )|;

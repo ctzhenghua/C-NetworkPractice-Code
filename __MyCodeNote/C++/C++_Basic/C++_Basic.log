@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2018.1.13)  14 JAN 2018 15:46
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2018.1.13)  16 JAN 2018 23:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1791,7 +1791,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [67
 
 ]
-Overfull \hbox (17.19931pt too wide) in paragraph at lines 1994--1995
+Overfull \hbox (17.19931pt too wide) in paragraph at lines 2004--2005
 []\EU1/FandolSong-Regular(0)/bx/n/12 深 入 \EU1/lmr/bx/n/12 c++ \EU1/FandolSong-R
 egular(0)/bx/n/12 内 存 模 型\EU1/FandolSong-Regular(0)/m/n/12 ：| [][]$[][][][] [] 
 [] [] [][][][] [] [][][][] [] [][][] [] [][][][][][][][][][][][][][][] [] [][][
@@ -1799,7 +1799,7 @@ egular(0)/bx/n/12 内 存 模 型\EU1/FandolSong-Regular(0)/m/n/12 ：| [][]$[][
  []
 
 
-Overfull \hbox (27.38371pt too wide) in paragraph at lines 1999--2000
+Overfull \hbox (27.38371pt too wide) in paragraph at lines 2009--2010
 []\EU1/FandolSong-Regular(0)/m/n/12 虚 函 数  |（[]\EU1/lmtt/m/n/12 Virtual Functio
 n\EU1/FandolSong-Regular(0)/m/n/12 ）|  是 通 过 一 张 虚 函 数 表  |（[]\EU1/lmtt/m/n/12 
 Virtual Table\EU1/FandolSong-Regular(0)/m/n/12 ）|  来 实 现 的。|  简 称 为[]\EU1/lmtt/
@@ -1828,10 +1828,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 第十章
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 2100.
+(hyperref)                than one, level fixed on input line 2110.
 
 [73]
-Overfull \hbox (14.31975pt too wide) in paragraph at lines 2152--2154
+Overfull \hbox (14.31975pt too wide) in paragraph at lines 2162--2164
 []\EU1/FandolSong-Regular(0)/m/n/12 目 前 业 界 针 对 这 种 情 况 的 处 理 没 有 一 个 很 完 美 的 方
  案，| \EU1/FandolSong-Regular(0)/bx/n/12 通 常 的 做 法 是 提 供 方 在 自 己 的[]\EU1/lmtt/m/
 n/12 xxx_pub.h
@@ -1897,7 +1897,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 第二十三章
 
-Overfull \hbox (13.33424pt too wide) in paragraph at lines 2936--2937
+Overfull \hbox (13.33424pt too wide) in paragraph at lines 2946--2947
 []\EU1/FandolSong-Regular(0)/m/n/12 打 开 属 性 管 理 器，|  点 击 项 目 前 的 箭 头，|  展 开 项 目
 ，|  找 到[]\EU1/lmtt/m/n/12 Debug \EU1/FandolSong-Regular(0)/m/n/12 或 者[]\EU1/lmt
 t/m/n/12 Release \EU1/FandolSong-Regular(0)/m/n/12 下 面 的 []\EU1/lmtt/m/n/12 Mic
@@ -1905,7 +1905,7 @@ rosoft.Cpp
  []
 
 [107]
-Overfull \hbox (111.77289pt too wide) in paragraph at lines 2957--2958
+Overfull \hbox (111.77289pt too wide) in paragraph at lines 2967--2968
 []\EU1/lmr/m/n/12 -\EU1/FandolSong-Regular(0)/m/n/12 配 置 \EU1/lmr/m/n/12 includ
 e Directories += \EU1/FandolSong-Regular(0)/m/n/12 安 装 目 录 $[]$\EU1/lmr/m/n/12 
 opencv$[]$build$[]$include; += \EU1/FandolSong-Regular(0)/m/n/12 安 装 目 录 $[]$ \
@@ -1913,7 +1913,7 @@ EU1/lmr/m/n/12 opencv$[]$build$[]$include$[]$opencv;
  []
 
 
-Overfull \hbox (36.07927pt too wide) in paragraph at lines 2980--2981
+Overfull \hbox (36.07927pt too wide) in paragraph at lines 2990--2991
 []\EU1/lmr/m/n/12 win10 \EU1/FandolSong-Regular(0)/m/n/12 权 限 更 改：| [][]$[][][]
 [] [] [] [] [][][][] [] [][][] [] [][][] [] [][][][][][][] [] [][][] [] [][][][
 ] [] [][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][]$[][] 
@@ -1925,10 +1925,10 @@ Overfull \hbox (36.07927pt too wide) in paragraph at lines 2980--2981
 第二十四章
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 3097.
+(hyperref)                than one, level fixed on input line 3107.
 
 
-Overfull \hbox (17.56613pt too wide) in paragraph at lines 3122--3123
+Overfull \hbox (17.56613pt too wide) in paragraph at lines 3132--3133
 [][]\EU1/lmtt/m/n/12 break +offset,  break -offset\EU1/lmr/m/n/12 : \EU1/Fandol
 Song-Regular(0)/m/n/12 在 当 前 行 号 的 前 面 或 后 面 的[]\EU1/lmtt/m/n/12 offset \EU1/Fa
 ndolSong-Regular(0)/m/n/12 行 停 住。| []\EU1/lmtt/m/n/12 offiset \EU1/FandolSong-R
@@ -1942,7 +1942,7 @@ egular(0)/m/n/12 为
 [117]
 File: Naming.png Graphic file (type QTm)
  <use  "Naming.png" >
-Overfull \hbox (5.12567pt too wide) in paragraph at lines 3274--3275
+Overfull \hbox (5.12567pt too wide) in paragraph at lines 3284--3285
  [][] 
  []
 
@@ -1950,7 +1950,7 @@ Overfull \hbox (5.12567pt too wide) in paragraph at lines 3274--3275
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [118] [119]
-Overfull \hbox (21.6755pt too wide) in paragraph at lines 3330--3331
+Overfull \hbox (21.6755pt too wide) in paragraph at lines 3340--3341
 [][]\EU1/lmtt/m/n/12 #define INT_PTR int* \EU1/FandolSong-Regular(0)/m/n/12 这 是
  \EU1/FandolSong-Regular(0)/bx/n/12 宏 定 义\EU1/FandolSong-Regular(0)/m/n/12 ，|  
 编 译 预 处 理 阶 段 要 进 行 宏 替 换，| []\EU1/lmtt/m/n/12 INT_PTR a,b\EU1/FandolFang-Regul
@@ -1958,7 +1958,7 @@ ar(0)/m/n/12 会变成 \EU1/lmtt/m/n/12 int* a,b
  []
 
 [120] [121] [122]
-Overfull \hbox (201.52167pt too wide) in paragraph at lines 3444--3445
+Overfull \hbox (201.52167pt too wide) in paragraph at lines 3454--3455
 [][][]$[][][][] [] [] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][]
 [][] [] [][][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -1966,18 +1966,18 @@ Overfull \hbox (201.52167pt too wide) in paragraph at lines 3444--3445
  []
 
 
-Overfull \hbox (0.98647pt too wide) in paragraph at lines 3448--3449
+Overfull \hbox (0.98647pt too wide) in paragraph at lines 3458--3459
 []\EU1/lmr/m/n/12 LNK2019: \EU1/FandolSong-Regular(0)/m/n/12 无 法 解 析 的 外 部 符 号 
 \EU1/lmr/m/n/12 __imp__InitCommonControlsEx@4\EU1/FandolSong-Regular(0)/m/n/12 
 ，|  该 符 号 在 函 数 \EU1/lmr/m/n/12 _Win-
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3452.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3462.
 [123]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3452.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3462.
  (./C++_Basic.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3452.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3452.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3462.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3462.
  ) 
 Here is how much of TeX's memory you used:
  30658 strings out of 493706

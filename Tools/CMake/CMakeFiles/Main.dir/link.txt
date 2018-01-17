@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/Main.dir/Main.cc.o  -o Main -rdynamic src/libTest.a 
