@@ -209,90 +209,91 @@
 \contentsline {chapter}{\numberline {第二十一章\hspace {0.3em}}异常}{101}{chapter.21}
 \contentsline {section}{\numberline {21.1}简介}{101}{section.21.1}
 \contentsline {subsection}{\numberline {21.1.1}机制}{101}{subsection.21.1.1}
-\contentsline {subsection}{\numberline {21.1.2}细节}{104}{subsection.21.1.2}
-\contentsline {chapter}{\numberline {第二十二章\hspace {0.3em}}C++ 对象模型}{105}{chapter.22}
-\contentsline {section}{\numberline {22.1}C++ Object Model}{105}{section.22.1}
-\contentsline {subsection}{\numberline {22.1.1}vtbl}{105}{subsection.22.1.1}
-\contentsline {subsection}{\numberline {22.1.2}vptr}{105}{subsection.22.1.2}
-\contentsline {chapter}{\numberline {第二十三章\hspace {0.3em}}编译}{107}{chapter.23}
-\contentsline {section}{\numberline {23.1}Windows-VisualStudio}{107}{section.23.1}
-\contentsline {subsection}{\numberline {23.1.1}配置全局VC++目录}{107}{subsection.23.1.1}
-\contentsline {subsection}{\numberline {23.1.2}配置第三方程序库-以opencv 示例}{107}{subsection.23.1.2}
-\contentsline {subsubsection}{下载配置所需}{107}{section*.65}
-\contentsline {subparagraph}{1.VisualStudio2010}{107}{section*.66}
-\contentsline {subparagraph}{2.OpenCV2.4.8}{107}{section*.67}
-\contentsline {subsubsection}{安装}{107}{section*.68}
-\contentsline {subparagraph}{1.安装位置不影响}{107}{section*.69}
-\contentsline {subparagraph}{2.配置Path系统环境}{107}{section*.70}
-\contentsline {subsubsection}{配置}{107}{section*.71}
-\contentsline {subparagraph}{1.Create Project}{107}{section*.72}
-\contentsline {subparagraph}{2.配置}{108}{section*.73}
-\contentsline {subsubsection}{编程测试}{108}{section*.74}
-\contentsline {subsection}{\numberline {23.1.3}dll 与 lib 的配置}{108}{subsection.23.1.3}
-\contentsline {subparagraph}{静态lib}{108}{section*.75}
-\contentsline {subparagraph}{动态lib}{108}{section*.76}
-\contentsline {subsection}{\numberline {23.1.4}常见错误}{108}{subsection.23.1.4}
-\contentsline {subsubsection}{}{108}{section*.77}
-\contentsline {subparagraph}{参考}{108}{section*.78}
-\contentsline {section}{\numberline {23.2}Linux - Makefile}{108}{section.23.2}
-\contentsline {subsection}{\numberline {23.2.1}Makefile 规则}{109}{subsection.23.2.1}
-\contentsline {subsubsection}{示例}{109}{section*.79}
-\contentsline {subsection}{\numberline {23.2.2}make 执行流程}{109}{subsection.23.2.2}
-\contentsline {subsection}{\numberline {23.2.3}makefile 中使用变量}{110}{subsection.23.2.3}
-\contentsline {subsection}{\numberline {23.2.4}make 的自动推倒}{110}{subsection.23.2.4}
-\contentsline {subparagraph}{进一步自动化}{110}{section*.80}
-\contentsline {subsection}{\numberline {23.2.5}添加依赖库}{111}{subsection.23.2.5}
-\contentsline {subsection}{\numberline {23.2.6}代码泄漏检测}{111}{subsection.23.2.6}
-\contentsline {subsection}{\numberline {23.2.7}参考文献}{111}{subsection.23.2.7}
-\contentsline {chapter}{\numberline {第二十四章\hspace {0.3em}}调试}{113}{chapter.24}
-\contentsline {section}{\numberline {24.1}Linux - 调试 GDB}{113}{section.24.1}
-\contentsline {subsection}{\numberline {24.1.1}使用 GDB}{113}{subsection.24.1.1}
-\contentsline {paragraph}{-g 编译项目}{113}{section*.81}
-\contentsline {paragraph}{启动 GDB}{113}{section*.82}
-\contentsline {paragraph}{GDB 常用 命令}{113}{section*.83}
-\contentsline {subparagraph}{基础 命令}{113}{section*.84}
-\contentsline {subparagraph}{Help 命令}{114}{section*.85}
-\contentsline {subsection}{\numberline {24.1.2}参考}{115}{subsection.24.1.2}
-\contentsline {chapter}{\numberline {第二十五章\hspace {0.3em}}工程-细节}{117}{chapter.25}
-\contentsline {section}{\numberline {25.1}语言使用基本问题}{117}{section.25.1}
-\contentsline {subsection}{\numberline {25.1.1}注释格式}{117}{subsection.25.1.1}
-\contentsline {subsubsection}{函数注释}{117}{section*.86}
-\contentsline {subsubsection}{代码注释}{117}{section*.87}
-\contentsline {subsection}{\numberline {25.1.2}预编译}{118}{subsection.25.1.2}
-\contentsline {subsection}{\numberline {25.1.3}变量问题}{118}{subsection.25.1.3}
-\contentsline {subsubsection}{变量(包括成员)命名}{118}{section*.88}
-\contentsline {subsubsection}{使用}{118}{section*.89}
-\contentsline {subsection}{\numberline {25.1.4}运算符使用问题}{119}{subsection.25.1.4}
-\contentsline {subsection}{\numberline {25.1.5}函数问题}{119}{subsection.25.1.5}
-\contentsline {subsection}{\numberline {25.1.6}条件语句问题}{119}{subsection.25.1.6}
-\contentsline {subsection}{\numberline {25.1.7}循环语句问题}{119}{subsection.25.1.7}
-\contentsline {subsection}{\numberline {25.1.8}数值类型转换问题}{119}{subsection.25.1.8}
-\contentsline {section}{\numberline {25.2}内存管理}{120}{section.25.2}
-\contentsline {subsection}{\numberline {25.2.1}内存分配与使用}{120}{subsection.25.2.1}
-\contentsline {subsection}{\numberline {25.2.2}内存泄漏}{120}{subsection.25.2.2}
-\contentsline {section}{\numberline {25.3}缓冲区溢出}{120}{section.25.3}
-\contentsline {subsection}{\numberline {25.3.1}数组越界}{120}{subsection.25.3.1}
-\contentsline {subsection}{\numberline {25.3.2}数据越界}{120}{subsection.25.3.2}
-\contentsline {subsection}{\numberline {25.3.3}字符串操作溢出}{120}{subsection.25.3.3}
-\contentsline {section}{\numberline {25.4}指针问题}{120}{section.25.4}
-\contentsline {subsection}{\numberline {25.4.1}定义问题}{120}{subsection.25.4.1}
-\contentsline {subsection}{\numberline {25.4.2}空指针解引用}{120}{subsection.25.4.2}
-\contentsline {subsection}{\numberline {25.4.3}指针非法使用}{120}{subsection.25.4.3}
-\contentsline {subsection}{\numberline {25.4.4}数组参数}{121}{subsection.25.4.4}
-\contentsline {section}{\numberline {25.5}安全缺陷}{121}{section.25.5}
-\contentsline {subsection}{\numberline {25.5.1}外部输入安全缺陷}{121}{subsection.25.5.1}
-\contentsline {subsection}{\numberline {25.5.2}资源泄漏}{121}{subsection.25.5.2}
-\contentsline {subsection}{\numberline {25.5.3}其他}{121}{subsection.25.5.3}
-\contentsline {section}{\numberline {25.6}类}{121}{section.25.6}
-\contentsline {subsection}{\numberline {25.6.1}类命名问题}{121}{subsection.25.6.1}
-\contentsline {subsection}{\numberline {25.6.2}访问权限}{121}{subsection.25.6.2}
-\contentsline {subsection}{\numberline {25.6.3}区分对象所在处}{122}{subsection.25.6.3}
-\contentsline {subsubsection}{Object on the Stack}{122}{section*.90}
-\contentsline {subsubsection}{Object on the Heap}{122}{section*.91}
-\contentsline {section}{\numberline {25.7}其他}{122}{section.25.7}
-\contentsline {subsection}{\numberline {25.7.1}预处理}{122}{subsection.25.7.1}
-\contentsline {subsection}{\numberline {25.7.2}异常}{122}{subsection.25.7.2}
-\contentsline {subsection}{\numberline {25.7.3}多线程和同步性}{122}{subsection.25.7.3}
-\contentsline {subsection}{\numberline {25.7.4}代码不可达}{123}{subsection.25.7.4}
-\contentsline {subsection}{\numberline {25.7.5}关于VS2013中的相对路径问题}{123}{subsection.25.7.5}
-\contentsline {subsection}{\numberline {25.7.6}编译}{123}{subsection.25.7.6}
+\contentsline {subsection}{\numberline {21.1.2}C++函数声明后面加throw()的作用}{101}{subsection.21.1.2}
+\contentsline {subsection}{\numberline {21.1.3}细节}{104}{subsection.21.1.3}
+\contentsline {chapter}{\numberline {第二十二章\hspace {0.3em}}C++ 对象模型}{107}{chapter.22}
+\contentsline {section}{\numberline {22.1}C++ Object Model}{107}{section.22.1}
+\contentsline {subsection}{\numberline {22.1.1}vtbl}{107}{subsection.22.1.1}
+\contentsline {subsection}{\numberline {22.1.2}vptr}{107}{subsection.22.1.2}
+\contentsline {chapter}{\numberline {第二十三章\hspace {0.3em}}编译}{109}{chapter.23}
+\contentsline {section}{\numberline {23.1}Windows-VisualStudio}{109}{section.23.1}
+\contentsline {subsection}{\numberline {23.1.1}配置全局VC++目录}{109}{subsection.23.1.1}
+\contentsline {subsection}{\numberline {23.1.2}配置第三方程序库-以opencv 示例}{109}{subsection.23.1.2}
+\contentsline {subsubsection}{下载配置所需}{109}{section*.65}
+\contentsline {subparagraph}{1.VisualStudio2010}{109}{section*.66}
+\contentsline {subparagraph}{2.OpenCV2.4.8}{109}{section*.67}
+\contentsline {subsubsection}{安装}{109}{section*.68}
+\contentsline {subparagraph}{1.安装位置不影响}{109}{section*.69}
+\contentsline {subparagraph}{2.配置Path系统环境}{109}{section*.70}
+\contentsline {subsubsection}{配置}{109}{section*.71}
+\contentsline {subparagraph}{1.Create Project}{109}{section*.72}
+\contentsline {subparagraph}{2.配置}{110}{section*.73}
+\contentsline {subsubsection}{编程测试}{110}{section*.74}
+\contentsline {subsection}{\numberline {23.1.3}dll 与 lib 的配置}{110}{subsection.23.1.3}
+\contentsline {subparagraph}{静态lib}{110}{section*.75}
+\contentsline {subparagraph}{动态lib}{110}{section*.76}
+\contentsline {subsection}{\numberline {23.1.4}常见错误}{110}{subsection.23.1.4}
+\contentsline {subsubsection}{}{110}{section*.77}
+\contentsline {subparagraph}{参考}{110}{section*.78}
+\contentsline {section}{\numberline {23.2}Linux - Makefile}{110}{section.23.2}
+\contentsline {subsection}{\numberline {23.2.1}Makefile 规则}{111}{subsection.23.2.1}
+\contentsline {subsubsection}{示例}{111}{section*.79}
+\contentsline {subsection}{\numberline {23.2.2}make 执行流程}{111}{subsection.23.2.2}
+\contentsline {subsection}{\numberline {23.2.3}makefile 中使用变量}{112}{subsection.23.2.3}
+\contentsline {subsection}{\numberline {23.2.4}make 的自动推倒}{112}{subsection.23.2.4}
+\contentsline {subparagraph}{进一步自动化}{112}{section*.80}
+\contentsline {subsection}{\numberline {23.2.5}添加依赖库}{113}{subsection.23.2.5}
+\contentsline {subsection}{\numberline {23.2.6}代码泄漏检测}{113}{subsection.23.2.6}
+\contentsline {subsection}{\numberline {23.2.7}参考文献}{113}{subsection.23.2.7}
+\contentsline {chapter}{\numberline {第二十四章\hspace {0.3em}}调试}{115}{chapter.24}
+\contentsline {section}{\numberline {24.1}Linux - 调试 GDB}{115}{section.24.1}
+\contentsline {subsection}{\numberline {24.1.1}使用 GDB}{115}{subsection.24.1.1}
+\contentsline {paragraph}{-g 编译项目}{115}{section*.81}
+\contentsline {paragraph}{启动 GDB}{115}{section*.82}
+\contentsline {paragraph}{GDB 常用 命令}{115}{section*.83}
+\contentsline {subparagraph}{基础 命令}{115}{section*.84}
+\contentsline {subparagraph}{Help 命令}{116}{section*.85}
+\contentsline {subsection}{\numberline {24.1.2}参考}{117}{subsection.24.1.2}
+\contentsline {chapter}{\numberline {第二十五章\hspace {0.3em}}工程-细节}{119}{chapter.25}
+\contentsline {section}{\numberline {25.1}语言使用基本问题}{119}{section.25.1}
+\contentsline {subsection}{\numberline {25.1.1}注释格式}{119}{subsection.25.1.1}
+\contentsline {subsubsection}{函数注释}{119}{section*.86}
+\contentsline {subsubsection}{代码注释}{119}{section*.87}
+\contentsline {subsection}{\numberline {25.1.2}预编译}{120}{subsection.25.1.2}
+\contentsline {subsection}{\numberline {25.1.3}变量问题}{120}{subsection.25.1.3}
+\contentsline {subsubsection}{变量(包括成员)命名}{120}{section*.88}
+\contentsline {subsubsection}{使用}{120}{section*.89}
+\contentsline {subsection}{\numberline {25.1.4}运算符使用问题}{121}{subsection.25.1.4}
+\contentsline {subsection}{\numberline {25.1.5}函数问题}{121}{subsection.25.1.5}
+\contentsline {subsection}{\numberline {25.1.6}条件语句问题}{121}{subsection.25.1.6}
+\contentsline {subsection}{\numberline {25.1.7}循环语句问题}{121}{subsection.25.1.7}
+\contentsline {subsection}{\numberline {25.1.8}数值类型转换问题}{121}{subsection.25.1.8}
+\contentsline {section}{\numberline {25.2}内存管理}{122}{section.25.2}
+\contentsline {subsection}{\numberline {25.2.1}内存分配与使用}{122}{subsection.25.2.1}
+\contentsline {subsection}{\numberline {25.2.2}内存泄漏}{122}{subsection.25.2.2}
+\contentsline {section}{\numberline {25.3}缓冲区溢出}{122}{section.25.3}
+\contentsline {subsection}{\numberline {25.3.1}数组越界}{122}{subsection.25.3.1}
+\contentsline {subsection}{\numberline {25.3.2}数据越界}{122}{subsection.25.3.2}
+\contentsline {subsection}{\numberline {25.3.3}字符串操作溢出}{122}{subsection.25.3.3}
+\contentsline {section}{\numberline {25.4}指针问题}{122}{section.25.4}
+\contentsline {subsection}{\numberline {25.4.1}定义问题}{122}{subsection.25.4.1}
+\contentsline {subsection}{\numberline {25.4.2}空指针解引用}{122}{subsection.25.4.2}
+\contentsline {subsection}{\numberline {25.4.3}指针非法使用}{122}{subsection.25.4.3}
+\contentsline {subsection}{\numberline {25.4.4}数组参数}{123}{subsection.25.4.4}
+\contentsline {section}{\numberline {25.5}安全缺陷}{123}{section.25.5}
+\contentsline {subsection}{\numberline {25.5.1}外部输入安全缺陷}{123}{subsection.25.5.1}
+\contentsline {subsection}{\numberline {25.5.2}资源泄漏}{123}{subsection.25.5.2}
+\contentsline {subsection}{\numberline {25.5.3}其他}{123}{subsection.25.5.3}
+\contentsline {section}{\numberline {25.6}类}{123}{section.25.6}
+\contentsline {subsection}{\numberline {25.6.1}类命名问题}{123}{subsection.25.6.1}
+\contentsline {subsection}{\numberline {25.6.2}访问权限}{123}{subsection.25.6.2}
+\contentsline {subsection}{\numberline {25.6.3}区分对象所在处}{124}{subsection.25.6.3}
+\contentsline {subsubsection}{Object on the Stack}{124}{section*.90}
+\contentsline {subsubsection}{Object on the Heap}{124}{section*.91}
+\contentsline {section}{\numberline {25.7}其他}{124}{section.25.7}
+\contentsline {subsection}{\numberline {25.7.1}预处理}{124}{subsection.25.7.1}
+\contentsline {subsection}{\numberline {25.7.2}异常}{124}{subsection.25.7.2}
+\contentsline {subsection}{\numberline {25.7.3}多线程和同步性}{124}{subsection.25.7.3}
+\contentsline {subsection}{\numberline {25.7.4}代码不可达}{125}{subsection.25.7.4}
+\contentsline {subsection}{\numberline {25.7.5}关于VS2013中的相对路径问题}{125}{subsection.25.7.5}
+\contentsline {subsection}{\numberline {25.7.6}编译}{125}{subsection.25.7.6}

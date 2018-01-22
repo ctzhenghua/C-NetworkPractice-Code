@@ -2164,6 +2164,9 @@ inline FuncX(...){}
 	      
 \chapter{volatile 关键字}
 	\section{含义}
+			多线程保护机制，防止编译器优化直接使用寄存器中的值产生错误。
+	
+			\textit{当使用volatile 声明的变量的值的时候}，系统\textbf{总是重新从}它的所在的\textbf{内存}中读取数据，\textbf{而不是}使用保存在\textbf{寄存器}中的备份。即使它前面的指令刚刚从该处读取过数据，而且读取的数据立刻被保存。
 		\begin{enumerate}
 			\item \textbf{不会在两个操作之间把volatile变量缓存在寄存器中}。在多任务、中断、甚至setjmp环境下，变量可能被其他的程序改变，编译器自己无法知道，volatile就是告诉编译器这种情况。
 			\item \textbf{不做常量合并}、常量传播等优化
@@ -2784,6 +2787,25 @@ inline FuncX(...){}
 				\item 使用Try块
 				\item 代码：primer Error5
 			\end{enumerate}
+		
+		\subsection{C++函数声明后面加throw()的作用}
+			\begin{itemize}
+				\item \verb|void fun() throw();|      //表示fun函数不允许抛出任何异常，即fun函数是异常安全的。
+				\item \verb|void fun() throw(exceptionType);|    // 表示fun函数只能抛出exceptionType类型的异常。
+				\item \verb|void fun() throw(...);|    //表示fun函数可以抛出任何形式的异常。
+			\end{itemize}	
+			
+			\verb|void GetTag() throw(int); |                    // 表示只抛出int类型异常
+			
+			\verb|void GetTag() throw(int，char); |        // 表示抛出in，char类型异常
+			
+			\verb|void GetTag() throw(); |                        // 表示不会抛出任何类型异常
+			
+			\verb|void GetTag() throw(...);|                      // 表示抛出任何类型异常
+			
+			\verb|void GetTag() throw(int);| 表示只抛出int类型异常,并不表示一定会抛出异常，但是一旦抛出异常只会抛出int类型，如果抛出非int类型异常，调用\verb|unexsetpion()|函数，退出程序。
+			
+			\verb|void GetTag() throw();|  假如你加一个throw()属性到你的永远不会抛出异常的函数中，编译器会非常聪明的知道代码的意图和决定优化方式。
 			
 		\textbf{try体中可以直接抛出异常，或者在try体中调用的函数体中间接的抛出}
 		\begin{lstlisting}

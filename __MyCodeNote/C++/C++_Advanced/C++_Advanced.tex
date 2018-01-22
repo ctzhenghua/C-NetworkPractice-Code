@@ -245,6 +245,36 @@
 	*/
 	
 \end{lstlisting}	
+		\subsection{核心实现}
+			\subparagraph{backtrace}栈回溯，保存各个栈帧的地址
+				
+				\verb|backtrace(buffer, len) |returns a backtrace for the calling program, in  the  array
+				pointed  to  by  \verb|buffer|.
+				
+				return a number of void* stack pointer frame.
+				
+			\subparagraph{backtrace\_symbol} 根据栈帧地址，转成相应的函数符号，return a 指针的指针
+			\subparagraph{abi::\_\_cxa\_demangle}:将c++ 编译后的名字改回原名称,实现参考上节
+				\begin{lstlisting}
+	void Exception::fillStackTrace()
+	{
+		const int len = 200;
+		void* buffer[len];
+		int nptrs = ::backtrace(buffer, len);
+		char** strings = ::backtrace_symbols(buffer, nptrs);
+		if (strings)
+		{
+			for (int i = 0; i < nptrs; ++i)
+			{
+				// TODO demangle funcion name with abi::__cxa_demangle, 可以利用此将名称改回
+				stack_.append(strings[i]);
+				stack_.push_back('\n');
+			}
+			free(strings);
+		}
+	}
+				\end{lstlisting}
+			
 		\subsection{其他}
 			\subsubsection{std::variant}
 				The class template std::variant represents\textbf{ a type-safe union}. An instance of std::variant at any given time either holds a value of one of its alternative types, or it holds no value (this state is hard to achieve, see valueless\_by\_exception).

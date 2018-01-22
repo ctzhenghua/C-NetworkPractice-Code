@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2018.1.13)  16 JAN 2018 23:50
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2018.1.13)  20 JAN 2018 13:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1881,31 +1881,28 @@ n/12 xxx_pub.h
 第二十一章
 [101
 
-]
-Underfull \vbox (badness 1281) has occurred while \output is active []
-
- [102]
+] [102]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [103]
-[104]
-第二十二章
-[105
+[104] [105] [106
 
-] [106
+]
+第二十二章
+[107] [108
 
 ]
 第二十三章
 
-Overfull \hbox (13.33424pt too wide) in paragraph at lines 2946--2947
+Overfull \hbox (13.33424pt too wide) in paragraph at lines 2968--2969
 []\EU1/FandolSong-Regular(0)/m/n/12 打 开 属 性 管 理 器，|  点 击 项 目 前 的 箭 头，|  展 开 项 目
 ，|  找 到[]\EU1/lmtt/m/n/12 Debug \EU1/FandolSong-Regular(0)/m/n/12 或 者[]\EU1/lmt
 t/m/n/12 Release \EU1/FandolSong-Regular(0)/m/n/12 下 面 的 []\EU1/lmtt/m/n/12 Mic
 rosoft.Cpp
  []
 
-[107]
-Overfull \hbox (111.77289pt too wide) in paragraph at lines 2967--2968
+[109]
+Overfull \hbox (111.77289pt too wide) in paragraph at lines 2989--2990
 []\EU1/lmr/m/n/12 -\EU1/FandolSong-Regular(0)/m/n/12 配 置 \EU1/lmr/m/n/12 includ
 e Directories += \EU1/FandolSong-Regular(0)/m/n/12 安 装 目 录 $[]$\EU1/lmr/m/n/12 
 opencv$[]$build$[]$include; += \EU1/FandolSong-Regular(0)/m/n/12 安 装 目 录 $[]$ \
@@ -1913,52 +1910,52 @@ EU1/lmr/m/n/12 opencv$[]$build$[]$include$[]$opencv;
  []
 
 
-Overfull \hbox (36.07927pt too wide) in paragraph at lines 2990--2991
+Overfull \hbox (36.07927pt too wide) in paragraph at lines 3012--3013
 []\EU1/lmr/m/n/12 win10 \EU1/FandolSong-Regular(0)/m/n/12 权 限 更 改：| [][]$[][][]
 [] [] [] [] [][][][] [] [][][] [] [][][] [] [][][][][][][] [] [][][] [] [][][][
 ] [] [][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][]$[][] 
  []
 
-[108] [109] [110] [111] [112
+[110] [111] [112] [113] [114
 
 ]
 第二十四章
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 3107.
+(hyperref)                than one, level fixed on input line 3129.
 
 
-Overfull \hbox (17.56613pt too wide) in paragraph at lines 3132--3133
+Overfull \hbox (17.56613pt too wide) in paragraph at lines 3154--3155
 [][]\EU1/lmtt/m/n/12 break +offset,  break -offset\EU1/lmr/m/n/12 : \EU1/Fandol
 Song-Regular(0)/m/n/12 在 当 前 行 号 的 前 面 或 后 面 的[]\EU1/lmtt/m/n/12 offset \EU1/Fa
 ndolSong-Regular(0)/m/n/12 行 停 住。| []\EU1/lmtt/m/n/12 offiset \EU1/FandolSong-R
 egular(0)/m/n/12 为
  []
 
-[113] [114] [115] [116
+[115] [116] [117] [118
 
 ]
 第二十五章
-[117]
+[119]
 File: Naming.png Graphic file (type QTm)
  <use  "Naming.png" >
-Overfull \hbox (5.12567pt too wide) in paragraph at lines 3284--3285
+Overfull \hbox (5.12567pt too wide) in paragraph at lines 3306--3307
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[118] [119]
-Overfull \hbox (21.6755pt too wide) in paragraph at lines 3340--3341
+[120] [121]
+Overfull \hbox (21.6755pt too wide) in paragraph at lines 3362--3363
 [][]\EU1/lmtt/m/n/12 #define INT_PTR int* \EU1/FandolSong-Regular(0)/m/n/12 这 是
  \EU1/FandolSong-Regular(0)/bx/n/12 宏 定 义\EU1/FandolSong-Regular(0)/m/n/12 ，|  
 编 译 预 处 理 阶 段 要 进 行 宏 替 换，| []\EU1/lmtt/m/n/12 INT_PTR a,b\EU1/FandolFang-Regul
 ar(0)/m/n/12 会变成 \EU1/lmtt/m/n/12 int* a,b
  []
 
-[120] [121] [122]
-Overfull \hbox (201.52167pt too wide) in paragraph at lines 3454--3455
+[122] [123] [124]
+Overfull \hbox (201.52167pt too wide) in paragraph at lines 3476--3477
 [][][]$[][][][] [] [] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][]
 [][] [] [][][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -1966,26 +1963,26 @@ Overfull \hbox (201.52167pt too wide) in paragraph at lines 3454--3455
  []
 
 
-Overfull \hbox (0.98647pt too wide) in paragraph at lines 3458--3459
+Overfull \hbox (0.98647pt too wide) in paragraph at lines 3480--3481
 []\EU1/lmr/m/n/12 LNK2019: \EU1/FandolSong-Regular(0)/m/n/12 无 法 解 析 的 外 部 符 号 
 \EU1/lmr/m/n/12 __imp__InitCommonControlsEx@4\EU1/FandolSong-Regular(0)/m/n/12 
 ，|  该 符 号 在 函 数 \EU1/lmr/m/n/12 _Win-
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3462.
-[123]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3462.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3484.
+[125]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3484.
  (./C++_Basic.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3462.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3462.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3484.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3484.
  ) 
 Here is how much of TeX's memory you used:
- 30658 strings out of 493706
- 593599 string characters out of 6145769
- 735193 words of memory out of 5000000
- 33686 multiletter control sequences out of 15000+600000
+ 30659 strings out of 493706
+ 593612 string characters out of 6145769
+ 735732 words of memory out of 5000000
+ 33687 multiletter control sequences out of 15000+600000
  11646 words of font info for 82 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  63i,10n,74p,10443b,1977s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on C++_Basic.pdf (123 pages).
+Output written on C++_Basic.pdf (125 pages).

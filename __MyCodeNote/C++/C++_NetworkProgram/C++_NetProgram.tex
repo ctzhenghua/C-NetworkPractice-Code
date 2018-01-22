@@ -184,7 +184,9 @@
 	 等等场景，十分便利。
 	 
 	 线程的特点是共享地址空间，从而可以高效的共享数据。 一台机器上的多个进程能高效的共享代码段，但不能共享数据。如果多个进程大量共享内存，等于是把多进程程序当成多线程来写，掩耳盗铃。		 	
-
+	
+	\section{原子性}
+		
 \chapter{TCP/IP 基础篇}    
 
 	\section{层次结构与关系}	
@@ -2581,7 +2583,21 @@
 		TcpServer server;
 	};
 			\end{lstlisting}
-
+		\subparagraph{pthread\_atfork(before,parent,child)}
+			如果进程执行fork 函数，那么如果在之前调用了次函数，那么父进程会在调用之前先调用before,然后执行parent函数，子进程会调用child 函数。
+			
+	\subsection{Thread 类}
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[scale = 0.7]{muduoThread.png}
+			\caption{Thread 类图}
+		\end{figure}
+		
+		
+	\subsection{MutexLock 类}
+	
+	\subsection{}
+			
 \chapter{Redis}
 	\section{NoSQL} Not Only Sql
 		\subsection{解决问题}
@@ -2615,14 +2631,30 @@
 		
 \chapter{编译}
 	\section{常规}
-	
+		\verb|G++|
+		
+		\subsection{编译选项}
+			\begin{itemize}
+				\item \verb|-Wall|:大部分警告
+				\item \verb|-Wextra|：一些额外的警告
+				\item \verb|-Werror|：当出现警告时转为错误，停止编译
+				\item \verb|-Wconversion|：一些可能改变值的隐士转换，给出警告
+				\item \verb|-Wno-unused-parameter|：函数中出现为使用的参数，给出警告
+				\item \verb|-Wold-style-cast|：C风格转换，给出警告
+				\item \verb|-Woverloaded-virtual|：如果函数的声明隐藏了基类的需函数，就给出警告
+				\item \verb|-Wshadow|：当一个局部变量覆盖住了另一个局部变量，或者全局变量，给出警告
+				\item \verb|-Wwrite-strings|：常量字符串的写操作，给出警告
+				\item \verb|-march=native|：指定cpu 体系结构为本地平台
+			\end{itemize}
 	\section{Makefile}
 	
 	
 	\section{CMake}	
 		\url{https://www.ibm.com/developerworks/cn/linux/l-cn-cmake/}
+		\url{http://www.linuxidc.com/Linux/2016-12/138082.htm}
+		
 		\subsection{流程}
-			在 linux 平台下使用 CMake 生成 Makefile 并编译的流程如下:
+			在 linux 平台下使用 CMake 生成 Makefile 并编译的流程如下:(Cmake 支持大小写，以及大小写混合)
 			
 			\begin{enumerate}
 				\item 编写 \verb|CmakeLists.txt|。
